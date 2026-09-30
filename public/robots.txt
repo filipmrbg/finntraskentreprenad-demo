@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gs-bygg-ab.vercel.app/sitemap.xml

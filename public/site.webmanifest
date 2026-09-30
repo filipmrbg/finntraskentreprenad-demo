@@ -1,0 +1,21 @@
+{
+  "name": "GS Bygg AB",
+  "short_name": "GS Bygg",
+  "description": "Kvalitetsarbeten inom byggnation, snickeri, renovering, altan och tillbyggnad i Värmland.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ea580c",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
