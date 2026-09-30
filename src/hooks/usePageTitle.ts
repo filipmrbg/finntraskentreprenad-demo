@@ -41,7 +41,7 @@ export function usePageTitle(title: string, description?: string) {
       ? window.location.origin
       : 'https://finntraskentreprenad-demo.vercel.app';
     const absoluteUrl = `${origin}${pathname === '/' ? '' : pathname}`;
-    const ogImageUrl = `${origin}/og-image.png`;
+    const ogImageUrl = 'https://raw.githubusercontent.com/filipmrbg/finntraskentreprenad-demo/main/public/og-image.png';
 
     let canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) {
