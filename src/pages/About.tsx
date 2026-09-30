@@ -2,6 +2,7 @@ import ScrollReveal from '../components/ScrollReveal';
 import Button from '../components/Button';
 import CTABanner from '../components/CTABanner';
 import { usePageTitle } from '../hooks/usePageTitle';
+import { Phone } from 'lucide-react';
 import images from '../data/images';
 
 const container: React.CSSProperties = {
@@ -12,17 +13,27 @@ const container: React.CSSProperties = {
 
 const teamMembers = [
   {
-    role: 'VD, Grundare & Projektledare',
-    name: 'Gabriel Säfström',
-    initials: 'GS',
-    description: 'Leder GS Bygg Värmland AB med mångårig erfarenhet inom byggnation, snickeri, altanbyggen och betongarbeten i Värmland med omnejd.',
+    role: 'Grundare och ägare',
+    name: 'Niklas Lundmark',
+    initials: 'NL',
+    phone: '070 588 40 32',
+    tel: '0705884032',
+    description: 'Driver Finnträsk Entreprenad med stor kunskap inom mark och schaktarbeten, tomtplanering och entreprenaduppdrag i Västerbotten.',
+  },
+  {
+    role: 'Grundare och ägare',
+    name: 'Kevin Lundmark',
+    initials: 'KL',
+    phone: '070 588 40 42',
+    tel: '0705884042',
+    description: 'Drivande kraft i familjeföretaget med gedigen bakgrund inom transportsektorn, maskintjänster och personliga kundrelationer.',
   },
 ];
 
 export default function About() {
   usePageTitle(
-    'Om GS Bygg AB | Byggnation & Snickeri i Värmland',
-    'Läs mer om GS Bygg Värmland AB. Vi utför allt inom byggnation, altaner, snickeri, renovering och betongarbeten i Värmland med omnejd.'
+    'Om Finnträsk Entreprenad | Mark och Schaktarbeten i Västerbotten',
+    'Läs mer om Finnträsk Entreprenad. Familjeföretaget i Västerbotten som gör visioner till verklighet inom mark och schaktarbeten, tomtplanering och maskintjänster.'
   );
   return (
     <main style={{ fontFamily: 'var(--font-family)' }}>
@@ -49,12 +60,12 @@ export default function About() {
                 lineHeight: 1.15,
                 letterSpacing: '-0.02em',
               }}>
-                Om GS Bygg Värmland AB
+                Om Finnträsk Entreprenad
               </h1>
             </ScrollReveal>
             <ScrollReveal animation="fade-up" delay={150}>
               <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.08rem', margin: '0 auto', maxWidth: '640px', lineHeight: 1.6 }}>
-                Professionell byggnation och hantverkstjänster från noggrann planering till färdigställt bygg och snickeriprojekt i Värmland med omnejd.
+                Familjeföretaget i Västerbotten som gör visioner till verklighet. Professionella mark och schaktarbeten med stark lokal förankring och goda kundrelationer.
               </p>
             </ScrollReveal>
           </div>
@@ -85,7 +96,7 @@ export default function About() {
               }}>
                 <img
                   src={images.about.hero.url || '/about.webp'}
-                  alt="GS Bygg Värmland AB"
+                  alt="Finnträsk Entreprenad"
                   loading="eager"
                   decoding="async"
                   style={{
@@ -109,7 +120,7 @@ export default function About() {
                   letterSpacing: '-0.03em',
                   margin: '0 0 20px 0',
                 }}>
-                  Professionellt hantverk med passion, precision och trygghet
+                  Mark och entreprenadarbeten med yrkesstolthet och lokal förankring
                 </h2>
               </ScrollReveal>
               <ScrollReveal animation="fade-up" delay={100}>
@@ -121,11 +132,11 @@ export default function About() {
                     margin: '0 0 20px 0',
                     fontWeight: 500,
                   }}>
-                    GS Bygg Värmland AB erbjuder ett komplett utbud av tjänster inom byggnation, snickeri, altan och trädäck, renovering, tillbyggnad och betongarbeten. Med bas i Värmland verkar vi i hela regionen – inklusive Karlstad, Hammarö, Kil, Ulvsby och Forshaga – för både privatpersoner och företag.
+                    Finnträsk Entreprenad är ett företag med lokal förankring som utför allt inom mark och schaktarbeten. Med bas i Västerbotten verkar vi i hela regionen – inklusive Byske, Skellefteå och Piteå – för privatpersoner, lantbruk, företag och fastighetsägare.
                   </p>
                   
                   <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--color-text-dark)', margin: '28px 0 12px 0' }}>
-                    Kvalitet och noggrannhet i varje moment
+                    Stor kunskap och bredd gör att vi löser det mesta
                   </h3>
                   <p style={{
                     color: 'var(--color-gray-600)',
@@ -133,7 +144,7 @@ export default function About() {
                     lineHeight: 1.8,
                     margin: '0 0 16px 0',
                   }}>
-                    Vårt mål är enkelt: att leverera bygg och renoveringsprojekt med högsta tekniska kvalitet, god dialog och trygga garantier. Vi hanterar både mindre renoveringar och större nybyggnationer med samma höga engagemang.
+                    Vi har en gedigen bakgrund inom transportsektorn med goda kontakter vilket gör att vi kan åta oss även större uppdrag. Det viktigaste för oss är att få en god kundrelation och att kunden blir helt nöjd med arbetet. Vi är serviceinriktade och tar dig och dina planer på fullaste allvar.
                   </p>
                   <p style={{
                     color: 'var(--color-gray-600)',
@@ -141,12 +152,12 @@ export default function About() {
                     lineHeight: 1.8,
                     margin: '0 0 24px 0',
                   }}>
-                    När du anlitar GS Bygg Värmland AB får du en pålitlig och erfaren partner genom hela resan. Vi sätter stor ära i att hålla utlovade tidsramar, lämna snyggt och städat efter oss samt leverera resultat som står emot tidens tand.
+                    Oavsett om det handlar om tomtplanering inför nybygge, dikesgrävning, anläggning av grillplats eller trädfällning med skylift diskuterar vi oss fram till den bästa lösningen tillsammans med dig.
                   </p>
 
                   {/* Founder Quote Card */}
                   <div style={{
-                    background: 'rgba(234, 88, 12, 0.06)',
+                    background: 'rgba(255, 121, 0, 0.08)',
                     borderLeft: '4px solid var(--color-primary)',
                     padding: '24px 28px',
                     borderRadius: '0 16px 16px 0',
@@ -160,7 +171,7 @@ export default function About() {
                       lineHeight: 1.7,
                       margin: '0 0 10px 0',
                     }}>
-                      "Vi utför varje bygg och snickeriprojekt med största yrkesstolthet och precision. Med personlig service, god dialog och fasta priser ser vi till att ditt projekt genomförs tryggt och effektivt."
+                      "Det viktigaste för oss är att få en god kundrelation och att kunden blir nöjd med arbetet. Vi är serviceinriktade och tar dig på allvar. Hör av dig till oss om du har några frågor kring ett jobb du vill ha utfört så diskuterar vi oss fram till en lösning."
                     </p>
                     <span style={{
                       color: 'var(--color-primary)',
@@ -168,7 +179,7 @@ export default function About() {
                       fontSize: '0.9rem',
                       display: 'block',
                     }}>
-                      Gabriel Säfström, VD och Grundare GS Bygg Värmland AB
+                      Niklas Lundmark och Kevin Lundmark, Grundare och ägare Finnträsk Entreprenad
                     </span>
                   </div>
 
@@ -185,7 +196,7 @@ export default function About() {
 
       {/* ── SECTION D: FOUNDER & LEADERSHIP ──────────────────────────── */}
       <section style={{ background: '#ffffff', padding: '90px 0', borderTop: '1px solid #e2e8f0' }}>
-        <div style={{ maxWidth: '640px', margin: '0 auto', padding: '0 clamp(20px, 5vw, 40px)' }}>
+        <div style={{ maxWidth: '780px', margin: '0 auto', padding: '0 clamp(20px, 5vw, 40px)' }}>
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
             <ScrollReveal animation="blur-in">
               <h2 style={{
@@ -195,7 +206,7 @@ export default function About() {
                 letterSpacing: '-0.03em',
                 margin: '0 0 12px 0',
               }}>
-                Grundare & Kontaktperson
+                Grundare och kontaktpersoner
               </h2>
             </ScrollReveal>
             <ScrollReveal animation="fade-up" delay={100}>
@@ -203,16 +214,19 @@ export default function About() {
                 color: 'var(--color-gray-600)',
                 fontSize: '1rem',
                 lineHeight: 1.7,
-                maxWidth: '540px',
+                maxWidth: '560px',
                 margin: '0 auto',
               }}>
-                Gabriel Säfström leder GS Bygg Värmland AB och säkerställer personligt engagemang, yrkesskicklighet och trygghet i varje uppdrag.
+                Niklas Lundmark och Kevin Lundmark leder Finnträsk Entreprenad och säkerställer personligt engagemang, yrkesskicklighet och trygghet i varje uppdrag.
               </p>
             </ScrollReveal>
           </div>
 
           <div style={{
-            maxWidth: '480px',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: '24px',
+            maxWidth: '640px',
             margin: '0 auto',
           }} className="team-grid">
             {teamMembers.map((member, i) => (
@@ -232,7 +246,7 @@ export default function About() {
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-6px)';
                   e.currentTarget.style.boxShadow = '0 16px 36px rgba(0, 0, 0, 0.09)';
-                  e.currentTarget.style.borderColor = 'rgba(234, 88, 12, 0.3)';
+                  e.currentTarget.style.borderColor = 'rgba(255, 121, 0, 0.3)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
@@ -245,15 +259,15 @@ export default function About() {
                       width: '68px',
                       height: '68px',
                       borderRadius: '50%',
-                      background: i === 0 ? 'rgba(234, 88, 12, 0.12)' : 'rgba(15, 23, 42, 0.08)',
-                      color: i === 0 ? 'var(--color-primary)' : 'var(--color-text-dark)',
+                      background: 'rgba(255, 121, 0, 0.12)',
+                      color: 'var(--color-primary)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      fontSize: '1.7rem',
+                      fontSize: '1.6rem',
                       fontWeight: 800,
                       margin: '0 auto 18px auto',
-                      border: i === 0 ? '2px solid rgba(234, 88, 12, 0.3)' : '2px solid rgba(15, 23, 42, 0.1)',
+                      border: '2px solid rgba(255, 121, 0, 0.3)',
                     }}>
                       {member.initials}
                     </div>
@@ -269,11 +283,31 @@ export default function About() {
                       color: 'var(--color-primary)',
                       fontSize: '0.9rem',
                       fontWeight: 700,
-                      margin: '0 0 14px 0',
+                      margin: '0 0 10px 0',
                       lineHeight: 1.4,
                     }}>
                       {member.role}
                     </p>
+                    <a
+                      href={`tel:${member.tel}`}
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '6px',
+                        color: 'var(--color-text-dark)',
+                        fontWeight: 600,
+                        fontSize: '0.92rem',
+                        textDecoration: 'none',
+                        marginBottom: '14px',
+                        transition: 'color 0.2s ease',
+                      }}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-primary)')}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-text-dark)')}
+                    >
+                      <Phone size={14} color="var(--color-primary)" />
+                      {member.phone}
+                    </a>
                     <p style={{
                       color: 'var(--color-gray-600)',
                       fontSize: '0.88rem',
@@ -306,11 +340,7 @@ export default function About() {
             justifyContent: center;
           }
         }
-        @media (max-width: 1024px) {
-          .team-grid { grid-template-columns: repeat(2, 1fr) !important; }
-        }
       `}</style>
     </main>
   );
 }
-

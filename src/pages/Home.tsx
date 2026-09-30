@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import ScrollReveal from '../components/ScrollReveal';
 import Button from '../components/Button';
+import CallModal from '../components/CallModal';
 import CTABanner from '../components/CTABanner';
 import ReviewCard from '../components/ReviewCard';
 import SocialBanner from '../components/SocialBanner';
@@ -51,18 +52,19 @@ const homeFaqItems = [
 
 export default function Home() {
   usePageTitle(
-    'GS Bygg AB | Byggnation, Snickeri & Entreprenad i Värmland',
-    'GS Bygg Värmland AB utför professionella byggtjänster, snickeri, altaner, renovering, tillbyggnad och betongarbeten i Värmland med omnejd. Begär kostnadsfri offert!'
+    'Finnträsk Entreprenad | Mark och Schaktarbeten i Västerbotten',
+    'Finnträsk Entreprenad utför professionella mark och schaktarbeten, tomtplanering, anläggning, grundarbeten och maskintjänster i Västerbotten med omnejd. Begär kostnadsfri offert!'
   );
 
   const { hash, state } = useLocation();
   const heroBgRef = useRef<HTMLDivElement>(null);
   const heroVideoRef = useRef<HTMLVideoElement>(null);
 
-  const desktopVideoUrl = 'https://d8j0ntlcm91z4.cloudfront.net/user_3G5LlmMYORSdAk8SxzXrK2S0Is5/hf_20260922_142952_12e38975-6560-43f9-bd3c-f7b74fbff591.mp4';
-  const mobileVideoUrl = 'https://d8j0ntlcm91z4.cloudfront.net/user_3G5LlmMYORSdAk8SxzXrK2S0Is5/hf_20260922_142952_12e38975-6560-43f9-bd3c-f7b74fbff591.mp4';
+  const desktopVideoUrl = 'https://d8j0ntlcm91z4.cloudfront.net/user_3G5LlmMYORSdAk8SxzXrK2S0Is5/hf_20260930_051043_bafacc09-c033-4a24-ad3e-1038a50119ea.mp4';
+  const mobileVideoUrl = 'https://d8j0ntlcm91z4.cloudfront.net/user_3G5LlmMYORSdAk8SxzXrK2S0Is5/hf_20260930_051043_bafacc09-c033-4a24-ad3e-1038a50119ea.mp4';
 
   const [isMobile, setIsMobile] = useState<boolean>(typeof window !== 'undefined' ? window.innerWidth <= 768 : false);
+  const [isCallModalOpen, setIsCallModalOpen] = useState(false);
   const heroVideoUrl = isMobile ? mobileVideoUrl : desktopVideoUrl;
 
   useEffect(() => {
@@ -188,17 +190,19 @@ export default function Home() {
               height: '100%',
               objectFit: 'cover',
               objectPosition: 'center',
+              filter: 'brightness(1.06) contrast(1.03)',
             }}
           >
             <source src={heroVideoUrl} type="video/mp4" />
           </video>
         </div>
-        {/* Dark overlay */}
+        {/* Cinematic gradient overlay: bright and clear over the machinery, soft contrast behind the text */}
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'rgba(15, 12, 8, 0.65)',
+          background: 'linear-gradient(90deg, rgba(15, 17, 23, 0.58) 0%, rgba(15, 17, 23, 0.32) 48%, rgba(15, 17, 23, 0.05) 80%), linear-gradient(180deg, rgba(15, 17, 23, 0.35) 0%, transparent 22%, transparent 88%, rgba(15, 17, 23, 0.4) 100%)',
           zIndex: 1,
+          pointerEvents: 'none',
         }} />
 
         <div style={{ ...container, position: 'relative', zIndex: 2, width: '100%', display: 'flex', justifyContent: 'flex-start' }}>
@@ -224,7 +228,7 @@ export default function Home() {
                 display: 'block',
                 marginBottom: '14px',
               }}>
-                UTGÅR FRÅN VÄRMLAND MED OMNEJD
+                UTGÅR FRÅN VÄSTERBOTTEN MED OMNEJD
               </span>
             </ScrollReveal>
 
@@ -240,8 +244,8 @@ export default function Home() {
                 margin: '0 0 20px 0',
                 textShadow: '0 4px 18px rgba(0, 0, 0, 0.75)',
               }}>
-                <span style={{ color: '#ffffff', display: 'block' }}>GS BYGG</span>
-                <span style={{ color: 'var(--color-primary)', display: 'block', whiteSpace: 'nowrap' }}>VÄRMLAND AB</span>
+                <span style={{ color: '#ffffff', display: 'block' }}>FINNTRÄSK</span>
+                <span style={{ color: 'var(--color-primary)', display: 'block', whiteSpace: 'nowrap' }}>ENTREPRENAD</span>
               </h1>
             </ScrollReveal>
 
@@ -257,7 +261,7 @@ export default function Home() {
                 textShadow: '0 2px 12px rgba(0, 0, 0, 0.85)',
                 fontWeight: 400,
               }}>
-                Vi utgår från Värmland och erbjuder heltäckande tjänster inom byggnation, snickeri, altaner, renovering och betongarbeten. Med gedigen yrkeskunskap och personligt engagemang förverkligar vi dina byggprojekt från första idé till färdigt resultat.
+                Familjeföretaget i Västerbotten som gör visioner till verklighet. Vi utför allt inom mark och schaktarbeten, tomtplanering, anläggning, grundläggning och maskintjänster med personlig service och goda kundrelationer.
               </p>
             </ScrollReveal>
 
@@ -266,23 +270,71 @@ export default function Home() {
               <div style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '16px',
+                gap: '14px',
                 flexWrap: 'wrap',
               }}>
                 <Button variant="primary" size="lg" href="/offert">
-                  Begär kostnadsfri offert
+                  Begär offert
                 </Button>
 
                 <Button
-                  variant="outline"
+                  variant="white"
                   size="lg"
-                  href="tel:0768407405"
+                  href="#tjanster"
                 >
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                    <Phone size={18} />
-                    Ring 076 840 74 05
-                  </span>
+                  Se våra tjänster
                 </Button>
+              </div>
+
+              {/* Both phone numbers presented on the exact same level */}
+              <div style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '14px',
+                marginTop: '18px',
+                padding: '8px 18px',
+                borderRadius: '999px',
+                background: 'rgba(15, 23, 42, 0.45)',
+                backdropFilter: 'blur(8px)',
+                WebkitBackdropFilter: 'blur(8px)',
+                border: '1px solid rgba(255, 255, 255, 0.14)',
+                fontSize: '0.88rem',
+                color: 'rgba(255, 255, 255, 0.9)',
+                flexWrap: 'wrap',
+              }}>
+                <a
+                  href="tel:0705884032"
+                  style={{
+                    color: '#ffffff',
+                    textDecoration: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    fontWeight: 500,
+                    transition: 'color 0.2s ease',
+                  }}
+                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--color-primary)')}
+                  onMouseLeave={e => (e.currentTarget.style.color = '#ffffff')}
+                >
+                  <span style={{ color: 'var(--color-primary)', fontWeight: 700 }}>Niklas:</span> 070 588 40 32
+                </a>
+                <span style={{ color: 'rgba(255, 255, 255, 0.35)' }}>•</span>
+                <a
+                  href="tel:0705884042"
+                  style={{
+                    color: '#ffffff',
+                    textDecoration: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    fontWeight: 500,
+                    transition: 'color 0.2s ease',
+                  }}
+                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--color-primary)')}
+                  onMouseLeave={e => (e.currentTarget.style.color = '#ffffff')}
+                >
+                  <span style={{ color: 'var(--color-primary)', fontWeight: 700 }}>Kevin:</span> 070 588 40 42
+                </a>
               </div>
             </ScrollReveal>
           </div>
@@ -342,7 +394,7 @@ export default function Home() {
                   lineHeight: 1.65,
                   margin: '0 0 12px 0',
                 }}>
-                  Från byggnation och snickeri till altaner och betongarbeten i Värmland med omnejd.
+                  Från mark och schaktarbeten till anläggning, tomtplanering och maskintjänster i Västerbotten med omnejd.
                 </p>
                 <Link
                   to="/tjanster"
@@ -519,7 +571,7 @@ export default function Home() {
               }}>
                 <img
                   src={images.about.hero.url || '/about.webp'}
-                  alt="GS Bygg Värmland AB"
+                  alt={images.about.hero.alt || 'Finnträsk Entreprenad'}
                   style={{
                     width: '100%',
                     height: '100%',
@@ -540,7 +592,7 @@ export default function Home() {
                   lineHeight: 1.2,
                   margin: '0 0 14px 0',
                 }}>
-                  Din lokala byggpartner i Värmland med omnejd
+                  Din lokala entreprenör i Västerbotten med omnejd
                 </h2>
               </ScrollReveal>
               <ScrollReveal animation="scale-x-left" delay={200} duration={0.6}>
@@ -553,16 +605,16 @@ export default function Home() {
                   lineHeight: 1.75,
                   margin: '0 0 32px 0',
                 }}>
-                  GS Bygg Värmland AB erbjuder ett brett och professionellt utbud av bygg- och hantverkstjänster med högsta kvalitet och noggrannhet. Med bas i Värmland utför vi allt inom byggnation, snickeri, altaner, renovering, tillbyggnad och betongarbeten i Karlstad, Hammarö, Kil, Ulvsby och omnejd. Vi sätter alltid kunden och fastighetens förutsättningar i första rummet för hållbara resultat från start till mål.
+                  Finnträsk Entreprenad är ett familjeföretag med stark lokal förankring i Västerbotten som utför allt inom mark och schaktarbeten. Stor kunskap och bredd gör att vi löser det mesta, och med en gedigen bakgrund inom transportsektorn åtar vi oss även större uppdrag. Det viktigaste för oss är att få en god kundrelation och att kunden blir helt nöjd med arbetet.
                 </p>
               </ScrollReveal>
               <ScrollReveal animation="fade-right" duration={0.8} delay={200}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   {[
-                    'En och samma personliga kontaktperson från start till mål',
-                    'Tydliga offerter, fasta priser och direkt ROT avdrag (30 %)',
-                    'Erfarna snickare och noggrant utförda byggnationer',
-                    'Lokal närvaro och snabb service i Värmland med omnejd',
+                    'Lokal förankring och personligt engagemang i varje projekt',
+                    'Tydliga offerter, fasta priser och trygg dialog från start till mål',
+                    'Bred maskinpark och stor kunskap inom mark och schakt',
+                    'Gedigen transportbakgrund för både mindre och större uppdrag',
                   ].map((item, i) => (
                     <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                       <CheckCircle2 size={24} color="var(--color-primary)" style={{ flexShrink: 0 }} />
@@ -615,7 +667,7 @@ export default function Home() {
                   display: 'block',
                   marginBottom: '8px',
                 }}>
-                  Enkelt & tryggt
+                  Enkelt och tryggt
                 </span>
                 <h2 style={{
                   color: 'var(--color-text-dark)',
@@ -655,17 +707,17 @@ export default function Home() {
               {
                 icon: Phone,
                 title: '1. Kontakta oss',
-                desc: 'Berätta om dina planer och önskemål. Vi ger kostnadsfri rådgivning och bollar möjligheter för ditt projekt.',
+                desc: 'Hör av dig till Niklas eller Kevin kring ditt projekt. Vi ger kostnadsfri rådgivning och bollar möjligheter.',
               },
               {
                 icon: MapPin,
-                title: '2. Platsbesök & offert',
-                desc: 'Vi går igenom förutsättningarna på plats och tar fram en tydlig offert med fast pris och tidsplan.',
+                title: '2. Platsbesök och offert',
+                desc: 'Vi går igenom tomtens förutsättningar på plats och tar fram en tydlig offert med fast pris och tidsplan.',
               },
               {
                 icon: Hammer,
                 title: '3. Vi utför arbetet',
-                desc: 'Vi genomför mark eller byggarbetet med högsta precision, moderna maskiner och trygga garantier.',
+                desc: 'Vi genomför schakt och markarbetet med högsta precision, moderna maskiner och trygga garantier.',
               },
             ].map(({ icon: Icon, title, desc }, i) => (
               <div key={i} style={{ display: 'contents' }}>
@@ -822,7 +874,7 @@ export default function Home() {
                       <Star key={i} size={15} fill="#FBBC05" color="#FBBC05" />
                     ))}
                   </div>
-                  <span style={{ color: 'var(--color-gray-600)', fontSize: '0.85rem' }}>(Omdömen i Värmland med omnejd)</span>
+                  <span style={{ color: 'var(--color-gray-600)', fontSize: '0.85rem' }}>(Omdömen i Västerbotten med omnejd)</span>
                 </div>
               </ScrollReveal>
             </div>
@@ -831,27 +883,27 @@ export default function Home() {
           <div className="reviews-grid">
             {[
               {
-                name: 'Johan Eklund',
-                location: 'Karlstad',
-                text: 'Vi anlitade GS Bygg Värmland AB för att bygga ett stort trädäck med infälld belysning samt renovera vår altan. Gabriel och gänget gjorde ett fantastiskt jobb med otrolig precision och finish. Klart i tid och alltid snyggt och städat!',
+                name: 'Johan Eriksson',
+                location: 'Skellefteå',
+                text: 'Vi anlitade Finnträsk Entreprenad för tomtplanering och schaktning inför vårt nya garage. Otroligt smidigt samarbete, snabb återkoppling och ett fantastiskt slutresultat med högsta precision. Klart i tid och rent och städat efteråt!',
                 stars: 5,
                 date: 'för 2 veckor sedan',
                 authorSub: 'Lokal guide • 14 omdömen',
                 avatarUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120&h=120'
               },
               {
-                name: 'Karin & Markus Lindqvist',
-                location: 'Hammarö',
-                text: 'GS Bygg AB hjälpte oss med tillbyggnad och stomresning. Mycket trevligt bemötande, tydlig offert utan dolda kostnader och ett suveränt hantverk rakt igenom. Tryggt och proffsigt från start till mål!',
+                name: 'Karin och Markus Lindqvist',
+                location: 'Byske',
+                text: 'Niklas och Kevin hjälpte oss att anlägga en fantastisk grillplats och utföra dikesgrävning på fastigheten. Mycket trevligt och proffsigt bemötande, tydlig offert och ett suveränt hantverk rakt igenom!',
                 stars: 5,
                 date: 'för en månad sedan',
                 authorSub: '8 omdömen',
                 avatarUrl: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=120&h=120'
               },
               {
-                name: 'Fredrik Bergström',
-                location: 'Kil',
-                text: 'Toppklassig byggfirma i Värmland! De hjälpte oss med betonggjutning och snickeri inför vårt nya garage. Otroligt punktliga och noggranna hantverkare. Rekommenderas varmt till alla som ska bygga!',
+                name: 'Stefan Holmström',
+                location: 'Västerbotten',
+                text: 'Toppklassig entreprenadfirma! Behövde hjälp med trädfällning med skylift samt grundläggning för infart. Finnträsk Entreprenad löste allt snabbt, säkert och till ett mycket bra pris. Rekommenderas varmt!',
                 stars: 5,
                 date: 'för 2 månader sedan',
                 authorSub: 'Lokal guide • 21 omdömen',
@@ -1020,6 +1072,11 @@ export default function Home() {
           }
         }
       `}</style>
+
+      <CallModal
+        isOpen={isCallModalOpen}
+        onClose={() => setIsCallModalOpen(false)}
+      />
     </main>
   );
 }

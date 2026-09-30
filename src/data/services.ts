@@ -35,125 +35,124 @@ export interface ServiceItem {
 export const services: ServiceItem[] = [
   {
     slug: 'gravning',
-    title: 'Grävning',
-    shortDescription: 'Professionella schaktarbeten, tomtplanering, grundgrävning, dränering och markarbeten i Värmland med omnejd.',
-    heroText: 'Effektiva gräv och markarbeten med precision för trygga grunder och hållbara markytor.',
-    detailedDescription: `Planerar du ett markarbete, dränering av husgrund eller schaktning inför nybyggnation? GS Bygg Värmland AB utför alla typer av grävarbeten med moderna maskiner och hög precision.
+    title: 'Schaktning',
+    shortDescription: 'Allt inom mark och schaktarbeten, tomtplanering, grundgrävning, dikesgrävning och kabelgrävning i Västerbotten med omnejd.',
+    heroText: 'Allt inom mark och schaktarbeten med precision för trygga grunder och hållbara markytor.',
+    detailedDescription: `Planerar du ett markarbete, schaktning inför nybyggnation eller dränering av husgrund? Finnträsk Entreprenad är ett företag med stark lokal förankring i Västerbotten som utför allt inom mark och schaktarbeten. Med stor kunskap och bredd löser vi det mesta.
 
-Vi hjälper både privatpersoner, företag och fastighetsägare i Värmland med allt från tomtplanering och finplanering till kabelgrävning, vatten och avlopp samt fuktskyddande dränering.`,
+Vi hjälper privatpersoner, lantbruk, företag och fastighetsägare i Västerbotten med allt från tomtplanering och dikesgrävning till ledningsgrävning och finplanering. Hör av dig till Niklas eller Kevin så diskuterar vi fram den bästa lösningen.`,
     heroImage: '/service-gravning.webp',
     image: '/service-gravning.webp',
     href: '/tjanster#gravning',
-    tag: 'Grävning',
-    badge: 'Precision & Erfarenhet',
+    tag: 'Schaktning',
+    badge: 'Precision och erfarenhet',
     highlights: [
       'Schaktning och tomtplanering',
-      'Grundgrävning inför gjutning och nybygge',
-      'Husdränering och fuktskydd',
+      'Grundgrävning inför hus och garage',
+      'Dikesgrävning och vägunderhåll',
       'Kabel och ledningsgrävning',
     ],
     faq: [
       {
         question: 'Hur snabbt kan ni påbörja ett grävarbete?',
-        answer: 'Mindre grävarbeten kan vi oftast påbörja inom 1 till 2 veckor beroende på säsong och maskinbokning.',
+        answer: 'Mindre gräv och schaktarbeten kan vi oftast påbörja inom 1 till 2 veckor beroende på maskinbokning och säsong.',
       },
       {
-        question: 'Utför ni dränering av befintliga husgrunder?',
-        answer: 'Ja, vi utför kompletta dräneringar med godkända isoler och fuktskyddssystem som skyddar fastigheten mot markfukt.',
+        question: 'Utför ni även tomtplanering och dikesgrävning?',
+        answer: 'Ja, vi har stor erfarenhet av tomtplanering, dikesrensning och vägunderhåll i Västerbotten med omnejd.',
       },
     ],
   },
   {
     slug: 'byggnation',
-    title: 'Byggnation',
-    shortDescription: 'Kundanpassade byggprojekt, garage, attefallshus, altaner och träkonstruktioner med gedigen kvalitet och finish.',
-    heroText: 'Kvalitativ byggnation och snickeri anpassat efter dina visioner och behov.',
-    detailedDescription: `Söker du en pålitlig byggare för att uppföra ett garage, attefallshus, utbyggnad eller ett rejält trädäck? GS Bygg Värmland AB utför kundanpassade byggnationer med starkt fokus på hållbarhet, funktion och finish.
+    title: 'Markanläggning',
+    shortDescription: 'Kundanpassade anläggningsarbeten, grillplatser, markbeläggningar, stenmurar och utemiljöer med gedigen finish.',
+    heroText: 'Kvalitativa anläggningsarbeten och utemiljöer anpassade efter dina visioner och behov.',
+    detailedDescription: `Vill du anlägga en trivsam grillplats, förbereda för en ny uteplats eller skapa en funktionell och vacker tomtmiljö? Finnträsk Entreprenad förverkligar dina idéer med gediget hantverk och omsorg om detaljerna.
 
-Vi tar hand om hela byggprocessen från gjuten grund och regelstomme till färdigställd fasad och tak. Som privatperson kan du självklart nyttja 30 % ROT avdrag på arbetskostnaden.`,
+Vi tar hand om hela processen från urgrävning och bärlager till stensättning, markbeläggning och finjustering. Som familjeföretaget i Västerbotten gör vi visioner till verklighet.`,
     heroImage: '/service-byggnation.webp',
     image: '/service-byggnation.webp',
     href: '/tjanster#byggnation',
-    tag: 'Byggnation',
-    badge: 'ROT avdrag 30%',
+    tag: 'Markanläggning',
+    badge: 'Hantverk och kvalitet',
     highlights: [
-      'Garage, attefallshus och förråd',
-      'Altaner, trädäck och staket',
-      'Tillbyggnader och träkonstruktioner',
-      'Gediget hantverk med fasta priser',
+      'Anläggning av grillplatser och uteplatser',
+      'Markbeläggningar, sten och bärlager',
+      'Tomtberedning och grönytor',
+      'Gediget utförande med fasta priser',
     ],
     faq: [
       {
-        question: 'Hur fungerar ROT avdraget vid byggnation?',
-        answer: 'Vid ombyggnad och tillbyggnad på befintlig bostad drar vi av 30 % av arbetskostnaden direkt på fakturan och sköter all administration med Skatteverket.',
+        question: 'Hjälper ni till med idéer och utformning av utemiljön?',
+        answer: 'Absolut! Vi bollar gärna materialval, höjdsättning och utformning utifrån tomtens naturliga förutsättningar.',
       },
       {
-        question: 'Hjälper ni till med underlag inför bygglov?',
-        answer: 'Ja, vi bistår gärna med rådgivning och måttunderlag inför din bygglovsansökan eller anmälan.',
+        question: 'Kan privatpersoner nyttja ROT avdrag?',
+        answer: 'Vid godkända mark och grundarbeten i anslutning till bostadshus hjälper vi gärna till att administrera ROT avdraget direkt på fakturan.',
       },
     ],
   },
   {
     slug: 'betong',
-    title: 'Betong',
-    shortDescription: 'Gjutning av betongplatta på mark, armering, socklar, stödmurar och formgjutning för villor, garage och industri.',
-    heroText: 'Stabila och hållbara betonggrunder gjutna med millimeterprecision.',
-    detailedDescription: `En stabil betonggrund är nyckeln till ett lyckat bygge. GS Bygg Värmland AB utför gjutning av platta på mark för villor, fritidshus, garage och industrilokaler i Värmland med omnejd.
+    title: 'Grundläggning',
+    shortDescription: 'Gjutning av betongplatta på mark, armering, socklar, stödmurar och formgjutning för garage, maskinhallar och villor.',
+    heroText: 'Stabila och hållbara betonggrunder gjutna med högsta precision och noggrannhet.',
+    detailedDescription: `En stabil grund är förutsättningen för ett lyckat bygge. Finnträsk Entreprenad utför kompletta mark och grundarbeten inför gjutning av platta på mark för villor, maskinhallar, fritidshus och garage i Västerbotten med omnejd.
 
-Vi ombesörjer hela kedjan: schaktning, bärlager, isolering, golvvärmeläggning, armering och betonggjutning med professionell glättning för ett perfekt plant och slitstarkt golv.`,
+Vi ombesörjer hela kedjan: schaktning, dränerande bärlager, isolering, armering och förberedelser inför gjutning för att säkerställa ett perfekt och fuktsäkert resultat.`,
     heroImage: '/service-betong.webp',
     image: '/service-betong.webp',
     href: '/tjanster#betong',
-    tag: 'Betong',
+    tag: 'Grundläggning',
     badge: 'Stabila Grunder',
     highlights: [
-      'Platta på mark för villa och garage',
-      'Armering och isolering',
+      'Grundarbeten för platta på mark',
+      'Schaktning, bärlager och markisolering',
       'Gjutning av stödmurar och socklar',
-      'Professionell glättning och finish',
+      'Noggrann höjdsättning och packning',
     ],
     faq: [
       {
-        question: 'Vad krävs innan man kan gjuta en betongplatta?',
-        answer: 'Marken behöver schaktas ur, fyllas med dränerande bärlager och packas ordentligt innan kantelement, isolering, armering och eventuell golvvärme monteras.',
+        question: 'Vad krävs innan man kan gjuta en platta?',
+        answer: 'Marken behöver schaktas ur till fast botten, fyllas med dränerande bärlager och packas noggrant med vibroplatta innan isolering och armering installeras.',
       },
       {
-        question: 'Gjuter ni både för privatpersoner och företag?',
-        answer: 'Ja, vi åtar oss betonggjutningar för allt från privata garage och husgrunder till kommersiella byggnader.',
+        question: 'Gör ni grunder för både garage och större hallar?',
+        answer: 'Ja, vi utför grundarbeten för allt från privata garage och attefallshus till större maskinhallar och ekonomibyggnader.',
       },
     ],
   },
   {
     slug: 'maskinforare',
-    title: 'Maskinförare',
-    shortDescription: 'Kompletta entreprenadtjänster och yrkesskickliga maskinförare för anläggning, materialflytt och markberedning.',
-    heroText: 'Erfarna maskinförare och moderna maskiner för krävande entreprenaduppdrag.',
-    detailedDescription: `Behöver du anlita en erfaren maskinförare eller boka maskintjänster för ditt entreprenadprojekt? GS Bygg Värmland AB erbjuder professionell maskinkörning med hög kapacitet och flexibilitet.
+    title: 'Maskintjänster',
+    shortDescription: 'Kompletta entreprenadtjänster, erfarna maskinförare, trädfällning från skylift och transporter för större uppdrag.',
+    heroText: 'Erfarna maskinförare och gedigen transportbakgrund för alla typer av entreprenaduppdrag.',
+    detailedDescription: `Behöver du anlita en erfaren maskinförare eller boka maskintjänster för ditt entreprenadprojekt? Finnträsk Entreprenad har en gedigen bakgrund inom transportsektorn med goda kontakter, vilket gör att vi kan åta oss även större uppdrag.
 
-Med bred kompetens inom grävning, planering och materialhantering ser vi till att dina markprojekt flyter på effektivt och enligt tidsplan. Vi arbetar snabbt, säkert och med full hänsyn till omgivningen.`,
+Vi erbjuder även specialtjänster såsom säker trädfällning med skylift, materialtransporter, schaktmassor och markberedning. Vi arbetar snabbt, säkert och med full hänsyn till omgivningen.`,
     heroImage: '/service-maskinforare.webp',
     image: '/service-maskinforare.webp',
     href: '/tjanster#maskinforare',
-    tag: 'Maskinförare',
-    badge: 'Kvalitet & Erfarenhet',
+    tag: 'Maskintjänster',
+    badge: 'Bred Kapacitet',
     highlights: [
-      'Erfarna och certifierade maskinförare',
-      'Moderna grävmaskiner och utrustning',
-      'Materialhantering och markberedning',
+      'Erfarna maskinförare med bred kompetens',
+      'Säker trädfällning med skylift',
+      'Gedigen bakgrund inom transportsektorn',
       'Flexibla upplägg per timme eller fast pris',
     ],
     faq: [
       {
         question: 'Arbetar ni på löpande räkning eller fast pris?',
-        answer: 'Vi erbjuder både fasta offerter för hela entreprenader och löpande timdebitering för maskintjänster, beroende på vad som passar ditt projekt bäst.',
+        answer: 'Vi erbjuder både fasta offerter för hela entreprenader och löpande timdebitering för maskintjänster och transport, beroende på vad som passar bäst.',
       },
       {
-        question: 'Vilka geografiska områden täcker ni?',
-        answer: 'Vi utgår från Värmland och utför uppdrag i hela regionen, inklusive Karlstad, Hammarö, Kil, Forshaga, Kristinehamn och omnejd.',
+        question: 'Vilka områden i Västerbotten arbetar ni i?',
+        answer: 'Vi utgår från Finnträsk i Västerbotten och utför uppdrag i Byske, Skellefteå, Piteå och omnejd i hela regionen.',
       },
     ],
   },
 ];
 
 export default services;
-

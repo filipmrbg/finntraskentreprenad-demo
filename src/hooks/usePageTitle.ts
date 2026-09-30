@@ -9,7 +9,7 @@ export function usePageTitle(title: string, description?: string) {
     document.title = title;
 
     // 2. Update Description
-    const defaultDesc = "GS Bygg Värmland AB utför professionella byggtjänster, snickeri, altaner, renovering, tillbyggnad och betongarbeten i Värmland med omnejd.";
+    const defaultDesc = "Finnträsk Entreprenad utför allt inom mark och schaktarbeten, tomtplanering, anläggning, grundarbeten och maskintjänster i Västerbotten med omnejd.";
     const activeDesc = description || defaultDesc;
     
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -39,7 +39,7 @@ export function usePageTitle(title: string, description?: string) {
     // 5. Update Canonical Link & Absolute URL
     const origin = typeof window !== 'undefined' && window.location.origin.startsWith('http')
       ? window.location.origin
-      : 'https://gs-bygg-ab.vercel.app';
+      : 'https://finntraskentreprenad-demo.vercel.app';
     const absoluteUrl = `${origin}${pathname === '/' ? '' : pathname}`;
     const ogImageUrl = `${origin}/og-image.png`;
 

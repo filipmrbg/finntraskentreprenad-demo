@@ -26,22 +26,22 @@ export default function SocialBanner() {
 
             <div className="social-hub-content">
               <span className="social-hub-badge">Instagram</span>
-              <h2 className="social-hub-title">Följ GS Bygg Värmland AB</h2>
+              <h2 className="social-hub-title">Följ Finnträsk Entreprenad</h2>
               <p className="social-hub-desc">
-                Följ <strong>@gsbygg_varmland</strong> för att se bilder och videor från våra senaste altanbyggen, stomresningar, renoveringar och snickeriprojekt i Värmland.
+                Följ <strong>@finntraskentreprenad</strong> för att se bilder och uppdateringar från våra pågående markarbeten, schaktprojekt och maskintjänster i Västerbotten.
               </p>
             </div>
 
             <div className="social-hub-action">
               <a
-                href="https://www.instagram.com/gsbygg_varmland/"
+                href="https://www.instagram.com/finntraskentreprenad/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-hub-btn instagram"
-                aria-label="Följ GS Bygg Värmland AB på Instagram"
+                aria-label="Följ Finnträsk Entreprenad på Instagram"
               >
                 <Instagram size={18} />
-                <span>Följ @gsbygg_varmland</span>
+                <span>Följ @finntraskentreprenad</span>
                 <ArrowUpRight size={16} />
               </a>
             </div>

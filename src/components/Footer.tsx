@@ -3,14 +3,14 @@ import { Instagram, Mail, Phone, MapPin } from 'lucide-react';
 import images from '../data/images';
 
 const serviceLinks = [
-  { label: 'Grävning', href: '/tjanster#gravning' },
-  { label: 'Byggnation', href: '/tjanster#byggnation' },
-  { label: 'Betong', href: '/tjanster#betong' },
-  { label: 'Maskinförare', href: '/tjanster#maskinforare' },
+  { label: 'Schaktning', href: '/tjanster#gravning' },
+  { label: 'Markanläggning', href: '/tjanster#byggnation' },
+  { label: 'Grundläggning', href: '/tjanster#betong' },
+  { label: 'Maskintjänster', href: '/tjanster#maskinforare' },
 ];
 
 const socialIcons = [
-  { Icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/gsbygg_varmland/' },
+  { Icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/finntraskentreprenad/' },
 ];
 
 export default function Footer() {
@@ -56,7 +56,7 @@ export default function Footer() {
               </Link>
             </div>
             <p style={{ color: 'var(--color-gray-600)', fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 20px 0' }}>
-              GS Bygg Värmland AB erbjuder professionella bygg och hantverkstjänster med högsta kvalitet, noggrannhet och finish i Värmland med omnejd.
+              Finnträsk Entreprenad är familjeföretaget i Västerbotten som gör visioner till verklighet. Vi utför allt inom mark och schaktarbeten med högsta yrkesskicklighet och lokal förankring.
             </p>
             <div style={{ display: 'flex', gap: '12px' }}>
               {socialIcons.map(({ Icon, label, href }) => (
@@ -129,23 +129,33 @@ export default function Footer() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.95rem' }}>
 
               <a
-                href="mailto:gsbyggvarmland@hotmail.com"
+                href="mailto:info@finntraskentreprenad.se"
                 className="footer-contact-item"
               >
                 <div className="footer-contact-icon">
                   <Mail size={16} strokeWidth={2} />
                 </div>
-                <span>gsbyggvarmland@hotmail.com</span>
+                <span>info@finntraskentreprenad.se</span>
               </a>
 
               <a
-                href="tel:0768407405"
+                href="tel:0705884032"
                 className="footer-contact-item"
               >
                 <div className="footer-contact-icon">
                   <Phone size={16} strokeWidth={2} />
                 </div>
-                <span>076 840 74 05</span>
+                <span>Niklas: 070 588 40 32</span>
+              </a>
+
+              <a
+                href="tel:0705884042"
+                className="footer-contact-item"
+              >
+                <div className="footer-contact-icon">
+                  <Phone size={16} strokeWidth={2} />
+                </div>
+                <span>Kevin: 070 588 40 42</span>
               </a>
 
               <div
@@ -154,7 +164,7 @@ export default function Footer() {
                 <div className="footer-contact-icon">
                   <MapPin size={16} strokeWidth={2} />
                 </div>
-                <span>Värmland • Karlstad • Hammarö • Kil • Ulvsby</span>
+                <span>Finnträsk • Byske • Skellefteå • Västerbotten</span>
               </div>
             </div>
           </div>
@@ -176,7 +186,7 @@ export default function Footer() {
           }}
         >
           <div style={{ display: 'flex', gap: '12px', alignItems: 'center', color: 'var(--color-gray-600)', fontSize: '0.875rem', flexWrap: 'wrap' }}>
-            <span>© 2026 GS Bygg Värmland AB</span>
+            <span>© 2026 Finnträsk Entreprenad</span>
           </div>
         </div>
       </div>
@@ -200,7 +210,7 @@ export default function Footer() {
           color: var(--color-primary);
           display: flex;
           align-items: center;
-          justifyContent: center;
+          justify-content: center;
           flex-shrink: 0;
         }
         .footer-contact-static {
@@ -225,4 +235,3 @@ export default function Footer() {
     </footer>
   );
 }
-

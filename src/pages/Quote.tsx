@@ -53,8 +53,8 @@ function blurInput(e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | 
 
 export default function Quote() {
   usePageTitle(
-    'Begär offert | GS Bygg AB',
-    'Beskriv ditt projekt och begär en kostnadsfri offert för byggnation, snickeri, altan, renovering eller betongarbeten i Värmland med omnejd.'
+    'Begär offert | Finnträsk Entreprenad',
+    'Beskriv ditt projekt och begär en kostnadsfri offert för mark och schaktarbeten, tomtplanering, anläggning eller maskintjänster i Västerbotten med omnejd.'
   );
   const [name, setName]       = useState('');
   const [email, setEmail]     = useState('');
@@ -248,11 +248,11 @@ export default function Quote() {
                     onBlur={blurInput}
                   >
                     <option value="">Välj tjänst...</option>
-                    <option value="gravning">Grävning</option>
-                    <option value="byggnation">Byggnation</option>
-                    <option value="betong">Betong</option>
+                    <option value="gravning">Schaktning</option>
+                    <option value="byggnation">Markanläggning</option>
+                    <option value="betong">Grundläggning</option>
                     <option value="maskintjanster">Maskintjänster</option>
-                    <option value="annat">Annat projekt</option>
+                    <option value="annat">Annat entreprenadprojekt</option>
                   </select>
 
 

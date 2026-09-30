@@ -14,7 +14,7 @@ const container: React.CSSProperties = {
 const faqItems = [
   {
     question: 'Arbetar ni med ROT avdrag?',
-    answer: 'Ja! Som privatperson får du 30 % avdrag på arbetskostnaden direkt på fakturan upp till 50 000 kr per person och år. Vi sköter all administration mot Skatteverket.',
+    answer: 'Ja! Vid godkända mark och grundarbeten på din bostad eller tomt drar vi av ROT avdraget direkt på fakturan och sköter all administration mot Skatteverket.',
   },
   {
     question: 'Hur lång tid tar det att få ett prisförslag?',
@@ -22,11 +22,11 @@ const faqItems = [
   },
   {
     question: 'Vilka områden är ert huvudsakliga upptagningsområde?',
-    answer: 'Vi utgår från Värmland och utför uppdrag i Karlstad, Hammarö, Kil, Forshaga, Kristinehamn, Ulvsby och omnejd.',
+    answer: 'Vi utgår från Finnträsk och utför uppdrag i hela Västerbotten, inklusive Byske, Skellefteå, Piteå och omnejd.',
   },
   {
     question: 'Kan jag boka ett kostnadsfritt platsbesök?',
-    answer: 'Självklart! Kontakta oss via formuläret eller ring oss på 076 840 74 05 så bokar vi in en tid som passar dig.',
+    answer: 'Självklart! Kontakta oss via formuläret eller ring Niklas (070 588 40 32) eller Kevin (070 588 40 42) så bokar vi in en tid som passar dig.',
   },
 ];
 
@@ -48,7 +48,7 @@ const inputStyle: React.CSSProperties = {
 
 function focusInput(e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
   e.currentTarget.style.borderColor = 'var(--color-primary)';
-  e.currentTarget.style.boxShadow = '0 0 0 3px rgba(234, 88, 12, 0.15)';
+  e.currentTarget.style.boxShadow = '0 0 0 3px rgba(255, 121, 0, 0.15)';
 }
 function blurInput(e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
   e.currentTarget.style.borderColor = '#e5e7eb';
@@ -57,8 +57,8 @@ function blurInput(e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | 
 
 export default function Contact() {
   usePageTitle(
-    'Kontakta GS Bygg AB | Värmland',
-    'Kontakta GS Bygg Värmland AB. Vi utför allt inom byggnation, snickeri, altaner, renovering och betong i Värmland med omnejd. Ring 076 840 74 05.'
+    'Kontakta Finnträsk Entreprenad | Västerbotten',
+    'Kontakta Finnträsk Entreprenad. Vi utför allt inom mark och schaktarbeten, tomtplanering, anläggning och maskintjänster i Västerbotten. Ring Niklas 070 588 40 32 eller Kevin 070 588 40 42.'
   );
   const [name, setName]       = useState('');
   const [email, setEmail]     = useState('');
@@ -119,7 +119,7 @@ export default function Contact() {
             </ScrollReveal>
             <ScrollReveal animation="fade-up" delay={150}>
               <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.08rem', margin: 0, maxWidth: '600px', marginInline: 'auto', lineHeight: 1.6 }}>
-                Vi återkopplar vanligtvis inom 24 timmar. Kostnadsfritt platsbesök & offert ingår alltid.
+                Vi återkopplar vanligtvis inom 24 timmar. Kostnadsfritt platsbesök och offert ingår alltid.
               </p>
             </ScrollReveal>
           </div>
@@ -148,7 +148,7 @@ export default function Contact() {
                 Så når du oss
               </h2>
               <p style={{ color: 'var(--color-gray-600)', fontSize: '1rem', lineHeight: 1.8, margin: 0 }}>
-                Du kan nå oss via formuläret, telefon eller e-post. Oavsett om det gäller byggnation, snickeri, altan och trädäck, renovering eller betongarbeten hjälper vi dig gärna.
+                Du kan nå oss via formuläret, telefon eller e-post. Oavsett om det gäller tomtplanering, mark och schaktarbeten, grillplatser, dikesgrävning eller maskintjänster hjälper vi dig gärna.
               </p>
 
               <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
@@ -157,7 +157,7 @@ export default function Contact() {
                     width: '48px',
                     height: '48px',
                     minWidth: '48px',
-                    background: 'rgba(234, 88, 12, 0.1)',
+                    background: 'rgba(255, 121, 0, 0.1)',
                     borderRadius: '12px',
                     display: 'flex',
                     alignItems: 'center',
@@ -169,14 +169,22 @@ export default function Contact() {
                     <p style={{ margin: '0 0 4px 0', fontWeight: 700, fontSize: '0.9rem', color: 'var(--color-text-dark)' }}>
                       Telefon
                     </p>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                       <a
-                        href="tel:0768407405"
+                        href="tel:0705884032"
                         style={{ color: 'var(--color-gray-600)', fontSize: '0.95rem', textDecoration: 'none', lineHeight: 1.5, transition: 'color 0.2s ease' }}
                         onMouseEnter={e => (e.currentTarget.style.color = 'var(--color-primary)')}
                         onMouseLeave={e => (e.currentTarget.style.color = 'var(--color-gray-600)')}
                       >
-                        076 840 74 05
+                        Niklas: 070 588 40 32
+                      </a>
+                      <a
+                        href="tel:0705884042"
+                        style={{ color: 'var(--color-gray-600)', fontSize: '0.95rem', textDecoration: 'none', lineHeight: 1.5, transition: 'color 0.2s ease' }}
+                        onMouseEnter={e => (e.currentTarget.style.color = 'var(--color-primary)')}
+                        onMouseLeave={e => (e.currentTarget.style.color = 'var(--color-gray-600)')}
+                      >
+                        Kevin: 070 588 40 42
                       </a>
                     </div>
                   </div>
@@ -187,7 +195,7 @@ export default function Contact() {
                     width: '48px',
                     height: '48px',
                     minWidth: '48px',
-                    background: 'rgba(234, 88, 12, 0.1)',
+                    background: 'rgba(255, 121, 0, 0.1)',
                     borderRadius: '12px',
                     display: 'flex',
                     alignItems: 'center',
@@ -197,10 +205,10 @@ export default function Contact() {
                   </div>
                   <div>
                     <p style={{ margin: '0 0 4px 0', fontWeight: 700, fontSize: '0.9rem', color: 'var(--color-text-dark)' }}>
-                      Plats & Område
+                      Plats och område
                     </p>
                     <p style={{ margin: 0, color: 'var(--color-gray-600)', fontSize: '0.95rem', lineHeight: 1.5 }}>
-                      Bas i Värmland • Karlstad, Hammarö, Kil & omnejd
+                      Bas i Finnträsk • Byske, Skellefteå, Piteå och Västerbotten
                     </p>
                   </div>
                 </div>
@@ -210,7 +218,7 @@ export default function Contact() {
                     width: '48px',
                     height: '48px',
                     minWidth: '48px',
-                    background: 'rgba(234, 88, 12, 0.1)',
+                    background: 'rgba(255, 121, 0, 0.1)',
                     borderRadius: '12px',
                     display: 'flex',
                     alignItems: 'center',
@@ -223,12 +231,12 @@ export default function Contact() {
                       E-post
                     </p>
                     <a
-                      href="mailto:gsbyggvarmland@hotmail.com"
+                      href="mailto:info@finntraskentreprenad.se"
                       style={{ color: 'var(--color-gray-600)', fontSize: '0.95rem', textDecoration: 'none', lineHeight: 1.5, transition: 'color 0.2s ease' }}
                       onMouseEnter={e => (e.currentTarget.style.color = 'var(--color-primary)')}
                       onMouseLeave={e => (e.currentTarget.style.color = 'var(--color-gray-600)')}
                     >
-                      gsbyggvarmland@hotmail.com
+                      info@finntraskentreprenad.se
                     </a>
                   </div>
                 </div>
@@ -344,11 +352,11 @@ export default function Contact() {
                     onBlur={blurInput}
                   >
                     <option value="">Välj tjänst...</option>
-                    <option value="gravning">Grävning</option>
-                    <option value="byggnation">Byggnation</option>
-                    <option value="betong">Betong</option>
+                    <option value="gravning">Schaktning</option>
+                    <option value="byggnation">Markanläggning</option>
+                    <option value="betong">Grundläggning</option>
                     <option value="maskintjanster">Maskintjänster</option>
-                    <option value="annat">Annat projekt</option>
+                    <option value="annat">Annat entreprenadprojekt</option>
                   </select>
 
                   <label style={{ display: 'block', marginBottom: '4px', fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-text-dark)' }}>
@@ -356,7 +364,7 @@ export default function Contact() {
                   </label>
                   <textarea
                     rows={5}
-                    placeholder="Beskriv ditt projekt så detaljerat du kan (t.ex. yta i kvm, adress, önskad starttid)..."
+                    placeholder="Beskriv ditt projekt så detaljerat du kan (t.ex. tomtplanering, schaktning, önskad starttid, ort)..."
                     value={message}
                     onChange={e => setMessage(e.target.value)}
                     style={{ ...inputStyle, resize: 'vertical', marginBottom: '24px' }}
@@ -389,7 +397,7 @@ export default function Contact() {
                       if (status === 'sending') return;
                       const el = e.currentTarget as HTMLElement;
                       el.style.transform = 'translateY(-2px)';
-                      el.style.boxShadow = '0 8px 24px rgba(234, 88, 12, 0.4)';
+                      el.style.boxShadow = '0 8px 24px rgba(255, 121, 0, 0.4)';
                     }}
                     onMouseLeave={e => {
                       const el = e.currentTarget as HTMLElement;
@@ -416,7 +424,7 @@ export default function Contact() {
             dark={true}
             items={faqItems}
             title="Vanliga frågor"
-            subtitle="Svar på det vi ofta får höra. Hittar du inte svaret är du alltid välkommen att ringa oss!"
+            subtitle="Svar på det vi ofta får höra. Hittar du inte svaret är du alltid välkommen att ringa Niklas eller Kevin!"
             buttonText="Skicka meddelande"
             buttonLink="/kontakt"
           />

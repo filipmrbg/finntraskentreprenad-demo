@@ -1,11 +1,11 @@
 {
-  "name": "GS Bygg AB",
-  "short_name": "GS Bygg",
-  "description": "Kvalitetsarbeten inom byggnation, snickeri, renovering, altan och tillbyggnad i Värmland.",
+  "name": "Finnträsk Entreprenad",
+  "short_name": "Finnträsk Entreprenad",
+  "description": "Familjeföretaget i Västerbotten som gör visioner till verklighet inom mark- och schaktarbeten.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#ea580c",
+  "theme_color": "#ff7900",
   "icons": [
     {
       "src": "/apple-touch-icon.png",

@@ -14,8 +14,8 @@ const container: React.CSSProperties = {
 
 export default function ServicesOverview() {
   usePageTitle(
-    'Våra Tjänster | GS Bygg AB Värmland',
-    'Utforska våra bygg- och entreprenadtjänster: Snickeri, byggnation, altaner, renovering och betongarbeten i Värmland med omnejd.'
+    'Våra Tjänster | Finnträsk Entreprenad',
+    'Utforska våra entreprenadtjänster: Schaktning, markanläggning, grundläggning och maskintjänster i Västerbotten med omnejd.'
   );
 
   const { hash } = useLocation();
@@ -82,7 +82,7 @@ export default function ServicesOverview() {
               margin: '0 auto',
               lineHeight: 1.65,
             }}>
-              GS Bygg Värmland AB erbjuder professionella hantverkstjänster inom byggnation, snickeri, altaner, renovering och betong i Värmland med omnejd.
+              Finnträsk Entreprenad erbjuder professionella tjänster inom mark och schaktarbeten, tomtplanering, anläggning och maskintjänster i Västerbotten med omnejd.
             </p>
           </ScrollReveal>
         </div>

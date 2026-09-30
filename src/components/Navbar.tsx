@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Phone, Menu, X, ChevronDown } from 'lucide-react';
+import CallModal from './CallModal';
 import images from '../data/images';
 import services from '../data/services';
 
@@ -26,6 +27,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isCallModalOpen, setIsCallModalOpen] = useState(false);
   const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const navigate = useNavigate();
   const location = useLocation();
@@ -131,23 +133,27 @@ export default function Navbar() {
           left: 0,
           right: 0,
           zIndex: 1000,
+          minHeight: scrolled ? '74px' : '72px',
           padding: scrolled
-            ? '12px clamp(20px, 4vw, 40px)'
-            : '24px clamp(20px, 4vw, 40px)',
+            ? '8px clamp(16px, 3.5vw, 36px)'
+            : '14px clamp(16px, 3.5vw, 36px)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          background: scrolled ? 'rgba(26,31,46,0.97)' : 'rgba(26,31,46,0)',
+          background: scrolled
+            ? 'rgba(15, 23, 42, 0.96)'
+            : 'linear-gradient(180deg, rgba(15, 23, 42, 0.65) 0%, rgba(15, 23, 42, 0.12) 70%, transparent 100%)',
           backdropFilter: scrolled ? 'blur(12px)' : 'none',
           WebkitBackdropFilter: scrolled ? 'blur(12px)' : 'none',
           boxShadow: scrolled ? '0 2px 24px rgba(0,0,0,0.3)' : 'none',
-          transition: 'background 0.5s cubic-bezier(0.16, 1, 0.3, 1), padding 0.5s cubic-bezier(0.16, 1, 0.3, 1), backdrop-filter 0.5s cubic-bezier(0.16, 1, 0.3, 1), -webkit-backdrop-filter 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
+          transition: 'background 0.35s ease, padding 0.35s ease, min-height 0.35s ease, backdrop-filter 0.35s ease, box-shadow 0.35s ease',
         }}
       >
         {/* Logo */}
         <Link
           to="/"
           onClick={handleLogoClick}
+          aria-label="Finnträsk Entreprenad startsida"
           style={{
             textDecoration: 'none',
             flexShrink: 0,
@@ -156,7 +162,7 @@ export default function Navbar() {
             opacity: 1,
             transform: 'scale(1)',
             transformOrigin: 'left center',
-            transition: 'opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+            transition: 'opacity 0.3s ease, transform 0.3s ease',
           }}
         >
           <img
@@ -317,30 +323,41 @@ export default function Navbar() {
         </div>
 
         {/* Right side */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexShrink: 0 }}>
-          <div className="phone-link-wrapper" style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <a
-              href="tel:0768407405"
-              className="phone-link"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '5px',
-                color: 'var(--color-white)',
-                textDecoration: 'none',
-                fontFamily: 'var(--font-family)',
-                fontSize: '0.85rem',
-                fontWeight: 500,
-                transition: 'color 0.2s ease',
-                cursor: 'pointer',
-              }}
-              onMouseEnter={e => (e.currentTarget.style.color = 'var(--color-primary)')}
-              onMouseLeave={e => (e.currentTarget.style.color = 'var(--color-white)')}
-            >
-              <Phone size={14} color="var(--color-primary)" />
-              <span>076 840 74 05</span>
-            </a>
-          </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexShrink: 0 }}>
+          {/* Desktop Call Button — sleek, opens modal with both Niklas & Kevin */}
+          <button
+            type="button"
+            onClick={() => setIsCallModalOpen(true)}
+            className="phone-link"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '7px',
+              color: 'var(--color-white)',
+              background: 'rgba(255, 255, 255, 0.06)',
+              border: '1px solid rgba(255, 255, 255, 0.14)',
+              fontFamily: 'var(--font-family)',
+              fontSize: '0.85rem',
+              fontWeight: 600,
+              cursor: 'pointer',
+              padding: '8px 14px',
+              borderRadius: 'var(--border-radius-pill)',
+              transition: 'all 0.25s ease',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.color = 'var(--color-primary)';
+              e.currentTarget.style.borderColor = 'var(--color-primary)';
+              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.color = 'var(--color-white)';
+              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.14)';
+              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.06)';
+            }}
+          >
+            <Phone size={13} color="var(--color-primary)" />
+            <span>Ring oss</span>
+          </button>
 
           <Link
             to="/offert"
@@ -378,26 +395,28 @@ export default function Navbar() {
 
           {/* Phone icon — shown on mobile only */}
           <div className="mobile-phone-btn" style={{ position: 'relative', display: 'none' }}>
-            <a
-              href="tel:0768407405"
+            <button
+              type="button"
+              onClick={() => setIsCallModalOpen(true)}
               aria-label="Ring oss"
               style={{
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                width: '40px',
-                height: '40px',
+                width: '38px',
+                height: '38px',
                 borderRadius: '50%',
                 background: 'rgba(255, 255, 255, 0.08)',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
-                color: 'var(--color-white)',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                color: 'var(--color-primary)',
                 cursor: 'pointer',
                 flexShrink: 0,
-                transition: 'background 0.2s ease, color 0.2s ease',
+                padding: 0,
+                transition: 'background 0.2s ease, transform 0.2s ease',
               }}
             >
-              <Phone size={18} />
-            </a>
+              <Phone size={17} />
+            </button>
           </div>
 
           {/* Hamburger — shown on mobile only */}
@@ -531,9 +550,38 @@ export default function Navbar() {
           <span style={{ color: 'rgba(255, 255, 255, 0.4)', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase' }}>
             Ring oss direkt:
           </span>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center' }}>
-            <a href="tel:0768407405" style={{ color: 'var(--color-white)', fontWeight: 600, fontSize: '0.95rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-              <Phone size={14} color="var(--color-primary)" /> 076 840 74 05
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '100%', maxWidth: '280px' }}>
+            <a href="tel:0705884032" style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+              padding: '10px 16px',
+              background: 'rgba(255,255,255,0.06)',
+              border: '1px solid rgba(255,255,255,0.12)',
+              borderRadius: '12px',
+              color: 'var(--color-white)',
+              textDecoration: 'none',
+              fontWeight: 600,
+              fontSize: '0.9rem',
+            }}>
+              <Phone size={14} color="var(--color-primary)" /> Niklas: 070 588 40 32
+            </a>
+            <a href="tel:0705884042" style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+              padding: '10px 16px',
+              background: 'rgba(255,255,255,0.06)',
+              border: '1px solid rgba(255,255,255,0.12)',
+              borderRadius: '12px',
+              color: 'var(--color-white)',
+              textDecoration: 'none',
+              fontWeight: 600,
+              fontSize: '0.9rem',
+            }}>
+              <Phone size={14} color="var(--color-primary)" /> Kevin: 070 588 40 42
             </a>
           </div>
         </div>
@@ -549,8 +597,8 @@ export default function Navbar() {
           height: 15px;
         }
         .nav-logo {
-          height: 110px;
-          max-height: 16vh;
+          height: 56px;
+          max-height: 56px;
           width: auto;
           display: block;
           object-fit: contain;
@@ -559,10 +607,11 @@ export default function Navbar() {
           border-radius: 0;
           box-shadow: none;
           filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.45));
-          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .nav-logo.scrolled {
-          height: 82px;
+          height: 48px;
+          max-height: 48px;
           background-color: transparent;
           padding: 0;
           border-radius: 0;
@@ -575,15 +624,17 @@ export default function Navbar() {
           .nav-pill { display: none !important; }
           .hamburger { display: flex !important; }
           .offert-btn { display: none !important; }
-          nav.navbar-el { padding: 12px 20px !important; }
-          nav.navbar-el.scrolled { padding: 8px 20px !important; }
+          nav.navbar-el { padding: 10px 16px !important; }
+          nav.navbar-el.scrolled { padding: 8px 16px !important; }
           .mobile-phone-btn { display: flex !important; align-items: center; }
           .nav-logo {
-            height: 75px;
+            height: 42px;
+            max-height: 42px;
             padding: 0;
           }
           .nav-logo.scrolled {
-            height: 60px;
+            height: 38px;
+            max-height: 38px;
             padding: 0;
           }
         }
@@ -592,6 +643,11 @@ export default function Navbar() {
           .offert-full { display: inline; }
         }
       `}</style>
+
+      <CallModal
+        isOpen={isCallModalOpen}
+        onClose={() => setIsCallModalOpen(false)}
+      />
     </>
   );
 }

@@ -2,7 +2,7 @@
  * CENTRALIZED IMAGE CONFIGURATION
  *
  * All images used across the template are defined here.
- * To customize for a new company: replace the URLs below.
+ * Configured for Finnträsk Entreprenad.
  */
 
 export interface ImageSlot {
@@ -62,126 +62,150 @@ export interface SiteImages {
 const images: SiteImages = {
   logo: {
     url: '/logo.png',
-    alt: 'GS Bygg Värmland AB',
+    alt: 'Finnträsk Entreprenad',
   },
   logoDark: {
     url: '/logo-dark.png',
-    alt: 'GS Bygg Värmland AB',
+    alt: 'Finnträsk Entreprenad',
   },
 
   hero: {
     background: {
       url: '/hero-main.webp',
-      alt: 'GS Bygg Värmland AB byggnation, snickeri och entreprenad i Värmland',
+      alt: 'Finnträsk Entreprenad mark och schaktarbeten i Västerbotten',
     },
   },
 
   services: {
     nybyggnation: {
       url: '/service-gravning.webp',
-      alt: 'Grävning och markarbete i Värmland',
+      alt: 'Grävning och schaktning i Västerbotten',
     },
     smahusbyggnation: {
       url: '/service-byggnation.webp',
-      alt: 'Byggnation och snickeri i Värmland',
+      alt: 'Mark och anläggningsarbeten i Västerbotten',
     },
     renovering: {
       url: '/service-betong.webp',
-      alt: 'Betong och gjutning i Värmland',
+      alt: 'Betong och grundläggning i Västerbotten',
     },
     ombyggnation: {
       url: '/service-markarbete.webp',
-      alt: 'Maskintjänster och entreprenad i Värmland',
+      alt: 'Maskintjänster och entreprenad i Västerbotten',
     },
     totalentreprenad: {
       url: '/service-maskinforare.webp',
-      alt: 'Maskinförare och entreprenad i Värmland',
+      alt: 'Maskinförare och transport i Västerbotten',
     },
   },
 
   gallery: [
     {
       url: '/gallery/gallery-1.jpg',
-      alt: 'GS Bygg Värmland AB altanbygge med integrerad däckbelysning',
+      alt: 'Finnträsk Entreprenad anläggande av grillplats och utemiljö',
     },
     {
       url: '/gallery/gallery-2.jpg',
-      alt: 'GS Bygg Värmland AB skräddarsytt trädäck och utemiljö i Värmland',
+      alt: 'Finnträsk Entreprenad schaktning och tomtplanering med grävmaskin',
     },
     {
       url: '/gallery/gallery-3.jpg',
-      alt: 'GS Bygg Värmland AB färdigställd uteplats med loungeyta',
+      alt: 'Finnträsk Entreprenad säker trädfällning från skylift',
     },
     {
-      url: '/gallery/gallery-4.webp',
-      alt: 'GS Bygg Värmland AB nybyggnation och stomresning i Ulvsby Värmland',
+      url: '/gallery/gallery-4.jpg',
+      alt: 'Finnträsk Entreprenad dikesgrävning och markberedning',
+    },
+    {
+      url: '/gallery/gallery-5.jpg',
+      alt: 'Finnträsk Entreprenad finplanering och tomtarbete',
+    },
+    {
+      url: '/gallery/gallery-6.jpg',
+      alt: 'Finnträsk Entreprenad ledningsarbete och schakt',
     },
   ],
 
   cta: {
     banner: {
       url: '/hero-main.webp',
-      alt: 'GS Bygg Värmland AB projekt',
+      alt: 'Finnträsk Entreprenad projekt',
     },
     midSection: {
       url: '/hero-main.webp',
-      alt: 'GS Bygg Värmland AB arbetsplats Värmland',
+      alt: 'Finnträsk Entreprenad arbetsplats Västerbotten',
     },
   },
 
   about: {
     hero: {
       url: '/about.webp',
-      alt: 'GS Bygg Värmland AB servicebil och byggprojekt i Värmland',
+      alt: 'Finnträsk Entreprenad maskinpark och entreprenad i Västerbotten',
     },
     teamMember: {
       url: '/logo.png',
-      alt: 'GS Bygg Värmland AB',
+      alt: 'Finnträsk Entreprenad',
     },
   },
 
   whyChooseUs: {
     url: '/why-choose-us.webp',
-    alt: 'Noggrant hantverk och entreprenad i detalj',
+    alt: 'Noggrant entreprenadarbete och maskintjänster med hög precision',
   },
 
   ideaToResult: {
     url: '/idea-to-result.webp',
-    alt: 'Från idé och planering till färdigt resultat',
+    alt: 'Från planering till färdigt markarbete',
   },
 
   portfolio: [
     {
       image: {
         url: '/gallery/gallery-1.jpg',
-        alt: 'Altanbygge med integrerad däckbelysning i Värmland',
+        alt: 'Anläggande av grillplats och utemiljö i Västerbotten',
       },
-      title: 'Altan & Däckbelysning',
-      category: 'Altan & Uterum',
+      title: 'Grillplats och utemiljö',
+      category: 'Anläggning och utemiljö',
     },
     {
       image: {
         url: '/gallery/gallery-2.jpg',
-        alt: 'Skräddarsytt trädäck villa i Värmland',
+        alt: 'Schaktning och tomtplanering i Västerbotten',
       },
-      title: 'Skräddarsytt Trädäck',
-      category: 'Snickeri & Altan',
+      title: 'Schakt och tomtplanering',
+      category: 'Mark och schakt',
     },
     {
       image: {
         url: '/gallery/gallery-3.jpg',
-        alt: 'Färdigställd uteplats och loungeyta i Värmland',
+        alt: 'Säker trädfällning med skylift i Västerbotten',
       },
-      title: 'Uteplats & Loungedel',
-      category: 'Träkonstruktion',
+      title: 'Trädfällning med Skylift',
+      category: 'Trädfällning',
     },
     {
       image: {
-        url: '/gallery/gallery-4.webp',
-        alt: 'Nybyggnation och stomresning i Ulvsby Värmland',
+        url: '/gallery/gallery-4.jpg',
+        alt: 'Dikesgrävning och vägunderhåll i Västerbotten',
       },
-      title: 'Nybyggnation & Stomresning',
-      category: 'Byggnation & Stomme',
+      title: 'Dikesgrävning och väg',
+      category: 'Diken och infrastruktur',
+    },
+    {
+      image: {
+        url: '/gallery/gallery-5.jpg',
+        alt: 'Finplanering och tomtarbete i Västerbotten',
+      },
+      title: 'Finplanering och markberedning',
+      category: 'Tomtplanering',
+    },
+    {
+      image: {
+        url: '/gallery/gallery-6.jpg',
+        alt: 'Ledningsgrävning och schakt i Västerbotten',
+      },
+      title: 'Ledningsgrävning och schakt',
+      category: 'Ledningsarbete',
     },
   ],
 
@@ -189,7 +213,7 @@ const images: SiteImages = {
     markarbete: {
       hero: {
         url: '/service-markarbete.webp',
-        alt: 'Grävning, schaktning och markarbete Värmland',
+        alt: 'Grävning, schaktning och markarbete Västerbotten',
       },
       section1: {
         url: '/service-markarbete.webp',
@@ -197,13 +221,13 @@ const images: SiteImages = {
       },
       section2: {
         url: '/hero-main.webp',
-        alt: 'Arbetsplats Värmland',
+        alt: 'Arbetsplats Västerbotten',
       },
     },
     dranering: {
       hero: {
         url: '/service-dranering.webp',
-        alt: 'Dränering och ledningsarbete Värmland',
+        alt: 'Dränering och ledningsarbete Västerbotten',
       },
       section1: {
         url: '/service-dranering.webp',
@@ -211,13 +235,13 @@ const images: SiteImages = {
       },
       section2: {
         url: '/hero-main.webp',
-        alt: 'Dräneringsarbete Värmland',
+        alt: 'Dräneringsarbete Västerbotten',
       },
     },
     betong: {
       hero: {
         url: '/service-betong.webp',
-        alt: 'Gjutning av betongplatta Värmland',
+        alt: 'Gjutning av betongplatta Västerbotten',
       },
       section1: {
         url: '/service-betong.webp',
@@ -225,12 +249,10 @@ const images: SiteImages = {
       },
       section2: {
         url: '/hero-main.webp',
-        alt: 'Färdig betonggrund Värmland',
+        alt: 'Färdig betonggrund Västerbotten',
       },
     },
   },
 };
 
 export default images;
-
-
