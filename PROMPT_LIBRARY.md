@@ -110,37 +110,38 @@ Instagram Post 3 URL:
      4. Set images.logo.url to '/logo.png' and images.logoDark.url to '/logo-dark.png' in src/data/images.ts.
    - PREVENT WHITE BOXES: NEVER render a raw square avatar with a solid background box in the Navbar. The logo must blend seamlessly into the header.
    - CACHE ALL MEDIA LOCALLY: Also download and cache all provided gallery images and about images locally in public/gallery/ and public/about.webp (or .jpg) so the demo is never broken by expired CDN access tokens. If the company logo is used for About Us, point images.about.hero.url to '/logo.png'.
-5. LINK PREVIEW & OPEN GRAPH (CRITICAL FOR IMESSAGE, SMS & SOCIAL MEDIA):
-   - ABSOLUTE URL & DOMAIN ACCURACY (NO 404s):
-     * The AI must detect or set the exact production domain for this specific deployment (e.g. `https://[project-name].vercel.app`).
-     * CRITICAL: NEVER hardcode an outdated or mismatched domain in `index.html` or `src/hooks/usePageTitle.ts`. If the domain in `og:image` returns a 404 error, iMessage and SMS will fail to load the image and display an empty grey box.
-     * Both `index.html` (for static social bot crawlers) and `src/hooks/usePageTitle.ts` (for client navigation) MUST use the exact matching absolute URL.
-   - AUTOMATED 1200×630 OG BANNER GENERATION (MANDATORY PROGRAMMATIC ASSET):
-     * NEVER point `og:image` to a raw, transparent `logo.png` directly, as transparent logos render with black/clashing backgrounds in iMessage and WhatsApp.
-     * The AI MUST automatically run a Python/PIL script to generate `public/og-image.png` and `public/og-image.jpg` with standard OpenGraph dimensions (1200 × 630 px):
-       1. Base canvas: 1200×630 with a sleek dark navy/slate background (`#0B1120` to `#0F1A34`) featuring a subtle, soft radial brand glow in the center.
-       2. Centered logo: Place the processed, transparent company logo in the center (~650–700 px wide, proportional height), perfectly sharp and anti-aliased.
-       3. Export both `public/og-image.png` and `public/og-image.jpg` (JPEG quality 95).
+5. LINK PREVIEW & OPEN GRAPH (CRITICAL FOR INSTAGRAM DM, IMESSAGE & SOCIAL MEDIA):
+   - AUTOMATIC VERCEL DEMO DOMAIN (ZERO 404s & ZERO GUESSING):
+     * The AI must automatically derive the demo production domain from the current git repository name or project folder name: `https://[project-folder-lowercase].vercel.app` (e.g. `https://tengene-byggservice-ab.vercel.app` or `https://finntraskentreprenad-demo.vercel.app`).
+     * CRITICAL: NEVER use the client's commercial website domain (e.g. `videl.se` or `finntraskentreprenad.se`) for `og:image`, `canonical`, or `twitter:image` tags. The client domain is external/parked (often returning Loopia HTML) and will completely break link previews in Instagram DM and iMessage!
+     * Both `index.html` (for static social bot crawlers like Meta & Applebot) and `src/hooks/usePageTitle.ts` (for client navigation) MUST use this exact matching absolute Vercel URL.
+   - AUTOMATED 1200×630 BRANDED OG CARD (EXACT TENGENE GLOW RECIPE):
+     * NEVER point `og:image` to a raw, unformatted or transparent `logo.png` directly, as transparent logos render with clashing black backgrounds in iMessage and WhatsApp.
+     * The AI MUST execute `python3 scripts/generate_og_images.py` to generate `public/og-image.png`, `public/og-image.jpg`, `public/og-square.png`, `public/og-square.jpg`, and square icons:
+       1. Base canvas: 1200×630 with a sleek dark slate background (`#0F172A`).
+       2. Centered logo: Scaled proportionally (max 800px width or 420px height) with 1.35x contrast boost.
+       3. Ambient halo glow: Soft smooth Gaussian halo rendered on the full canvas mask behind the logo without any box edge clipping.
+       4. High quality export: Both PNG and JPEG (quality 95).
    - META TAGS CONFIGURATION IN index.html:
-     * Set `<meta property="og:image" content="https://[domain]/og-image.png" />`
-     * Set `<meta property="og:image:secure_url" content="https://[domain]/og-image.png" />`
+     * Set `<meta property="og:image" content="https://[project-folder-lowercase].vercel.app/og-image.png" />`
+     * Set `<meta property="og:image:secure_url" content="https://[project-folder-lowercase].vercel.app/og-image.png" />`
      * Set `<meta property="og:image:width" content="1200" />`
      * Set `<meta property="og:image:height" content="630" />`
      * Set `<meta property="og:image:type" content="image/png" />`
      * Set `<meta property="og:image:alt" content="[Company Name] Logotyp" />`
      * Set `<meta name="twitter:card" content="summary_large_image" />`
-     * Set `<meta name="twitter:image" content="https://[domain]/og-image.png" />`
-     * Set `<meta name="image" content="https://[domain]/og-image.png" />`
-     * Set `<link rel="image_src" href="https://[domain]/og-image.png" />`
-     * Set `<link rel="canonical" href="https://[domain]" />`
+     * Set `<meta name="twitter:image" content="https://[project-folder-lowercase].vercel.app/og-image.png" />`
+     * Set `<meta name="image" content="https://[project-folder-lowercase].vercel.app/og-image.png" />`
+     * Set `<link rel="image_src" href="https://[project-folder-lowercase].vercel.app/og-image.png" />`
+     * Set `<link rel="canonical" href="https://[project-folder-lowercase].vercel.app" />`
      * Set `og:title` to: `[Company Name] | [Main Service] i [Location / Area]`
      * Set `og:description` to: A concise, persuasive 1–2 sentence Swedish summary of services.
    - SCRIPT LOGIC IN src/hooks/usePageTitle.ts:
-     * Ensure the fallback `origin` matches `https://[domain]` and updates `og:image` and `twitter:image` dynamically with absolute URLs.
+     * Ensure the fallback `origin` matches `https://[project-folder-lowercase].vercel.app` and dynamically updates `og:image` and `twitter:image` with `${origin}/og-image.png`.
    - WHY THIS GUARANTEES SUCCESS:
-     * iMessage only reads raw HTML before JavaScript execution: complete absolute links (https://...) with the exact domain in index.html ensure Apple's crawler never fails.
-     * 1200×630 is Apple & Meta standard (1.91:1) filling preview cards perfectly.
-     * Dark background behind the logo ensures light and white elements render crisply in both dark and light phone modes.
+     * Instagram DM & Meta Crawler: 1200×630 on dark `#0F172A` with ambient glow fills the card perfectly without cropping.
+     * Apple iMessage & SMS: Reads the raw absolute `https://...` link before JavaScript executes and renders the glowing card instantly.
+     * Zero 404s: Never points to an unhosted or parked commercial `.se` domain.
 6. SERVICES & TEMPLATE CONSISTENCY: Keep the template's 4 core service cards and preset images intact. Seamlessly weave the new company name and operating location into service headings, descriptions, and FAQ items (in src/data/services.ts and throughout the site) so it feels completely local and customized.
 7. REVIEWS / TESTIMONIALS: Generate 3 authentic, realistic Swedish customer reviews in Home.tsx localized to the company's operating city (with authentic Swedish names like Johan E., Karin M., Markus L.) and varied lengths matching their core services.
 8. OWNER / FOUNDER SETUP (ONLY 1 PERSON): There is ONLY ONE person representing the company — the Owner/CEO. Update About.tsx with the Owner/CEO's name and title in the founder quote card (e.g. "[Name], VD och Grundare [Company Name]"), and update the single contact in CallModal.tsx and JSON-LD schema in index.html. In the About Us photo card, use the provided photo of the owner/team, OR the company logo if no photo is available. NEVER create or inject a 3-member team grid or placeholder craftsmen.
