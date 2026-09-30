@@ -82,30 +82,41 @@ export default function About() {
             alignItems: 'start',
           }}>
 
-            {/* Left: Company Photo Card */}
-            <ScrollReveal animation="fade-right" duration={0.8}>
+            {/* Left: Transparent Company Logo / Image Card */}
+            <ScrollReveal animation="scale-in" easing="spring">
               <div style={{
                 position: 'sticky',
                 top: '120px',
-                width: '100%',
-                borderRadius: '24px',
-                overflow: 'hidden',
-                boxShadow: '0 20px 48px rgba(15, 23, 42, 0.12)',
-                aspectRatio: '4 / 5',
-                maxHeight: '520px',
+                display: 'flex',
+                justifyContent: 'center',
               }}>
-                <img
-                  src={images.about.hero.url || '/about.webp'}
-                  alt="Finnträsk Entreprenad"
-                  loading="eager"
-                  decoding="async"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    display: 'block',
-                  }}
-                />
+                <div style={{
+                  background: '#ffffff',
+                  borderRadius: '24px',
+                  overflow: 'hidden',
+                  boxShadow: '0 12px 32px rgba(0, 0, 0, 0.08)',
+                  border: '1px solid #e2e8f0',
+                  width: '100%',
+                  maxWidth: '320px',
+                  height: '320px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '28px',
+                }}>
+                  <img
+                    src={images.about.teamMember?.url || images.about.hero?.url || images.logo.url}
+                    alt="Finnträsk Entreprenad"
+                    loading="eager"
+                    decoding="async"
+                    style={{
+                      maxWidth: '100%',
+                      maxHeight: '100%',
+                      objectFit: 'contain',
+                      display: 'block',
+                    }}
+                  />
+                </div>
               </div>
             </ScrollReveal>
 

@@ -139,8 +139,8 @@ const images: SiteImages = {
 
   about: {
     hero: {
-      url: '/about.webp',
-      alt: 'Finnträsk Entreprenad maskinpark och entreprenad i Västerbotten',
+      url: '/logo.png',
+      alt: 'Finnträsk Entreprenad',
     },
     teamMember: {
       url: '/logo.png',
