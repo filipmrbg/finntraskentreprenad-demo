@@ -41,7 +41,7 @@ export function usePageTitle(title: string, description?: string) {
       ? window.location.origin
       : 'https://finntraskentreprenad-demo.vercel.app';
     const absoluteUrl = `${origin}${pathname === '/' ? '' : pathname}`;
-    const ogImageUrl = 'https://raw.githubusercontent.com/filipmrbg/finntraskentreprenad-demo/main/public/og-image.png';
+    const ogImageUrl = `${origin}/og-image.png`;
 
     let canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) {
@@ -66,10 +66,20 @@ export function usePageTitle(title: string, description?: string) {
       ogImage.setAttribute('content', ogImageUrl);
       document.head.appendChild(ogImage);
     }
+
+    const ogImageSecure = document.querySelector('meta[property="og:image:secure_url"]');
+    if (ogImageSecure) ogImageSecure.setAttribute('content', ogImageUrl);
+
     let twitterImage = document.querySelector('meta[name="twitter:image"]');
     if (twitterImage) {
       twitterImage.setAttribute('content', ogImageUrl);
     }
+
+    const metaImage = document.querySelector('meta[name="image"]');
+    if (metaImage) metaImage.setAttribute('content', ogImageUrl);
+
+    const linkImageSrc = document.querySelector('link[rel="image_src"]');
+    if (linkImageSrc) linkImageSrc.setAttribute('href', ogImageUrl);
 
   }, [title, description, pathname]);
 }
