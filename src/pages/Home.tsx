@@ -982,7 +982,6 @@ export default function Home() {
                 stars: 5,
                 date: 'för en månad sedan',
                 avatarUrl: '/reviews/erica.png',
-                text: 'Finnträsk Entreprenad schaktade vår tomt och gjorde en fantastisk insats. Snabba, professionella och otroligt noggranna. Kan varmt rekommendera dem!',
               },
               {
                 name: 'Stig Dahlbäck',
@@ -990,14 +989,12 @@ export default function Home() {
                 stars: 5,
                 date: 'för 9 år sedan',
                 isLocalGuide: true,
-                text: 'Kevin och Niklas gjorde grävarbetet inför vår husgrund. Allt gick på pricken och de höll tidsplanen perfekt. Mycket nöjd med resultatet.',
               },
               {
                 name: 'Anna Bergström',
                 authorSub: 'Recension från Google',
                 stars: 5,
                 date: 'för 2 veckor sedan',
-                text: 'Dikesgrävning och finplanering av tomt. Otroligt duktiga och trevliga att ha att göra med. Prisvärt och proffsigt.',
               },
             ].map((review, i) => {
               const delay = i * 150;
