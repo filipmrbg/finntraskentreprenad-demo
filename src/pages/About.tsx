@@ -189,8 +189,8 @@ export default function About() {
                     </span>
                   </div>
 
-                  <Button variant="primary" size="lg" href="/kontakt">
-                    Kontakta oss för rådgivning
+                  <Button variant="primary" size="lg" href="/offert">
+                    Begär en offert
                   </Button>
                 </div>
               </ScrollReveal>

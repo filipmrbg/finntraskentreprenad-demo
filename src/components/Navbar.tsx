@@ -10,7 +10,7 @@ const navLinks = [
   { label: 'Tjänster', href: '/tjanster', hasDropdown: true },
   { label: 'Projekt', href: '/#projekt' },
   { label: 'Om oss', href: '/om-oss' },
-  { label: 'Kontakt', href: '/kontakt' },
+  { label: 'Kontakt', href: '/offert' },
 ];
 
 function isActive(href: string, pathname: string, activeSection: string | null): boolean {

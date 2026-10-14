@@ -87,7 +87,7 @@ export function AppLayout({ pages }: { pages: PageComponents }) {
           <Route path="/tjanster" element={<PageWrapper><ServicesOverview /></PageWrapper>} />
           <Route path="/tjanster/:slug" element={<PageWrapper><ServiceDetail /></PageWrapper>} />
           <Route path="/om-oss" element={<PageWrapper><About /></PageWrapper>} />
-          <Route path="/kontakt" element={<PageWrapper><Contact /></PageWrapper>} />
+          <Route path="/kontakt" element={<PageWrapper><Quote /></PageWrapper>} />
           <Route path="/offert" element={<PageWrapper><Quote /></PageWrapper>} />
           <Route path="/animationer" element={<PageWrapper><Animations /></PageWrapper>} />
           <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
@@ -100,7 +100,7 @@ export function AppLayout({ pages }: { pages: PageComponents }) {
 
 const clientPages: PageComponents = {
   About: lazy(() => import('./pages/About')),
-  Contact: lazy(() => import('./pages/Contact')),
+  Contact: lazy(() => import('./pages/Quote')),
   Quote: lazy(() => import('./pages/Quote')),
   ServicesOverview: lazy(() => import('./pages/ServicesOverview')),
   ServiceDetail: lazy(() => import('./pages/ServiceDetail')),

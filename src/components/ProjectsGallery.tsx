@@ -177,8 +177,8 @@ export default function ProjectsGallery() {
             <span className="gallery-instruction-desktop">Håll muspekaren över för att pausa • Klicka på valfri bild för att förstora</span>
             <span className="gallery-instruction-mobile">Tryck på en bild för att förstora</span>
           </p>
-          <Button variant="primary" href="/kontakt" size="md">
-            Kontakta oss om ditt projekt <ArrowRight size={16} />
+          <Button variant="primary" href="/offert" size="md">
+            Begär offert för ditt projekt <ArrowRight size={16} />
           </Button>
         </ScrollReveal>
       </div>

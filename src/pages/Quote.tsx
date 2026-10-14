@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { ShieldCheck, Clock, Award, Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
+import { ShieldCheck, Clock, Award, Send, CheckCircle2, AlertCircle, Loader2, Phone, Mail, MapPin } from 'lucide-react';
 import ScrollReveal from '../components/ScrollReveal';
 import FAQAccordion from '../components/FAQAccordion';
 import CTABanner from '../components/CTABanner';
@@ -363,9 +363,57 @@ export default function Quote() {
               </div>
             </ScrollReveal>
 
-            {/* Sidebar Trust Items */}
+            {/* Sidebar Trust och kontaktuppgifter */}
             <ScrollReveal animation="fade-left" delay={150}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                {/* Direktkontakt */}
+                <div style={{
+                  background: '#ffffff',
+                  border: '1px solid #e5e7eb',
+                  borderRadius: '16px',
+                  padding: '24px',
+                  boxShadow: '0 4px 16px rgba(0,0,0,0.04)',
+                }}>
+                  <h3 style={{ margin: '0 0 16px 0', fontSize: '1.05rem', fontWeight: 700, color: 'var(--color-text-dark)' }}>
+                    Vill du prata direkt med oss?
+                  </h3>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                    <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+                      <Phone size={18} color="var(--color-primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
+                      <div>
+                        <div style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--color-gray-600)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Telefon</div>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginTop: '2px' }}>
+                          <a href="tel:0705884032" style={{ color: 'var(--color-text-dark)', textDecoration: 'none', fontWeight: 600, fontSize: '0.92rem' }}>
+                            Niklas: 070-588 40 32
+                          </a>
+                          <a href="tel:0705884042" style={{ color: 'var(--color-text-dark)', textDecoration: 'none', fontWeight: 600, fontSize: '0.92rem' }}>
+                            Kevin: 070-588 40 42
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+                      <Mail size={18} color="var(--color-primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
+                      <div>
+                        <div style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--color-gray-600)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>E-post</div>
+                        <a href="mailto:info@finntraskentreprenad.se" style={{ color: 'var(--color-text-dark)', textDecoration: 'none', fontWeight: 600, fontSize: '0.92rem' }}>
+                          info@finntraskentreprenad.se
+                        </a>
+                      </div>
+                    </div>
+
+                    <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+                      <MapPin size={18} color="var(--color-primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
+                      <div>
+                        <div style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--color-gray-600)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Område</div>
+                        <span style={{ color: 'var(--color-text-dark)', fontWeight: 500, fontSize: '0.92rem' }}>
+                          Finnträsk • Västerbotten
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div style={{
                   background: '#ffffff',
                   border: '1px solid #e5e7eb',

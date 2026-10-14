@@ -113,8 +113,7 @@ export default function Footer() {
                   { label: 'Hem', href: '/' },
                   { label: 'Tjänster', href: '/tjanster' },
                   { label: 'Om oss', href: '/om-oss' },
-                  { label: 'Kontakt', href: '/kontakt' },
-                  { label: 'Offert', href: '/offert' },
+                  { label: 'Kontakt och offert', href: '/offert' },
                 ].map(item => (
                   <Link
                     key={item.href}

@@ -8,7 +8,6 @@ import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import { AppLayout, PageComponents } from './App';
 import About from './pages/About';
-import Contact from './pages/Contact';
 import Quote from './pages/Quote';
 import ServicesOverview from './pages/ServicesOverview';
 import ServiceDetail from './pages/ServiceDetail';
@@ -17,7 +16,7 @@ import { allRoutes, notFoundMeta, RouteMeta } from './data/seo';
 import { renderHead, renderRobots, renderSitemap } from './seo/head';
 import { SITE_URL } from './config/site';
 
-const serverPages: PageComponents = { About, Contact, Quote, ServicesOverview, ServiceDetail, Animations };
+const serverPages: PageComponents = { About, Contact: Quote, Quote, ServicesOverview, ServiceDetail, Animations };
 
 export function render(url: string): string {
   return renderToString(

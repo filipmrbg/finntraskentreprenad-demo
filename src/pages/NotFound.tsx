@@ -48,8 +48,8 @@ export default function NotFound() {
           <Link to="/" className="nf-btn nf-btn-primary">
             <HomeIcon size={17} /> Till startsidan
           </Link>
-          <Link to="/kontakt" className="nf-btn nf-btn-ghost">
-            Kontakta oss
+          <Link to="/offert" className="nf-btn nf-btn-ghost">
+            Begär offert
           </Link>
         </div>
 

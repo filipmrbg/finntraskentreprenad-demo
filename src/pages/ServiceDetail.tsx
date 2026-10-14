@@ -298,8 +298,8 @@ export default function ServiceDetail() {
               items={svc.faq}
               title={`Vanliga frågor om ${svc.title.toLowerCase()}`}
               subtitle="Hittar du inte svaret? Ring Niklas eller Kevin så hjälper vi dig."
-              buttonText="Kontakta oss"
-              buttonLink="/kontakt"
+              buttonText="Begär offert"
+              buttonLink="/offert"
             />
           </div>
         </section>

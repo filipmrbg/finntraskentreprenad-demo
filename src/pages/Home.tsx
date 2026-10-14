@@ -1059,8 +1059,8 @@ export default function Home() {
             items={homeFaqItems}
             title="Vanliga frågor"
             subtitle="Här hittar du svar på vanliga funderingar kring offerter, ROT avdrag och hur vi arbetar."
-            buttonText="Kontakta oss direkt"
-            buttonLink="/kontakt"
+            buttonText="Begär offert"
+            buttonLink="/offert"
             dark={true}
           />
         </div>
