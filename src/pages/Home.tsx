@@ -535,34 +535,15 @@ export default function Home() {
                       {svc.shortDescription}
                     </p>
 
-                    <ul style={{
-                      listStyle: 'none',
-                      padding: 0,
-                      margin: '0 0 20px 0',
-                      display: 'flex',
-                      flexWrap: 'wrap',
-                      gap: '6px',
-                      flex: 1,
-                      alignContent: 'flex-start',
+                    <p style={{
+                      color: 'var(--color-gray-600)',
+                      fontSize: '0.86rem',
+                      lineHeight: 1.55,
+                      margin: '0 0 18px 0',
                     }}>
-                      {svc.subServices.map((sub) => (
-                        <li
-                          key={sub.id}
-                          style={{
-                            fontSize: '0.76rem',
-                            fontWeight: 600,
-                            color: '#475569',
-                            background: '#f8fafc',
-                            border: '1px solid #e2e8f0',
-                            borderRadius: '999px',
-                            padding: '4px 10px',
-                            lineHeight: 1.3,
-                          }}
-                        >
-                          {sub.name}
-                        </li>
-                      ))}
-                    </ul>
+                      <span style={{ color: 'var(--color-text-dark)', fontWeight: 600 }}>Exempel: </span>
+                      {svc.subServices.map((s) => s.name).join(', ')}
+                    </p>
 
                     <div style={{
                       display: 'flex',
