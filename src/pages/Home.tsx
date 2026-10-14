@@ -530,19 +530,9 @@ export default function Home() {
                       color: 'var(--color-gray-600)',
                       fontSize: '0.92rem',
                       lineHeight: 1.6,
-                      margin: '0 0 16px 0',
+                      margin: '0 0 20px 0',
                     }}>
                       {svc.shortDescription}
-                    </p>
-
-                    <p style={{
-                      color: 'var(--color-gray-600)',
-                      fontSize: '0.86rem',
-                      lineHeight: 1.55,
-                      margin: '0 0 18px 0',
-                    }}>
-                      <span style={{ color: 'var(--color-text-dark)', fontWeight: 600 }}>Exempel: </span>
-                      {svc.subServices.map((s) => s.name).join(', ')}
                     </p>
 
                     <div style={{
