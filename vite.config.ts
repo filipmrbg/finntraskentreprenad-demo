@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react()],
   optimizeDeps: {
+    include: ['cookie', 'react-router', 'react-router-dom'],
     exclude: ['lucide-react'],
   },
   build: {
