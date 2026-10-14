@@ -556,30 +556,46 @@ export default function Home() {
             gap: '60px',
             alignItems: 'center',
           }}>
-            {/* Left: Company Image Card */}
+            {/* Left: Company Image / Logo Card */}
             <ScrollReveal animation="fade-left" duration={0.8}>
-              <div style={{
-                position: 'relative',
-                width: '100%',
-                maxWidth: '440px',
-                margin: '0 auto',
-                borderRadius: '24px',
-                overflow: 'hidden',
-                boxShadow: '0 16px 40px rgba(15, 23, 42, 0.1)',
-                aspectRatio: '4 / 5',
-                maxHeight: '480px',
-              }}>
-                <img
-                  src={images.about.hero.url || '/about.webp'}
-                  alt={images.about.hero.alt || 'Finnträsk Entreprenad'}
-                  style={{
+              {(() => {
+                const imgUrl = images.about.hero.url || '/about.webp';
+                const isLogo = imgUrl.includes('logo') || imgUrl.endsWith('.png') || imgUrl.endsWith('.svg');
+                return (
+                  <div style={{
+                    position: 'relative',
                     width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    display: 'block',
-                  }}
-                />
-              </div>
+                    maxWidth: isLogo ? '380px' : '440px',
+                    margin: '0 auto',
+                    borderRadius: '24px',
+                    overflow: 'hidden',
+                    boxShadow: isLogo ? '0 12px 32px rgba(0, 0, 0, 0.08)' : '0 16px 40px rgba(15, 23, 42, 0.1)',
+                    aspectRatio: isLogo ? '1 / 1' : '4 / 5',
+                    maxHeight: isLogo ? '380px' : '480px',
+                    background: isLogo ? '#ffffff' : 'transparent',
+                    border: isLogo ? '1px solid #e2e8f0' : 'none',
+                    display: isLogo ? 'flex' : 'block',
+                    alignItems: isLogo ? 'center' : undefined,
+                    justifyContent: isLogo ? 'center' : undefined,
+                    padding: isLogo ? '36px' : 0,
+                  }}>
+                    <img
+                      src={imgUrl}
+                      alt={images.about.hero.alt || 'Finnträsk Entreprenad'}
+                      loading="eager"
+                      decoding="async"
+                      style={{
+                        width: isLogo ? 'auto' : '100%',
+                        height: isLogo ? 'auto' : '100%',
+                        maxWidth: '100%',
+                        maxHeight: isLogo ? '220px' : '100%',
+                        objectFit: isLogo ? 'contain' : 'cover',
+                        display: 'block',
+                      }}
+                    />
+                  </div>
+                );
+              })()}
             </ScrollReveal>
 
             {/* Right: text */}
@@ -874,40 +890,35 @@ export default function Home() {
                       <Star key={i} size={15} fill="#FBBC05" color="#FBBC05" />
                     ))}
                   </div>
-                  <span style={{ color: 'var(--color-gray-600)', fontSize: '0.85rem' }}>(Omdömen i Västerbotten med omnejd)</span>
+                  <span style={{ color: 'var(--color-gray-600)', fontSize: '0.85rem' }}>(Google-recensioner)</span>
                 </div>
               </ScrollReveal>
             </div>
           </div>
 
-          <div className="reviews-grid">
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))',
+            maxWidth: '820px',
+            margin: '0 auto',
+            gap: '24px',
+          }}>
             {[
               {
-                name: 'Johan Eriksson',
-                location: 'Skellefteå',
-                text: 'Vi anlitade Finnträsk Entreprenad för tomtplanering och schaktning inför vårt nya garage. Otroligt smidigt samarbete, snabb återkoppling och ett fantastiskt slutresultat med högsta precision. Klart i tid och rent och städat efteråt!',
-                stars: 5,
-                date: 'för 2 veckor sedan',
-                authorSub: 'Lokal guide • 14 omdömen',
-                avatarUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120&h=120'
-              },
-              {
-                name: 'Karin och Markus Lindqvist',
-                location: 'Byske',
-                text: 'Niklas och Kevin hjälpte oss att anlägga en fantastisk grillplats och utföra dikesgrävning på fastigheten. Mycket trevligt och proffsigt bemötande, tydlig offert och ett suveränt hantverk rakt igenom!',
+                name: 'Erica Lundqvist',
+                authorSub: 'Recension från Google',
                 stars: 5,
                 date: 'för en månad sedan',
-                authorSub: '8 omdömen',
-                avatarUrl: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=120&h=120'
+                avatarUrl: '/reviews/erica.png',
+                text: 'Gav Finnträsk Entreprenad högsta betyg (5 av 5 stjärnor) på Google.',
               },
               {
-                name: 'Stefan Holmström',
-                location: 'Västerbotten',
-                text: 'Toppklassig entreprenadfirma! Behövde hjälp med trädfällning med skylift samt grundläggning för infart. Finnträsk Entreprenad löste allt snabbt, säkert och till ett mycket bra pris. Rekommenderas varmt!',
+                name: 'Stig Dahlbäck',
+                authorSub: 'Lokal guide • Recension från Google',
                 stars: 5,
-                date: 'för 2 månader sedan',
-                authorSub: 'Lokal guide • 21 omdömen',
-                avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=120&h=120'
+                date: 'för 9 år sedan',
+                isLocalGuide: true,
+                text: 'Gav Finnträsk Entreprenad högsta betyg (5 av 5 stjärnor) på Google.',
               },
             ].map((review, i) => {
               const delay = i * 150;

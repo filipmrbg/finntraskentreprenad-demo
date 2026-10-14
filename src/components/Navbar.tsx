@@ -133,10 +133,10 @@ export default function Navbar() {
           left: 0,
           right: 0,
           zIndex: 1000,
-          minHeight: scrolled ? '74px' : '72px',
+          minHeight: scrolled ? '74px' : '82px',
           padding: scrolled
             ? '8px clamp(16px, 3.5vw, 36px)'
-            : '14px clamp(16px, 3.5vw, 36px)',
+            : '12px clamp(16px, 3.5vw, 36px)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -597,8 +597,8 @@ export default function Navbar() {
           height: 15px;
         }
         .nav-logo {
-          height: 56px;
-          max-height: 56px;
+          height: 68px;
+          max-height: 68px;
           width: auto;
           display: block;
           object-fit: contain;
@@ -610,8 +610,8 @@ export default function Navbar() {
           transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .nav-logo.scrolled {
-          height: 48px;
-          max-height: 48px;
+          height: 56px;
+          max-height: 56px;
           background-color: transparent;
           padding: 0;
           border-radius: 0;
@@ -628,13 +628,13 @@ export default function Navbar() {
           nav.navbar-el.scrolled { padding: 8px 16px !important; }
           .mobile-phone-btn { display: flex !important; align-items: center; }
           .nav-logo {
-            height: 42px;
-            max-height: 42px;
+            height: 48px;
+            max-height: 48px;
             padding: 0;
           }
           .nav-logo.scrolled {
-            height: 38px;
-            max-height: 38px;
+            height: 42px;
+            max-height: 42px;
             padding: 0;
           }
         }

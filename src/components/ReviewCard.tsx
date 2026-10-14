@@ -3,11 +3,13 @@ import { Star } from 'lucide-react';
 
 interface Review {
   name: string;
-  location: string;
-  text: string;
+  location?: string;
+  text?: string;
   stars: number;
   date: string;
   authorSub?: string;
+  avatarUrl?: string;
+  isLocalGuide?: boolean;
 }
 
 interface ReviewCardProps {
@@ -36,9 +38,9 @@ const getAvatarColor = (name: string) => {
 };
 
 const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
-  const { name, location, text, stars, date, authorSub } = review;
+  const { name, location, text, stars, date, authorSub, avatarUrl, isLocalGuide } = review;
   const initial = name.charAt(0).toUpperCase();
-  const avatarBgColor = getAvatarColor(name);
+  const avatarBgColor = isLocalGuide ? '#0097a7' : getAvatarColor(name);
 
   return (
     <div 
@@ -46,14 +48,16 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
       style={{
         background: '#ffffff',
         border: '1px solid #eaeaea',
-        borderRadius: '10px',
+        borderRadius: '12px',
         padding: '24px',
-        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
+        boxShadow: '0 2px 10px rgba(0, 0, 0, 0.04)',
         display: 'flex',
         flexDirection: 'column',
-        gap: '12px',
+        gap: '14px',
         textAlign: 'left',
         transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+        height: '100%',
+        boxSizing: 'border-box',
       }}
       onMouseEnter={e => {
         e.currentTarget.style.transform = 'translateY(-2px)';
@@ -61,36 +65,75 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
       }}
       onMouseLeave={e => {
         e.currentTarget.style.transform = 'translateY(0)';
-        e.currentTarget.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.04)';
+        e.currentTarget.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.04)';
       }}
     >
-      {/* Header: Initial Circle, Name/Details, Google Logo */}
+      {/* Header: Initial Circle/Photo, Name/Details, Google Logo */}
       <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', width: '100%' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          {/* Default Google Initials Avatar */}
-          <div style={{
-            width: '40px',
-            height: '40px',
-            borderRadius: '50%',
-            backgroundColor: avatarBgColor,
-            color: '#ffffff',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontWeight: 700,
-            fontSize: '1.2rem',
-            flexShrink: 0,
-            userSelect: 'none',
-          }}>
-            {initial}
+          {/* Avatar with optional Local Guide badge */}
+          <div style={{ position: 'relative', width: '40px', height: '40px', flexShrink: 0 }}>
+            {avatarUrl ? (
+              <img
+                src={avatarUrl}
+                alt={name}
+                style={{
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
+                  objectFit: 'cover',
+                  display: 'block',
+                }}
+              />
+            ) : (
+              <div style={{
+                width: '40px',
+                height: '40px',
+                borderRadius: '50%',
+                backgroundColor: avatarBgColor,
+                color: '#ffffff',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontWeight: 700,
+                fontSize: '1.2rem',
+                userSelect: 'none',
+              }}>
+                {initial}
+              </div>
+            )}
+
+            {isLocalGuide && (
+              <div 
+                title="Lokal guide" 
+                style={{
+                  position: 'absolute',
+                  bottom: '-2px',
+                  right: '-2px',
+                  width: '16px',
+                  height: '16px',
+                  borderRadius: '50%',
+                  backgroundColor: '#ea580c',
+                  border: '2px solid #ffffff',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <Star size={9} fill="#ffffff" color="#ffffff" />
+              </div>
+            )}
           </div>
+
           <div>
             <h4 style={{ margin: 0, fontWeight: 650, fontSize: '0.95rem', color: '#111827', lineHeight: '1.2' }}>
               {name}
             </h4>
-            <p style={{ margin: '3px 0 0 0', fontSize: '0.75rem', color: '#6b7280', fontWeight: 500 }}>
-              {authorSub ?? `${location}, Sverige`}
-            </p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', margin: '3px 0 0 0' }}>
+              <span style={{ fontSize: '0.75rem', color: '#6b7280', fontWeight: 500 }}>
+                {authorSub ?? (location ? `${location}, Sverige` : 'Recension från Google')}
+              </span>
+            </div>
           </div>
         </div>
 
@@ -119,7 +162,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
           ))}
         </div>
         <span style={{ fontSize: '0.75rem', color: '#888888' }}>
-          {date}
+          {stars}/5 · {date}
         </span>
       </div>
 
@@ -131,7 +174,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
         color: '#4b5563',
         fontWeight: 400,
       }}>
-        {text}
+        {text || 'Gav Finnträsk Entreprenad högsta betyg (5 av 5 stjärnor) på Google.'}
       </p>
     </div>
   );
