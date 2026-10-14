@@ -10,7 +10,7 @@ interface IconProps {
 /**
  * 1. Grävning: Heavy excavator boom, hydraulic arm & tooth bucket digging into soil
  */
-export function GravningIcon({ color = '#c28447', size = 38, style }: IconProps) {
+export function GravningIcon({ color = '#ff7900', size = 38, style }: IconProps) {
   return (
     <svg
       width={size}
@@ -45,7 +45,7 @@ export function GravningIcon({ color = '#c28447', size = 38, style }: IconProps)
 /**
  * 2. Byggnation: House construction frame, roof rafters & hammer
  */
-export function ByggnationIcon({ color = '#c28447', size = 38, style }: IconProps) {
+export function ByggnationIcon({ color = '#ff7900', size = 38, style }: IconProps) {
   return (
     <svg
       width={size}
@@ -77,7 +77,7 @@ export function ByggnationIcon({ color = '#c28447', size = 38, style }: IconProp
 /**
  * 3. Betong: 3D concrete foundation slab & finishing float / trowel
  */
-export function BetongIcon({ color = '#c28447', size = 38, style }: IconProps) {
+export function BetongIcon({ color = '#ff7900', size = 38, style }: IconProps) {
   return (
     <svg
       width={size}
@@ -107,7 +107,7 @@ export function BetongIcon({ color = '#c28447', size = 38, style }: IconProps) {
 /**
  * 4. Maskinförare: Heavy equipment operator steering / joystick controls & industrial gear
  */
-export function MaskinforareIcon({ color = '#c28447', size = 38, style }: IconProps) {
+export function MaskinforareIcon({ color = '#ff7900', size = 38, style }: IconProps) {
   return (
     <svg
       width={size}
@@ -140,7 +140,7 @@ export function MaskinforareIcon({ color = '#c28447', size = 38, style }: IconPr
 /**
  * 5. Skogsentreprenad: Spruce trees beside a winding forest road
  */
-export function SkogIcon({ color = '#c28447', size = 38, style }: IconProps) {
+export function SkogIcon({ color = '#ff7900', size = 38, style }: IconProps) {
   return (
     <svg
       width={size}
@@ -170,7 +170,7 @@ export function SkogIcon({ color = '#c28447', size = 38, style }: IconProps) {
 /**
  * 6. Fastighetsservice: House with snow on the roof and a tree beside it
  */
-export function FastighetIcon({ color = '#c28447', size = 38, style }: IconProps) {
+export function FastighetIcon({ color = '#ff7900', size = 38, style }: IconProps) {
   return (
     <svg
       width={size}

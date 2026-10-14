@@ -274,19 +274,42 @@ export default function Contact() {
 
                   {status === 'success' && (
                     <div style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '12px',
                       padding: '16px',
                       background: 'rgba(34, 197, 94, 0.1)',
                       border: '1px solid rgba(34, 197, 94, 0.3)',
                       borderRadius: '12px',
                       marginBottom: '20px',
                     }}>
-                      <CheckCircle2 size={22} color="#22c55e" />
-                      <p style={{ margin: 0, color: '#16a34a', fontSize: '0.9rem', fontWeight: 600 }}>
-                        Tack för ditt meddelande! Vi återkommer så snart som möjligt.
-                      </p>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
+                        <CheckCircle2 size={22} color="#22c55e" style={{ flexShrink: 0 }} />
+                        <p style={{ margin: 0, color: '#16a34a', fontSize: '0.9rem', fontWeight: 600 }}>
+                          Tack för ditt meddelande! Vi återkommer så snart som möjligt.
+                        </p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setStatus('idle');
+                          setName('');
+                          setEmail('');
+                          setPhone('');
+                          setService('');
+                          setMessage('');
+                        }}
+                        style={{
+                          background: 'none',
+                          border: 'none',
+                          padding: 0,
+                          color: 'var(--color-primary)',
+                          fontWeight: 600,
+                          fontSize: '0.85rem',
+                          cursor: 'pointer',
+                          textDecoration: 'underline',
+                          marginLeft: '34px',
+                        }}
+                      >
+                        Skicka en till förfrågan
+                      </button>
                     </div>
                   )}
 

@@ -95,6 +95,45 @@ export default function Footer() {
                 </a>
               ))}
             </div>
+
+            {/* Huvudnavigering */}
+            <div style={{ marginTop: '22px' }}>
+              <div style={{
+                fontSize: '0.78rem',
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                letterSpacing: '0.06em',
+                color: 'var(--color-text-dark)',
+                marginBottom: '10px',
+              }}>
+                Snabblänkar
+              </div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 14px' }}>
+                {[
+                  { label: 'Hem', href: '/' },
+                  { label: 'Tjänster', href: '/tjanster' },
+                  { label: 'Om oss', href: '/om-oss' },
+                  { label: 'Kontakt', href: '/kontakt' },
+                  { label: 'Offert', href: '/offert' },
+                ].map(item => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    style={{
+                      color: 'var(--color-gray-600)',
+                      textDecoration: 'none',
+                      fontSize: '0.88rem',
+                      fontWeight: 500,
+                      transition: 'color 0.2s ease',
+                    }}
+                    onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = 'var(--color-primary)')}
+                    onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = 'var(--color-gray-600)')}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Column 2: Tjänster */}
@@ -212,12 +251,39 @@ export default function Footer() {
             justifyContent: 'space-between',
             alignItems: 'center',
             flexWrap: 'wrap',
-            gap: '8px',
+            gap: '14px',
           }}
         >
           <div style={{ display: 'flex', gap: '12px', alignItems: 'center', color: 'var(--color-gray-600)', fontSize: '0.875rem', flexWrap: 'wrap' }}>
             <span>© 2026 Finnträsk Entreprenad</span>
           </div>
+
+          <Link
+            to="/offert"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              padding: '9px 22px',
+              background: 'var(--color-primary)',
+              color: '#ffffff',
+              borderRadius: '9999px',
+              fontWeight: 600,
+              fontSize: '0.875rem',
+              textDecoration: 'none',
+              transition: 'background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease',
+              boxShadow: '0 4px 14px rgba(255, 121, 0, 0.25)',
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLElement).style.background = '#e66d00';
+              (e.currentTarget as HTMLElement).style.transform = 'translateY(-1px)';
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLElement).style.background = 'var(--color-primary)';
+              (e.currentTarget as HTMLElement).style.transform = 'none';
+            }}
+          >
+            Begär offert
+          </Link>
         </div>
       </div>
 

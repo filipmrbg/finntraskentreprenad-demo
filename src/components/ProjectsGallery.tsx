@@ -174,7 +174,8 @@ export default function ProjectsGallery() {
             margin: '0 0 16px 0',
             fontWeight: 500,
           }}>
-            Håll muspekaren över för att pausa • Klicka på valfri bild för att förstora
+            <span className="gallery-instruction-desktop">Håll muspekaren över för att pausa • Klicka på valfri bild för att förstora</span>
+            <span className="gallery-instruction-mobile">Tryck på en bild för att förstora</span>
           </p>
           <Button variant="primary" href="/kontakt" size="md">
             Kontakta oss om ditt projekt <ArrowRight size={16} />
@@ -440,6 +441,21 @@ export default function ProjectsGallery() {
         @keyframes modalScaleUp {
           from { transform: scale(0.95); opacity: 0; }
           to { transform: scale(1); opacity: 1; }
+        }
+
+        .gallery-instruction-mobile {
+          display: none;
+        }
+        .gallery-instruction-desktop {
+          display: inline;
+        }
+        @media (max-width: 768px) {
+          .gallery-instruction-desktop {
+            display: none !important;
+          }
+          .gallery-instruction-mobile {
+            display: inline !important;
+          }
         }
       ` }} />
     </section>

@@ -171,7 +171,7 @@ export default function ServiceDetail() {
                 padding: 'clamp(24px, 3vw, 34px)',
               }}>
                 <div style={{ marginBottom: '18px' }}>
-                  <ServiceIcon type={svc.slug} color="#c28447" size={42} />
+                  <ServiceIcon type={svc.slug} color="#ff7900" size={42} />
                 </div>
                 <h3 style={{
                   color: 'var(--color-text-dark)',
@@ -381,7 +381,7 @@ export default function ServiceDetail() {
         }
         .sd-sub-num {
           font-size: 2rem; font-weight: 800; line-height: 1; letter-spacing: -0.03em;
-          color: transparent; -webkit-text-stroke: 1.5px #c28447;
+          color: transparent; -webkit-text-stroke: 1.5px #ff7900;
         }
         .sd-others { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
         .sd-other {

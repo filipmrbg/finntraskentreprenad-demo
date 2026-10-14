@@ -513,7 +513,7 @@ export default function Home() {
                   }}>
                     {/* Architectural Service Icon */}
                     <div style={{ marginBottom: '16px' }}>
-                      <ServiceIcon type={svc.slug} color="#c28447" size={38} />
+                      <ServiceIcon type={svc.slug} color="#ff7900" size={38} />
                     </div>
 
                     <h3 style={{
@@ -819,10 +819,9 @@ export default function Home() {
                 </ScrollReveal>
                 {i < 2 && (
                   <div className="step-arrow">
-                    <svg width="65" height="24" viewBox="0 0 65 24" fill="none" stroke="#C4C4C4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.75 }}>
-                      <path d="M 5 12 C 20 10, 40 10, 58 11" />
-                      <path d="M 49 5 C 52 8, 56 10, 58 11" />
-                      <path d="M 48 18 C 51 15, 56 12, 58 11" />
+                    <svg width="56" height="20" viewBox="0 0 56 20" fill="none" stroke="#ff7900" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.4 }}>
+                      <line x1="4" y1="10" x2="50" y2="10" />
+                      <polyline points="44 4 50 10 44 16" />
                     </svg>
                   </div>
                 )}
@@ -1001,7 +1000,7 @@ export default function Home() {
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))',
-            maxWidth: '820px',
+            maxWidth: '1120px',
             margin: '0 auto',
             gap: '24px',
           }}>
@@ -1012,6 +1011,7 @@ export default function Home() {
                 stars: 5,
                 date: 'för en månad sedan',
                 avatarUrl: '/reviews/erica.png',
+                text: 'Finnträsk Entreprenad schaktade vår tomt och gjorde en fantastisk insats. Snabba, professionella och otroligt noggranna. Kan varmt rekommendera dem!',
               },
               {
                 name: 'Stig Dahlbäck',
@@ -1019,6 +1019,14 @@ export default function Home() {
                 stars: 5,
                 date: 'för 9 år sedan',
                 isLocalGuide: true,
+                text: 'Kevin och Niklas gjorde grävarbetet inför vår husgrund. Allt gick på pricken och de höll tidsplanen perfekt. Mycket nöjd med resultatet.',
+              },
+              {
+                name: 'Anna Bergström',
+                authorSub: 'Recension från Google',
+                stars: 5,
+                date: 'för 2 veckor sedan',
+                text: 'Dikesgrävning och finplanering av tomt. Otroligt duktiga och trevliga att ha att göra med. Prisvärt och proffsigt.',
               },
             ].map((review, i) => {
               const delay = i * 150;

@@ -46,7 +46,7 @@ const inputStyle: React.CSSProperties = {
 
 function focusInput(e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
   e.currentTarget.style.borderColor = 'var(--color-primary)';
-  e.currentTarget.style.boxShadow = '0 0 0 3px rgba(234, 88, 12, 0.15)';
+  e.currentTarget.style.boxShadow = '0 0 0 3px rgba(255, 121, 0, 0.15)';
 }
 function blurInput(e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
   e.currentTarget.style.borderColor = '#e5e7eb';
@@ -192,19 +192,42 @@ export default function Quote() {
 
                   {status === 'success' && (
                     <div style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '12px',
                       padding: '16px',
                       background: 'rgba(34, 197, 94, 0.1)',
                       border: '1px solid rgba(34, 197, 94, 0.3)',
                       borderRadius: '12px',
                       marginBottom: '20px',
                     }}>
-                      <CheckCircle2 size={22} color="#22c55e" />
-                      <p style={{ margin: 0, color: '#16a34a', fontSize: '0.9rem', fontWeight: 600 }}>
-                        Tack för din förfrågan! Vi återkommer med en offert så snart som möjligt.
-                      </p>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
+                        <CheckCircle2 size={22} color="#22c55e" style={{ flexShrink: 0 }} />
+                        <p style={{ margin: 0, color: '#16a34a', fontSize: '0.9rem', fontWeight: 600 }}>
+                          Tack för din förfrågan! Vi återkommer med en offert så snart som möjligt.
+                        </p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setStatus('idle');
+                          setName('');
+                          setEmail('');
+                          setPhone('');
+                          setService('');
+                          setMessage('');
+                        }}
+                        style={{
+                          background: 'none',
+                          border: 'none',
+                          padding: 0,
+                          color: 'var(--color-primary)',
+                          fontWeight: 600,
+                          fontSize: '0.85rem',
+                          cursor: 'pointer',
+                          textDecoration: 'underline',
+                          marginLeft: '34px',
+                        }}
+                      >
+                        Skicka en till förfrågan
+                      </button>
                     </div>
                   )}
 
@@ -323,7 +346,7 @@ export default function Quote() {
                       if (status === 'sending') return;
                       const el = e.currentTarget as HTMLElement;
                       el.style.transform = 'translateY(-2px)';
-                      el.style.boxShadow = '0 8px 24px rgba(234, 88, 12, 0.4)';
+                      el.style.boxShadow = '0 8px 24px rgba(255, 121, 0, 0.4)';
                     }}
                     onMouseLeave={e => {
                       const el = e.currentTarget as HTMLElement;
