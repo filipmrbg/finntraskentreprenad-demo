@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Phone, MapPin, Mail, Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import ScrollReveal from '../components/ScrollReveal';
 import FAQAccordion from '../components/FAQAccordion';
 import CTABanner from '../components/CTABanner';
 import { usePageTitle } from '../hooks/usePageTitle';
+import { submitContactForm } from '../lib/submitForm';
+import { services } from '../data/services';
 
 const container: React.CSSProperties = {
   maxWidth: 'var(--container-max)',
@@ -68,14 +70,25 @@ export default function Contact() {
   const [status, setStatus]   = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [errorMsg, setErrorMsg] = useState('');
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const preselected = params.get('tjanst') || params.get('service');
+    if (preselected) {
+      const matched = services.find(s => s.slug === preselected);
+      if (matched) setService(matched.slug);
+      else if (preselected === 'annat') setService('annat');
+    }
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('sending');
     setErrorMsg('');
 
     try {
-      // Simulerad inskickning för demo-template
-      await new Promise((resolve) => setTimeout(resolve, 600));
+      await submitContactForm({
+        name, email, phone, service, message, source: 'contact',
+      });
 
       setStatus('success');
       setName('');
@@ -352,11 +365,10 @@ export default function Contact() {
                     onBlur={blurInput}
                   >
                     <option value="">Välj tjänst...</option>
-                    <option value="gravning">Schaktning</option>
-                    <option value="byggnation">Markanläggning</option>
-                    <option value="betong">Grundläggning</option>
-                    <option value="maskintjanster">Maskintjänster</option>
-                    <option value="annat">Annat entreprenadprojekt</option>
+                    {services.map(s => (
+                      <option key={s.slug} value={s.slug}>{s.title}</option>
+                    ))}
+                    <option value="annat">Övrigt / Annat arbete</option>
                   </select>
 
                   <label style={{ display: 'block', marginBottom: '4px', fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-text-dark)' }}>
