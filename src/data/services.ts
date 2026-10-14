@@ -3,156 +3,286 @@ export interface FAQItem {
   answer: string;
 }
 
+export interface SubService {
+  /** Anchor id on the service page, e.g. /tjanster/markarbeten#schakter */
+  id: string;
+  name: string;
+  text: string;
+  bullets?: string[];
+}
+
 export interface ServiceItem {
   slug: string;
   title: string;
+  /** Visible H1 on the service page */
+  h1: string;
   shortDescription: string;
   heroText: string;
   detailedDescription: string;
   heroImage: string;
   image: string;
+  imageAlt: string;
   href: string;
   tag?: string;
   badge?: string;
   highlights?: string[];
-  sections?: Array<{
-    heading?: string;
-    text?: string;
-    image?: string;
-    bullets?: string[];
-    subsections?: Array<{
-      subheading: string;
-      text: string;
-    }>;
-  }>;
+  subServices: SubService[];
   faq?: FAQItem[];
-  iconName?: string;
-  features?: string[];
-  seoTitle?: string;
-  seoDescription?: string;
+  seoTitle: string;
+  seoDescription: string;
 }
 
 export const services: ServiceItem[] = [
   {
-    slug: 'gravning',
-    title: 'Schaktning',
-    shortDescription: 'Allt inom mark och schaktarbeten, tomtplanering, grundgrävning, dikesgrävning och kabelgrävning i Västerbotten med omnejd.',
-    heroText: 'Allt inom mark och schaktarbeten med precision för trygga grunder och hållbara markytor.',
-    detailedDescription: `Planerar du ett markarbete, schaktning inför nybyggnation eller dränering av husgrund? Finnträsk Entreprenad är ett företag med stark lokal förankring i Västerbotten som utför allt inom mark och schaktarbeten. Med stor kunskap och bredd löser vi det mesta.
+    slug: 'markarbeten',
+    title: 'Markarbeten',
+    h1: 'Markarbeten i Skellefteå',
+    shortDescription: 'Schakter, infarter, dikning och jordvärmegrävning för villa, fritidshus, lantbruk och företag.',
+    heroText: 'Schaktning, infarter, dikning och jordvärmegrävning utfört av ett lokalt familjeföretag med egna maskiner.',
+    detailedDescription: `Ett bra markarbete märks inte, det bara fungerar. Vattnet rinner åt rätt håll, infarten håller för tung trafik och marken sätter sig inte efter första vintern. Det är det vi jobbar för på varje uppdrag.
 
-Vi hjälper privatpersoner, lantbruk, företag och fastighetsägare i Västerbotten med allt från tomtplanering och dikesgrävning till ledningsgrävning och finplanering. Hör av dig till Niklas eller Kevin så diskuterar vi fram den bästa lösningen.`,
+Vi utgår från Finnträsk och gör markarbeten åt privatpersoner, lantbruk och företag i Skellefteå, Byske, Kåge, Ursviken, Bureå och resten av Västerbotten. Du har direktkontakt med Niklas eller Kevin genom hela jobbet, från platsbesök till färdig yta.`,
     heroImage: '/service-gravning.webp',
     image: '/service-gravning.webp',
-    href: '/tjanster#gravning',
-    tag: 'Schaktning',
-    badge: 'Precision och erfarenhet',
+    imageAlt: 'Grävmaskin som schaktar inför markarbete i Skellefteå',
+    href: '/tjanster/markarbeten',
+    tag: 'Markarbeten',
+    badge: 'Schakt och mark',
     highlights: [
-      'Schaktning och tomtplanering',
-      'Grundgrävning inför hus och garage',
-      'Dikesgrävning och vägunderhåll',
-      'Kabel och ledningsgrävning',
+      'Schakt inför villa, garage och maskinhall',
+      'Nya infarter och förstärkning av befintliga',
+      'Dikning och avvattning av tomt och mark',
+      'Grävning för jordvärme och kollektorslang',
+    ],
+    subServices: [
+      {
+        id: 'schakter',
+        name: 'Schakter',
+        text: 'Vi schaktar ur för husgrunder, garage, attefallshus, maskinhallar och tillbyggnader. Matjord och lösa massor tas bort ner till bärkraftig botten, och vi ser till att schaktbotten får rätt nivå inför nästa steg. Överblivna massor kan vi lägga upp på tomten eller köra bort.',
+        bullets: ['Husgrund, garage och attefallshus', 'Ledningsschakt för el, fiber och vatten', 'Bortforsling eller omfördelning av massor'],
+      },
+      {
+        id: 'infarter',
+        name: 'Infarter',
+        text: 'En infart ska tåla tunga fordon, tjäle och snöröjning år efter år. Vi gräver ur, lägger fiberduk vid behov, bygger upp med förstärkningslager och bärlager och avslutar med slitlager av grus. Trumma under infarten löser vi också, så att diket fortsätter fungera.',
+        bullets: ['Ny infart till villa eller fritidshus', 'Breddning och förstärkning av gammal infart', 'Vägtrumma och avvattning'],
+      },
+      {
+        id: 'dikning',
+        name: 'Dikning',
+        text: 'Står vatten kvar på tomten eller åkern på våren är det ofta diket som behöver ses över. Vi gräver nya diken, rensar igenvuxna diken och lägger trummor där det behövs, så att vattnet leds bort från hus, vägar och odlingsmark.',
+        bullets: ['Nya diken och dikesrensning', 'Avvattning av tomt, väg och åker', 'Trummor och utlopp'],
+      },
+      {
+        id: 'jordvarmegravning',
+        name: 'Jordvärmegrävning',
+        text: 'Ska du installera jordvärme med ytjordvärme behöver kollektorslangen grävas ner på rätt djup och med rätt avstånd. Vi gräver schaktet i samarbete med din värmepumpsinstallatör och återfyller noggrant så att tomten kan återställas efteråt.',
+        bullets: ['Grävning för ytjordvärme', 'Schakt för anslutning in till huset', 'Återfyllning och återställning av tomt'],
+      },
     ],
     faq: [
       {
-        question: 'Hur snabbt kan ni påbörja ett grävarbete?',
-        answer: 'Mindre gräv och schaktarbeten kan vi oftast påbörja inom 1 till 2 veckor beroende på maskinbokning och säsong.',
+        question: 'Hur snabbt kan ni börja med ett markarbete i Skellefteå?',
+        answer: 'Det beror på säsong och hur mycket vi har inbokat. Mindre jobb kan ofta starta inom ett par veckor. Ring Niklas eller Kevin så får du ett ärligt besked direkt.',
       },
       {
-        question: 'Utför ni även tomtplanering och dikesgrävning?',
-        answer: 'Ja, vi har stor erfarenhet av tomtplanering, dikesrensning och vägunderhåll i Västerbotten med omnejd.',
+        question: 'Tar ni hand om massorna som grävs upp?',
+        answer: 'Ja. Vi kan lägga upp massorna på tomten för återfyllning eller köra bort dem, beroende på vad som passar ditt projekt bäst.',
+      },
+      {
+        question: 'Kan jag få ROT-avdrag för markarbete?',
+        answer: 'Vissa markarbeten i anslutning till bostaden ger rätt till ROT-avdrag, till exempel dränering runt huset. Vi går igenom vad som gäller för just ditt jobb när vi lämnar offert.',
       },
     ],
+    seoTitle: 'Markarbeten i Skellefteå: schakt, infarter och dikning | Finnträsk Entreprenad',
+    seoDescription: 'Schakter, infarter, dikning och jordvärmegrävning i Skellefteå, Byske och Västerbotten. Lokalt familjeföretag med egna maskiner. Begär kostnadsfri offert.',
   },
   {
-    slug: 'byggnation',
-    title: 'Markanläggning',
-    shortDescription: 'Kundanpassade anläggningsarbeten, grillplatser, markbeläggningar, stenmurar och utemiljöer med gedigen finish.',
-    heroText: 'Kvalitativa anläggningsarbeten och utemiljöer anpassade efter dina visioner och behov.',
-    detailedDescription: `Vill du anlägga en trivsam grillplats, förbereda för en ny uteplats eller skapa en funktionell och vacker tomtmiljö? Finnträsk Entreprenad förverkligar dina idéer med gediget hantverk och omsorg om detaljerna.
-
-Vi tar hand om hela processen från urgrävning och bärlager till stensättning, markbeläggning och finjustering. Som familjeföretaget i Västerbotten gör vi visioner till verklighet.`,
-    heroImage: '/service-byggnation.webp',
-    image: '/service-byggnation.webp',
-    href: '/tjanster#byggnation',
-    tag: 'Markanläggning',
-    badge: 'Hantverk och kvalitet',
-    highlights: [
-      'Anläggning av grillplatser och uteplatser',
-      'Markbeläggningar, sten och bärlager',
-      'Tomtberedning och grönytor',
-      'Gediget utförande med fasta priser',
-    ],
-    faq: [
-      {
-        question: 'Hjälper ni till med idéer och utformning av utemiljön?',
-        answer: 'Absolut! Vi bollar gärna materialval, höjdsättning och utformning utifrån tomtens naturliga förutsättningar.',
-      },
-      {
-        question: 'Kan privatpersoner nyttja ROT avdrag?',
-        answer: 'Vid godkända mark och grundarbeten i anslutning till bostadshus hjälper vi gärna till att administrera ROT avdraget direkt på fakturan.',
-      },
-    ],
-  },
-  {
-    slug: 'betong',
+    slug: 'grundlaggning',
     title: 'Grundläggning',
-    shortDescription: 'Gjutning av betongplatta på mark, armering, socklar, stödmurar och formgjutning för garage, maskinhallar och villor.',
-    heroText: 'Stabila och hållbara betonggrunder gjutna med högsta precision och noggrannhet.',
-    detailedDescription: `En stabil grund är förutsättningen för ett lyckat bygge. Finnträsk Entreprenad utför kompletta mark och grundarbeten inför gjutning av platta på mark för villor, maskinhallar, fritidshus och garage i Västerbotten med omnejd.
+    h1: 'Grundläggning och dränering i Skellefteå',
+    shortDescription: 'Grunder för hus och garage, dränering med Isodränskiva och VA-arbete.',
+    heroText: 'Stabila grunder, fungerande dränering och VA-arbete gjort ordentligt från början.',
+    detailedDescription: `Grunden är den del av huset du aldrig ser, men som allt annat vilar på. Ett misstag här blir dyrt att rätta till i efterhand. Därför lägger vi stor vikt vid underarbetet: rätt schaktdjup, dränerande material, ordentlig packning och exakta höjder.
 
-Vi ombesörjer hela kedjan: schaktning, dränerande bärlager, isolering, armering och förberedelser inför gjutning för att säkerställa ett perfekt och fuktsäkert resultat.`,
+Vi gör grundarbeten för villor, garage, attefallshus och ekonomibyggnader, dränerar om äldre hus och utför VA-arbeten i Skellefteå, Byske, Kåge, Bureå, Burträsk och övriga Västerbotten.`,
     heroImage: '/service-betong.webp',
     image: '/service-betong.webp',
-    href: '/tjanster#betong',
+    imageAlt: 'Grundarbete inför platta på mark för garage i Västerbotten',
+    href: '/tjanster/grundlaggning',
     tag: 'Grundläggning',
-    badge: 'Stabila Grunder',
+    badge: 'Stabila grunder',
     highlights: [
       'Grundarbeten för platta på mark',
-      'Schaktning, bärlager och markisolering',
-      'Gjutning av stödmurar och socklar',
-      'Noggrann höjdsättning och packning',
+      'Dränering med Isodränskiva runt huset',
+      'VA-arbete och anslutning till kommunalt nät',
+      'Noggrann packning och laseravvägning',
+    ],
+    subServices: [
+      {
+        id: 'grunder',
+        name: 'Grunder',
+        text: 'Vi förbereder grunden för platta på mark, plintgrund eller krypgrund. Det innebär schakt till bärkraftig botten, uppbyggnad med dränerande makadam, packning i lager och avvägning med laser så att plattan hamnar exakt rätt. Vi samarbetar gärna med din byggare eller ditt husföretag.',
+        bullets: ['Villa, garage och attefallshus', 'Maskinhallar och ekonomibyggnader', 'Plintar och mindre grunder för förråd och altan'],
+      },
+      {
+        id: 'dranering-isodran',
+        name: 'Dränering med Isodränskiva',
+        text: 'Fuktig källare eller lukt i krypgrunden är ofta ett tecken på att dräneringen har gjort sitt. Vi gräver fram grunden, lägger ny dräneringsledning och monterar Isodränskiva mot grundmuren. Skivan både isolerar och leder bort vatten, vilket ger en torrare och varmare grund.',
+        bullets: ['Omdränering av äldre villor', 'Isodränskiva mot källarvägg och grundmur', 'Spolbrunnar och ny dräneringsledning'],
+      },
+      {
+        id: 'va-arbete',
+        name: 'VA-arbete',
+        text: 'Vi gräver för vatten och avlopp, både vid anslutning till kommunalt nät och för enskilda lösningar på landsbygden. Ledningarna läggs på frostfritt djup eller isoleras där det inte går att gräva djupt, vilket är viktigt här uppe i norr.',
+        bullets: ['Anslutning till kommunalt VA', 'Byte av gamla avloppsledningar', 'Schakt för enskilt avlopp'],
+      },
     ],
     faq: [
       {
-        question: 'Vad krävs innan man kan gjuta en platta?',
-        answer: 'Marken behöver schaktas ur till fast botten, fyllas med dränerande bärlager och packas noggrant med vibroplatta innan isolering och armering installeras.',
+        question: 'Vad krävs innan man kan gjuta en platta på mark?',
+        answer: 'Marken schaktas ur till fast botten, fylls med dränerande material, packas i lager och avvägs noggrant. Därefter läggs isolering och armering innan gjutning.',
       },
       {
-        question: 'Gör ni grunder för både garage och större hallar?',
-        answer: 'Ja, vi utför grundarbeten för allt från privata garage och attefallshus till större maskinhallar och ekonomibyggnader.',
+        question: 'Hur vet jag om huset behöver ny dränering?',
+        answer: 'Vanliga tecken är fukt eller mögellukt i källaren, saltutfällningar på källarväggen eller att huset är äldre än 30 till 40 år. Vi kommer gärna ut och tittar.',
+      },
+      {
+        question: 'Varför Isodränskiva?',
+        answer: 'Isodränskivan både isolerar grundmuren och leder bort vatten. Det ger en torrare och varmare grund jämfört med att bara byta dräneringsrör.',
       },
     ],
+    seoTitle: 'Grundläggning, dränering och VA i Skellefteå | Finnträsk Entreprenad',
+    seoDescription: 'Grunder för hus och garage, dränering med Isodränskiva och VA-arbete i Skellefteå och Västerbotten. Noggrant underarbete. Begär kostnadsfri offert.',
   },
   {
-    slug: 'maskinforare',
-    title: 'Maskintjänster',
-    shortDescription: 'Kompletta entreprenadtjänster, erfarna maskinförare, trädfällning från skylift och transporter för större uppdrag.',
-    heroText: 'Erfarna maskinförare och gedigen transportbakgrund för alla typer av entreprenaduppdrag.',
-    detailedDescription: `Behöver du anlita en erfaren maskinförare eller boka maskintjänster för ditt entreprenadprojekt? Finnträsk Entreprenad har en gedigen bakgrund inom transportsektorn med goda kontakter, vilket gör att vi kan åta oss även större uppdrag.
+    slug: 'skogsentreprenad',
+    title: 'Skogsentreprenad',
+    h1: 'Skogsvägar, stugvägar och högläggning i Västerbotten',
+    shortDescription: 'Skogsvägar, stugvägar och högläggning av hyggen för skogsägare och fritidshusägare.',
+    heroText: 'Vägar som håller och hyggen som är redo för plantering, byggt med kunskap om norrländsk terräng.',
+    detailedDescription: `Många av våra uppdrag ligger utanför tätorterna. Vi bygger och förbättrar skogsvägar och stugvägar och hjälper skogsägare att förbereda hyggen inför föryngring.
 
-Vi erbjuder även specialtjänster såsom säker trädfällning med skylift, materialtransporter, schaktmassor och markberedning. Vi arbetar snabbt, säkert och med full hänsyn till omgivningen.`,
+Vi känner terrängen och förhållandena i Skellefteå kommun och Västerbotten, med tjäle, myrmark och korta säsonger. Det påverkar hur en väg ska byggas för att hålla i många år.`,
     heroImage: '/service-maskinforare.webp',
     image: '/service-maskinforare.webp',
-    href: '/tjanster#maskinforare',
-    tag: 'Maskintjänster',
-    badge: 'Bred Kapacitet',
+    imageAlt: 'Grävmaskin i skogsterräng i Västerbotten',
+    href: '/tjanster/skogsentreprenad',
+    tag: 'Skogsentreprenad',
+    badge: 'Skog och väg',
     highlights: [
-      'Erfarna maskinförare med bred kompetens',
-      'Säker trädfällning med skylift',
-      'Gedigen bakgrund inom transportsektorn',
-      'Flexibla upplägg per timme eller fast pris',
+      'Nybyggnation av skogsvägar',
+      'Stugvägar och vägar till fritidshus',
+      'Högläggning av hyggen inför plantering',
+      'Diken och trummor längs vägen',
+    ],
+    subServices: [
+      {
+        id: 'skogsvagar',
+        name: 'Skogsvägar',
+        text: 'En välbyggd skogsväg gör det möjligt att sköta och avverka skogen på ett lönsamt sätt. Vi bygger nya vägar och rustar upp befintliga med ny vägkropp, diken, trummor och slitlager, anpassat efter hur vägen ska användas.',
+        bullets: ['Nybyggnation och upprustning', 'Vändplaner och avlägg', 'Diken och vägtrummor'],
+      },
+      {
+        id: 'stugvagar',
+        name: 'Stugvägar',
+        text: 'Drömmer du om att kunna köra hela vägen fram till stugan? Vi bygger stugvägar och infarter till fritidshus, även i svårare terräng. Vägen anpassas så att den fungerar året runt och klarar snöröjning.',
+        bullets: ['Ny väg fram till fritidshus', 'Förstärkning av befintlig stugväg', 'Parkering och vändplats vid stugan'],
+      },
+      {
+        id: 'hoglaggning-hyggen',
+        name: 'Högläggning av hyggen',
+        text: 'Högläggning innebär att plantorna sätts i upphöjda högar av omvänd torv och jord. Det ger varmare och torrare växtplats och bättre överlevnad för plantorna, särskilt på fuktig mark. Vi utför högläggning med grävmaskin på hyggen i hela Västerbotten.',
+        bullets: ['Markberedning inför plantering', 'Passar fuktig och tung mark', 'Uppdrag åt skogsägare och skogsbolag'],
+      },
     ],
     faq: [
       {
-        question: 'Arbetar ni på löpande räkning eller fast pris?',
-        answer: 'Vi erbjuder både fasta offerter för hela entreprenader och löpande timdebitering för maskintjänster och transport, beroende på vad som passar bäst.',
+        question: 'Vad kostar det att bygga en stugväg?',
+        answer: 'Det beror på vägens längd, terrängen och vilket material som finns på plats. Vi gör ett kostnadsfritt platsbesök och lämnar ett tydligt prisförslag.',
       },
       {
-        question: 'Vilka områden i Västerbotten arbetar ni i?',
-        answer: 'Vi utgår från Finnträsk i Västerbotten och utför uppdrag i Byske, Skellefteå, Piteå och omnejd i hela regionen.',
+        question: 'Vad är fördelen med högläggning jämfört med harvning?',
+        answer: 'Högläggning ger plantorna en upphöjd, varmare och torrare växtplats. Det fungerar särskilt bra på fuktig mark där harvning ger sämre resultat.',
       },
     ],
+    seoTitle: 'Skogsvägar, stugvägar och högläggning i Västerbotten | Finnträsk Entreprenad',
+    seoDescription: 'Vi bygger skogsvägar och stugvägar och utför högläggning av hyggen i Skellefteå kommun och Västerbotten. Lokalt familjeföretag från Finnträsk.',
+  },
+  {
+    slug: 'fastighetsservice',
+    title: 'Fastighetsservice',
+    h1: 'Trädfällning, trädgård och takskottning i Skellefteå',
+    shortDescription: 'Trädgårdsanläggning, trädfällning med skylift, stubbortagning och skottning av tak.',
+    heroText: 'Hjälp med tomten och huset året runt, från trädgårdsanläggning på sommaren till takskottning på vintern.',
+    detailedDescription: `Vi hjälper villaägare, bostadsrättsföreningar och företag med tomten och fastigheten under hela året. På sommaren anlägger vi trädgårdar och tar ner träd, på vintern skottar vi tak innan snölasten blir ett problem.
+
+Vi arbetar i Skellefteå, Byske, Kåge, Ursviken och omkringliggande orter. Du får ett fast pris eller ett tydligt upplägg innan vi börjar.`,
+    heroImage: '/gallery/gallery-3.jpg',
+    image: '/gallery/gallery-3.jpg',
+    imageAlt: 'Trädfällning med skylift vid villa i Skellefteå',
+    href: '/tjanster/fastighetsservice',
+    tag: 'Fastighetsservice',
+    badge: 'Året runt',
+    highlights: [
+      'Trädgårdsanläggning och markplanering',
+      'Säker trädfällning med skylift',
+      'Stubbortagning efter fällning',
+      'Skottning av tak vintertid',
+    ],
+    subServices: [
+      {
+        id: 'tradgardsanlaggning',
+        name: 'Trädgårdsanläggning',
+        text: 'Vi förbereder och anlägger trädgården från grunden: grovplanering, jordförbättring, gångar, uteplatser, grillplatser och ytor för gräsmatta. Du får en tomt med rätt lutning, där vattnet rinner bort från huset.',
+        bullets: ['Planering och utjämning av tomt', 'Uteplatser, gångar och grillplatser', 'Underarbete för gräsmatta och planteringar'],
+      },
+      {
+        id: 'tradfallning',
+        name: 'Trädfällning',
+        text: 'Träd som står nära hus, ledningar eller vägar kan inte fällas på vanligt sätt. Vi tar ner dem i sektioner med hjälp av skylift, bit för bit och kontrollerat. Ris och stammar kan vi forsla bort eller lämna kapat som ved.',
+        bullets: ['Sektionsfällning med skylift', 'Riskträd nära hus och ledningar', 'Bortforsling av ris och virke'],
+      },
+      {
+        id: 'stubbortagning',
+        name: 'Stubbortagning',
+        text: 'En stubbe som står kvar efter fällningen är i vägen för gräsklipparen och skjuter ofta nya skott. Vi gräver eller fräser bort stubben och fyller igen hålet, så att ytan kan användas igen.',
+        bullets: ['Stubbar efter trädfällning', 'Återfyllning av hålet', 'Gärna i samband med trädfällning'],
+      },
+      {
+        id: 'takskottning',
+        name: 'Skottning av tak',
+        text: 'Stora snömängder på taket kan ge skador på takstolar och risk för ras. Vi skottar tak på villor, garage, ladugårdar och mindre fastigheter med säkerhetsutrustning och avspärrning där det behövs.',
+        bullets: ['Villor, garage och ekonomibyggnader', 'Avspärrning och säker arbetsmetod', 'Bortforsling av snö vid behov'],
+      },
+    ],
+    faq: [
+      {
+        question: 'Kan ni fälla träd som står nära huset?',
+        answer: 'Ja. Med skylift tar vi ner trädet i sektioner, uppifrån och ner, utan att det behöver falla i ett stycke. Det är den säkraste metoden nära hus och ledningar.',
+      },
+      {
+        question: 'När behöver taket skottas?',
+        answer: 'Det beror på takets konstruktion och snöns vikt. Blöt och packad snö väger betydligt mer än nysnö. Är du osäker kan du ringa oss så gör vi en bedömning.',
+      },
+    ],
+    seoTitle: 'Trädfällning, stubbortagning och takskottning i Skellefteå | Finnträsk Entreprenad',
+    seoDescription: 'Trädgårdsanläggning, trädfällning med skylift, stubbortagning och skottning av tak i Skellefteå, Byske och Kåge. Begär kostnadsfri offert.',
   },
 ];
+
+/** Maps old slugs (used in earlier links/bookmarks) to the new service groups. */
+export const legacyServiceSlugs: Record<string, string> = {
+  gravning: 'markarbeten',
+  byggnation: 'markarbeten',
+  betong: 'grundlaggning',
+  maskinforare: 'skogsentreprenad',
+  maskintjanster: 'skogsentreprenad',
+};
+
+export function getServiceBySlug(slug: string | undefined): ServiceItem | undefined {
+  if (!slug) return undefined;
+  return services.find((s) => s.slug === slug);
+}
 
 export default services;

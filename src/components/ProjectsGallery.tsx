@@ -239,7 +239,7 @@ export default function ProjectsGallery() {
         document.body
       )}
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .gallery-head-cta:hover {
           border-color: var(--color-primary);
           color: var(--color-primary);
@@ -441,7 +441,7 @@ export default function ProjectsGallery() {
           from { transform: scale(0.95); opacity: 0; }
           to { transform: scale(1); opacity: 1; }
         }
-      `}</style>
+      ` }} />
     </section>
   );
 }

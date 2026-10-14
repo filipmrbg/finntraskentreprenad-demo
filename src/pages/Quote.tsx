@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { ShieldCheck, Clock, Award, Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import ScrollReveal from '../components/ScrollReveal';
 import FAQAccordion from '../components/FAQAccordion';
 import CTABanner from '../components/CTABanner';
-import { usePageTitle } from '../hooks/usePageTitle';
 import { submitContactForm } from '../lib/submitForm';
-import { services } from '../data/services';
+import services, { legacyServiceSlugs } from '../data/services';
 
 const container: React.CSSProperties = {
   maxWidth: 'var(--container-max)',
@@ -54,10 +54,10 @@ function blurInput(e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | 
 }
 
 export default function Quote() {
-  usePageTitle(
-    'Begär offert | Finnträsk Entreprenad',
-    'Beskriv ditt projekt och begär en kostnadsfri offert för mark och schaktarbeten, tomtplanering, anläggning eller maskintjänster i Västerbotten med omnejd.'
-  );
+  const [searchParams] = useSearchParams();
+  const rawParam = searchParams.get('tjanst') || searchParams.get('service') || '';
+  const mappedService = legacyServiceSlugs[rawParam] || rawParam;
+
   const [name, setName]       = useState('');
   const [email, setEmail]     = useState('');
   const [phone, setPhone]     = useState('');
@@ -67,14 +67,10 @@ export default function Quote() {
   const [errorMsg, setErrorMsg] = useState('');
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const preselected = params.get('tjanst') || params.get('service');
-    if (preselected) {
-      const matched = services.find(s => s.slug === preselected);
-      if (matched) setService(matched.slug);
-      else if (preselected === 'annat') setService('annat');
+    if (mappedService) {
+      setService(mappedService);
     }
-  }, []);
+  }, [mappedService]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -104,15 +100,36 @@ export default function Quote() {
       {/* ── SECTION A: HERO ───────────────────────────────────── */}
       <section style={{
         position: 'relative',
-        backgroundImage: 'url(/service-markarbete.webp)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center 40%',
+        overflow: 'hidden',
+        minHeight: '260px',
         paddingTop: '140px',
         paddingBottom: '60px',
         textAlign: 'center',
+        background: '#0f172a',
       }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(15, 23, 42, 0.82) 0%, rgba(15, 23, 42, 0.72) 100%)' }} />
-        <div style={{ ...container, position: 'relative', zIndex: 1 }}>
+        {/* Background Image */}
+        <img
+          src="/service-markarbete.webp"
+          alt=""
+          aria-hidden="true"
+          {...{ fetchpriority: "high" }}
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: 0,
+            opacity: 0.5,
+          }}
+        />
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(180deg, rgba(15, 23, 42, 0.82) 0%, rgba(15, 23, 42, 0.88) 100%)',
+          zIndex: 1,
+        }} />
+        <div style={{ ...container, position: 'relative', zIndex: 2 }}>
           <div>
             <ScrollReveal animation="blur-in">
               <h1 style={{
@@ -136,7 +153,7 @@ export default function Quote() {
                 margin: '20px auto 0',
                 lineHeight: 1.65,
               }}>
-                Beskriv ditt projekt nedan så återkommer vi med en specificerad offert och kalkyl inom 24 timmar.
+                Beskriv ditt projekt nedan så återkommer vi med en specificerad offert och kalkyl så snart som möjligt.
               </p>
             </ScrollReveal>
           </div>
@@ -186,7 +203,7 @@ export default function Quote() {
                     }}>
                       <CheckCircle2 size={22} color="#22c55e" />
                       <p style={{ margin: 0, color: '#16a34a', fontSize: '0.9rem', fontWeight: 600 }}>
-                        Tack för din förfrågan! Vi återkommer med en offert inom 24 timmar.
+                        Tack för din förfrågan! Vi återkommer med en offert så snart som möjligt.
                       </p>
                     </div>
                   )}
@@ -261,10 +278,10 @@ export default function Quote() {
                     onBlur={blurInput}
                   >
                     <option value="">Välj tjänst...</option>
-                    {services.map(s => (
-                      <option key={s.slug} value={s.slug}>{s.title}</option>
+                    {services.map((svc) => (
+                      <option key={svc.slug} value={svc.slug}>{svc.title}</option>
                     ))}
-                    <option value="annat">Övrigt / Annat arbete</option>
+                    <option value="annat">Annat entreprenadprojekt</option>
                   </select>
 
 
@@ -335,7 +352,7 @@ export default function Quote() {
                   <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
                     <Clock size={24} color="var(--color-primary)" />
                     <h3 style={{ margin: 0, fontSize: '1.05rem', fontWeight: 700, color: 'var(--color-text-dark)' }}>
-                      Svar inom 24 timmar
+                      Snabbt svar och offert
                     </h3>
                   </div>
                   <p style={{ margin: 0, color: 'var(--color-gray-600)', fontSize: '0.9rem', lineHeight: 1.6 }}>
@@ -413,13 +430,13 @@ export default function Quote() {
       {/* ── SECTION D: CTA BANNER ─────────────────────────────── */}
       <CTABanner />
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @media (max-width: 900px) {
           .quote-grid {
             grid-template-columns: 1fr !important;
           }
         }
-      `}</style>
+      ` }} />
     </main>
   );
 }

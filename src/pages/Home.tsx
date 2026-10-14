@@ -17,7 +17,6 @@ import SocialBanner from '../components/SocialBanner';
 import ProjectsGallery from '../components/ProjectsGallery';
 import FAQAccordion from '../components/FAQAccordion';
 import { ServiceIcon } from '../components/ServiceIcons';
-import { usePageTitle } from '../hooks/usePageTitle';
 import services, { ServiceItem } from '../data/services';
 import images from '../data/images';
 
@@ -51,11 +50,6 @@ const homeFaqItems = [
 ];
 
 export default function Home() {
-  usePageTitle(
-    'Finnträsk Entreprenad | Mark och Schaktarbeten i Västerbotten',
-    'Finnträsk Entreprenad utför professionella mark och schaktarbeten, tomtplanering, anläggning, grundarbeten och maskintjänster i Västerbotten med omnejd. Begär kostnadsfri offert!'
-  );
-
   const { hash, state } = useLocation();
   const heroBgRef = useRef<HTMLDivElement>(null);
   const heroVideoRef = useRef<HTMLVideoElement>(null);
@@ -63,7 +57,7 @@ export default function Home() {
   const desktopVideoUrl = 'https://d8j0ntlcm91z4.cloudfront.net/user_3G5LlmMYORSdAk8SxzXrK2S0Is5/hf_20260930_051043_bafacc09-c033-4a24-ad3e-1038a50119ea.mp4';
   const mobileVideoUrl = 'https://d8j0ntlcm91z4.cloudfront.net/user_3G5LlmMYORSdAk8SxzXrK2S0Is5/hf_20260930_051043_bafacc09-c033-4a24-ad3e-1038a50119ea.mp4';
 
-  const [isMobile, setIsMobile] = useState<boolean>(typeof window !== 'undefined' ? window.innerWidth <= 768 : false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
   const [isCallModalOpen, setIsCallModalOpen] = useState(false);
   const heroVideoUrl = isMobile ? mobileVideoUrl : desktopVideoUrl;
 
@@ -107,6 +101,7 @@ export default function Home() {
 
   useEffect(() => {
     const onResize = () => setIsMobile(window.innerWidth <= 768);
+    onResize();
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
   }, []);
@@ -228,7 +223,7 @@ export default function Home() {
                 display: 'block',
                 marginBottom: '14px',
               }}>
-                UTGÅR FRÅN VÄSTERBOTTEN MED OMNEJD
+                MARKENTREPRENAD I SKELLEFTEÅ OCH VÄSTERBOTTEN
               </span>
             </ScrollReveal>
 
@@ -261,7 +256,7 @@ export default function Home() {
                 textShadow: '0 2px 12px rgba(0, 0, 0, 0.85)',
                 fontWeight: 400,
               }}>
-                Familjeföretaget i Västerbotten som gör visioner till verklighet. Vi utför allt inom mark och schaktarbeten, tomtplanering, anläggning, grundläggning och maskintjänster med personlig service och goda kundrelationer.
+                Familjeföretaget i Västerbotten som gör visioner till verklighet. Vi utför professionella mark- och schaktarbeten, tomtplanering, anläggning, grundläggning och maskintjänster i Skellefteå, Byske och hela Västerbotten med personlig service och goda kundrelationer.
               </p>
             </ScrollReveal>
 
@@ -286,54 +281,78 @@ export default function Home() {
                 </Button>
               </div>
 
-              {/* Both phone numbers presented on the exact same level */}
+              {/* Clean Direct Contact Badges */}
               <div style={{
-                display: 'inline-flex',
+                display: 'flex',
                 alignItems: 'center',
-                gap: '14px',
+                gap: '12px',
                 marginTop: '18px',
-                padding: '8px 18px',
-                borderRadius: '999px',
-                background: 'rgba(15, 23, 42, 0.45)',
-                backdropFilter: 'blur(8px)',
-                WebkitBackdropFilter: 'blur(8px)',
-                border: '1px solid rgba(255, 255, 255, 0.14)',
-                fontSize: '0.88rem',
-                color: 'rgba(255, 255, 255, 0.9)',
                 flexWrap: 'wrap',
               }}>
                 <a
                   href="tel:0705884032"
                   style={{
-                    color: '#ffffff',
-                    textDecoration: 'none',
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '6px',
-                    fontWeight: 500,
-                    transition: 'color 0.2s ease',
+                    gap: '8px',
+                    padding: '8px 16px',
+                    borderRadius: '999px',
+                    background: 'rgba(15, 23, 42, 0.55)',
+                    backdropFilter: 'blur(10px)',
+                    WebkitBackdropFilter: 'blur(10px)',
+                    border: '1px solid rgba(255, 255, 255, 0.16)',
+                    color: '#ffffff',
+                    textDecoration: 'none',
+                    fontSize: '0.9rem',
+                    transition: 'all 0.2s ease',
                   }}
-                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--color-primary)')}
-                  onMouseLeave={e => (e.currentTarget.style.color = '#ffffff')}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.borderColor = 'var(--color-primary)';
+                    e.currentTarget.style.background = 'rgba(15, 23, 42, 0.8)';
+                    e.currentTarget.style.transform = 'translateY(-1px)';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.16)';
+                    e.currentTarget.style.background = 'rgba(15, 23, 42, 0.55)';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }}
                 >
-                  <span style={{ color: 'var(--color-primary)', fontWeight: 700 }}>Niklas:</span> 070 588 40 32
+                  <Phone size={14} color="var(--color-primary)" />
+                  <span style={{ fontWeight: 600 }}>Niklas:</span>
+                  <span style={{ color: 'rgba(255, 255, 255, 0.9)' }}>070-588 40 32</span>
                 </a>
-                <span style={{ color: 'rgba(255, 255, 255, 0.35)' }}>•</span>
+
                 <a
                   href="tel:0705884042"
                   style={{
-                    color: '#ffffff',
-                    textDecoration: 'none',
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '6px',
-                    fontWeight: 500,
-                    transition: 'color 0.2s ease',
+                    gap: '8px',
+                    padding: '8px 16px',
+                    borderRadius: '999px',
+                    background: 'rgba(15, 23, 42, 0.55)',
+                    backdropFilter: 'blur(10px)',
+                    WebkitBackdropFilter: 'blur(10px)',
+                    border: '1px solid rgba(255, 255, 255, 0.16)',
+                    color: '#ffffff',
+                    textDecoration: 'none',
+                    fontSize: '0.9rem',
+                    transition: 'all 0.2s ease',
                   }}
-                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--color-primary)')}
-                  onMouseLeave={e => (e.currentTarget.style.color = '#ffffff')}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.borderColor = 'var(--color-primary)';
+                    e.currentTarget.style.background = 'rgba(15, 23, 42, 0.8)';
+                    e.currentTarget.style.transform = 'translateY(-1px)';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.16)';
+                    e.currentTarget.style.background = 'rgba(15, 23, 42, 0.55)';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }}
                 >
-                  <span style={{ color: 'var(--color-primary)', fontWeight: 700 }}>Kevin:</span> 070 588 40 42
+                  <Phone size={14} color="var(--color-primary)" />
+                  <span style={{ fontWeight: 600 }}>Kevin:</span>
+                  <span style={{ color: 'rgba(255, 255, 255, 0.9)' }}>070-588 40 42</span>
                 </a>
               </div>
             </ScrollReveal>
@@ -371,7 +390,7 @@ export default function Home() {
                   display: 'block',
                   marginBottom: '8px',
                 }}>
-                  Vad vi erbjuder
+                  Entreprenad i Skellefteå och Västerbotten
                 </span>
                 <h2 style={{
                   color: 'var(--color-text-dark)',
@@ -381,7 +400,7 @@ export default function Home() {
                   margin: 0,
                   lineHeight: 1.18,
                 }}>
-                  Entreprenadtjänster med fokus på kvalitet
+                  Mark, grund, skog och fastighetsservice
                 </h2>
               </ScrollReveal>
             </div>
@@ -394,7 +413,7 @@ export default function Home() {
                   lineHeight: 1.65,
                   margin: '0 0 12px 0',
                 }}>
-                  Från mark och schaktarbeten till anläggning, tomtplanering och maskintjänster i Västerbotten med omnejd.
+                  Från schakt och grunder till skogsvägar, trädfällning och takskottning. Vi hjälper villaägare, skogsägare, lantbruk och företag i Skellefteå med omnejd.
                 </p>
                 <Link
                   to="/tjanster"
@@ -465,7 +484,7 @@ export default function Home() {
                   }}>
                     <img
                       src={svc.image}
-                      alt={svc.title}
+                      alt={svc.imageAlt}
                       loading="lazy"
                       className="card-photo"
                       style={{
@@ -511,11 +530,39 @@ export default function Home() {
                       color: 'var(--color-gray-600)',
                       fontSize: '0.92rem',
                       lineHeight: 1.6,
-                      margin: '0 0 20px 0',
-                      flex: 1,
+                      margin: '0 0 16px 0',
                     }}>
                       {svc.shortDescription}
                     </p>
+
+                    <ul style={{
+                      listStyle: 'none',
+                      padding: 0,
+                      margin: '0 0 20px 0',
+                      display: 'flex',
+                      flexWrap: 'wrap',
+                      gap: '6px',
+                      flex: 1,
+                      alignContent: 'flex-start',
+                    }}>
+                      {svc.subServices.map((sub) => (
+                        <li
+                          key={sub.id}
+                          style={{
+                            fontSize: '0.76rem',
+                            fontWeight: 600,
+                            color: '#475569',
+                            background: '#f8fafc',
+                            border: '1px solid #e2e8f0',
+                            borderRadius: '999px',
+                            padding: '4px 10px',
+                            lineHeight: 1.3,
+                          }}
+                        >
+                          {sub.name}
+                        </li>
+                      ))}
+                    </ul>
 
                     <div style={{
                       display: 'flex',
@@ -528,7 +575,7 @@ export default function Home() {
                       paddingTop: '14px',
                       borderTop: '1px solid #f1f5f9',
                     }}>
-                      Läs mer <ArrowRight size={15} />
+                      Läs mer om {svc.title.toLowerCase()} <ArrowRight size={15} />
                     </div>
                   </div>
                 </Link>
@@ -608,7 +655,7 @@ export default function Home() {
                   lineHeight: 1.2,
                   margin: '0 0 14px 0',
                 }}>
-                  Din lokala entreprenör i Västerbotten med omnejd
+                  Din lokala entreprenör i Skellefteå, Byske och Västerbotten
                 </h2>
               </ScrollReveal>
               <ScrollReveal animation="scale-x-left" delay={200} duration={0.6}>
@@ -621,7 +668,7 @@ export default function Home() {
                   lineHeight: 1.75,
                   margin: '0 0 32px 0',
                 }}>
-                  Finnträsk Entreprenad är ett familjeföretag med stark lokal förankring i Västerbotten som utför allt inom mark och schaktarbeten. Stor kunskap och bredd gör att vi löser det mesta, och med en gedigen bakgrund inom transportsektorn åtar vi oss även större uppdrag. Det viktigaste för oss är att få en god kundrelation och att kunden blir helt nöjd med arbetet.
+                  Finnträsk Entreprenad är ett familjeföretag med stark lokal förankring i Skellefteå, Byske och hela Västerbotten som utför allt inom mark- och schaktarbeten. Stor kunskap och bredd gör att vi löser det mesta, och med en gedigen bakgrund inom transportsektorn åtar vi oss även större uppdrag. Det viktigaste för oss är att få en god kundrelation och att kunden blir helt nöjd med arbetet.
                 </p>
               </ScrollReveal>
               <ScrollReveal animation="fade-right" duration={0.8} delay={200}>
@@ -785,38 +832,93 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── SECTION: VERKSAMHETSOMRÅDE (DISCREET LOCAL STRIP) ───── */}
+      <section
+        aria-labelledby="verksamhetsomrade-rubrik"
+        style={{
+          background: '#f8fafc',
+          padding: '28px 0',
+          borderTop: '1px solid #e2e8f0',
+        }}
+      >
+        <div style={container}>
+          <div className="area-strip">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexShrink: 0 }}>
+              <span style={{
+                width: '34px',
+                height: '34px',
+                borderRadius: '50%',
+                background: 'rgba(234, 88, 12, 0.1)',
+                color: 'var(--color-primary)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+              }}>
+                <MapPin size={16} />
+              </span>
+              <h2
+                id="verksamhetsomrade-rubrik"
+                style={{
+                  color: 'var(--color-text-dark)',
+                  fontWeight: 700,
+                  fontSize: '0.98rem',
+                  letterSpacing: '-0.01em',
+                  margin: 0,
+                  lineHeight: 1.3,
+                }}
+              >
+                Vi utgår från Finnträsk och arbetar i
+              </h2>
+            </div>
+
+            <ul className="area-strip-list">
+              {['Skellefteå', 'Byske', 'Kåge', 'Ursviken', 'Bureå', 'Boliden', 'Burträsk', 'Jörn', 'Piteå', 'hela Västerbotten'].map((place) => (
+                <li key={place}>{place}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* ── SECTION 6: MID CTA ──────────────────────────────────── */}
       <section style={{
         position: 'relative',
-        padding: 'clamp(50px, 7vw, 80px) 0',
+        padding: 'clamp(70px, 9vw, 110px) 0',
         textAlign: 'center',
         overflow: 'hidden',
       }}>
         <div style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: `url(/cta-mid-section.webp)`,
+          backgroundImage: `url(${images.cta.midSection?.url || '/cta-mid-section.webp'})`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'center 40%',
         }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'rgba(26,31,46,0.88)' }} />
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(180deg, rgba(15, 23, 42, 0.76) 0%, rgba(15, 23, 42, 0.58) 50%, rgba(15, 23, 42, 0.78) 100%)',
+        }} />
         <div style={{ ...container, position: 'relative', zIndex: 1 }}>
           <ScrollReveal animation="scale-in">
             <h2 style={{
               color: 'var(--color-white)',
               fontWeight: 800,
-              fontSize: 'clamp(1.8rem, 3vw, 2.6rem)',
-              margin: '0 0 12px 0',
+              fontSize: 'clamp(1.9rem, 3.2vw, 2.7rem)',
+              margin: '0 0 14px 0',
+              textShadow: '0 2px 14px rgba(0, 0, 0, 0.5)',
             }}>
               Nyfiken på vad ditt projekt kostar?
             </h2>
             <p style={{
-              color: 'rgba(255,255,255,0.7)',
-              fontSize: '1rem',
+              color: 'rgba(255, 255, 255, 0.9)',
+              fontSize: '1.05rem',
               margin: '0 0 32px 0',
               lineHeight: 1.7,
+              textShadow: '0 1px 8px rgba(0, 0, 0, 0.4)',
             }}>
-              Vi skickar en kostnadsfri offert inom 24 timmar.
+              Vi skickar en kostnadsfri offert så snart som möjligt.
             </p>
             <Button variant="primary" size="lg" href="/offert">
               Begär offert
@@ -910,7 +1012,6 @@ export default function Home() {
                 stars: 5,
                 date: 'för en månad sedan',
                 avatarUrl: '/reviews/erica.png',
-                text: 'Gav Finnträsk Entreprenad högsta betyg (5 av 5 stjärnor) på Google.',
               },
               {
                 name: 'Stig Dahlbäck',
@@ -918,7 +1019,6 @@ export default function Home() {
                 stars: 5,
                 date: 'för 9 år sedan',
                 isLocalGuide: true,
-                text: 'Gav Finnträsk Entreprenad högsta betyg (5 av 5 stjärnor) på Google.',
               },
             ].map((review, i) => {
               const delay = i * 150;
@@ -965,7 +1065,43 @@ export default function Home() {
       <CTABanner />
 
       {/* ── TWEAKED SPACED STYLES ───────────────────────────────── */}
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
+        .area-strip {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px 32px;
+          flex-wrap: wrap;
+        }
+        .area-strip-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 4px 0;
+          font-size: 0.9rem;
+          color: #64748b;
+          font-weight: 500;
+        }
+        .area-strip-list li {
+          display: inline-flex;
+          align-items: center;
+        }
+        .area-strip-list li + li::before {
+          content: '';
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background: rgba(234, 88, 12, 0.55);
+          margin: 0 12px;
+        }
+        @media (max-width: 768px) {
+          .area-strip { flex-direction: column; align-items: flex-start; }
+          .area-strip-list { font-size: 0.86rem; }
+          .area-strip-list li + li::before { margin: 0 9px; }
+        }
         .spaced-screenshot-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
@@ -1082,7 +1218,7 @@ export default function Home() {
             transform: rotate(90deg);
           }
         }
-      `}</style>
+      ` }} />
 
       <CallModal
         isOpen={isCallModalOpen}

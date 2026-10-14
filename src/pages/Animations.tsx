@@ -110,7 +110,7 @@ const ANIMATIONS: AnimationDef[] = [
   },
   {
     id: 'slide-up-fade',
-    label: 'Slide & Fade',
+    label: 'Slide och Fade',
     description: 'Långsam, dämpad glidning (30px)',
     hidden: { opacity: 0, transform: 'translate3d(0, 30px, 0)', filter: 'none', clipPath: 'inset(0)' },
     duration: '0.8s',

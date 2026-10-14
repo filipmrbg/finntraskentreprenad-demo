@@ -11,7 +11,7 @@ interface Props {
 const defaultHeading = 'Begär en kostnadsfri offert';
 const defaultCheckItems = [
   'Kostnadsfritt hembesök och offert',
-  'Snabb återkoppling inom 24 timmar',
+  'Snabb återkoppling så snart som möjligt',
   'ROT avdrag hanteras av oss',
 ];
 
@@ -31,7 +31,7 @@ export default function CTABanner({ heading = defaultHeading, checkItems = defau
       if (!video || playAttempted) return;
       playAttempted = true;
 
-      video.src = '/cta-background-video.mp4';
+      video.src = 'https://d8j0ntlcm91z4.cloudfront.net/user_3G5LlmMYORSdAk8SxzXrK2S0Is5/hf_20260930_045516_5d067d61-b829-43a2-b2a5-fc67cb117a21.mp4';
       video.load();
 
       const attemptPlay = () => {
@@ -218,7 +218,7 @@ export default function CTABanner({ heading = defaultHeading, checkItems = defau
         </div>
       </div>
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .cta-btn-wrap {
           transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
@@ -237,7 +237,7 @@ export default function CTABanner({ heading = defaultHeading, checkItems = defau
             background: rgba(15, 23, 42, 0.88) !important;
           }
         }
-      `}</style>
+      ` }} />
     </section>
   );
 }

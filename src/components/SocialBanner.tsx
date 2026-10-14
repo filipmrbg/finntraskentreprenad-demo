@@ -49,7 +49,7 @@ export default function SocialBanner() {
         </ScrollReveal>
       </div>
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .social-hub-banner {
           display: flex;
           align-items: center;
@@ -157,7 +157,7 @@ export default function SocialBanner() {
             justify-content: center;
           }
         }
-      `}</style>
+      ` }} />
     </section>
   );
 }

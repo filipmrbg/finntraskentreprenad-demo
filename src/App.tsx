@@ -1,14 +1,10 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect, lazy, Suspense } from 'react';
+import { useEffect, lazy, Suspense, ComponentType } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-
-const About = lazy(() => import('./pages/About'));
-const Contact = lazy(() => import('./pages/Contact'));
-const Quote = lazy(() => import('./pages/Quote'));
-const ServicesOverview = lazy(() => import('./pages/ServicesOverview'));
-const Animations = lazy(() => import('./pages/Animations'));
+import NotFound from './pages/NotFound';
+import { SeoManager } from './hooks/usePageTitle';
 
 function ScrollToTop() {
   const { pathname, state, hash } = useLocation();
@@ -53,10 +49,25 @@ function PageWrapper({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function App() {
+export interface PageComponents {
+  About: ComponentType;
+  Contact: ComponentType;
+  Quote: ComponentType;
+  ServicesOverview: ComponentType;
+  ServiceDetail: ComponentType;
+  Animations: ComponentType;
+}
+
+/**
+ * Shared layout and routes. The browser passes lazy-loaded pages (see App below),
+ * while src/entry-server.tsx passes eagerly imported pages for prerendering.
+ */
+export function AppLayout({ pages }: { pages: PageComponents }) {
+  const { About, Contact, Quote, ServicesOverview, ServiceDetail, Animations } = pages;
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
+      <SeoManager />
       <Navbar />
       <Suspense fallback={
         <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -68,20 +79,38 @@ export default function App() {
             borderRadius: '50%',
             animation: 'spin 0.8s linear infinite',
           }} />
-          <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+          <style dangerouslySetInnerHTML={{ __html: `@keyframes spin { to { transform: rotate(360deg); } }` }} />
         </div>
       }>
         <Routes>
           <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
           <Route path="/tjanster" element={<PageWrapper><ServicesOverview /></PageWrapper>} />
+          <Route path="/tjanster/:slug" element={<PageWrapper><ServiceDetail /></PageWrapper>} />
           <Route path="/om-oss" element={<PageWrapper><About /></PageWrapper>} />
           <Route path="/kontakt" element={<PageWrapper><Contact /></PageWrapper>} />
           <Route path="/offert" element={<PageWrapper><Quote /></PageWrapper>} />
           <Route path="/animationer" element={<PageWrapper><Animations /></PageWrapper>} />
-          <Route path="*" element={<PageWrapper><Home /></PageWrapper>} />
+          <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
         </Routes>
       </Suspense>
       <Footer />
+    </>
+  );
+}
+
+const clientPages: PageComponents = {
+  About: lazy(() => import('./pages/About')),
+  Contact: lazy(() => import('./pages/Contact')),
+  Quote: lazy(() => import('./pages/Quote')),
+  ServicesOverview: lazy(() => import('./pages/ServicesOverview')),
+  ServiceDetail: lazy(() => import('./pages/ServiceDetail')),
+  Animations: lazy(() => import('./pages/Animations')),
+};
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppLayout pages={clientPages} />
     </BrowserRouter>
   );
 }

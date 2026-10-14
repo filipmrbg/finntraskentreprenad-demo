@@ -1,7 +1,6 @@
 import ScrollReveal from '../components/ScrollReveal';
 import Button from '../components/Button';
 import CTABanner from '../components/CTABanner';
-import { usePageTitle } from '../hooks/usePageTitle';
 import { Phone } from 'lucide-react';
 import images from '../data/images';
 
@@ -16,25 +15,21 @@ const teamMembers = [
     role: 'Grundare och ägare',
     name: 'Niklas Lundmark',
     initials: 'NL',
-    phone: '070 588 40 32',
+    phone: '070-588 40 32',
     tel: '0705884032',
-    description: 'Driver Finnträsk Entreprenad med stor kunskap inom mark och schaktarbeten, tomtplanering och entreprenaduppdrag i Västerbotten.',
+    description: 'Driver Finnträsk Entreprenad med stor kunskap inom mark- och schaktarbeten, tomtplanering och entreprenaduppdrag i Skellefteå och Västerbotten.',
   },
   {
     role: 'Grundare och ägare',
     name: 'Kevin Lundmark',
     initials: 'KL',
-    phone: '070 588 40 42',
+    phone: '070-588 40 42',
     tel: '0705884042',
-    description: 'Drivande kraft i familjeföretaget med gedigen bakgrund inom transportsektorn, maskintjänster och personliga kundrelationer.',
+    description: 'Drivande kraft i familjeföretaget med gedigen bakgrund inom transportsektorn, maskintjänster och personliga relationer till kunder i Skellefteåbygden.',
   },
 ];
 
 export default function About() {
-  usePageTitle(
-    'Om Finnträsk Entreprenad | Mark och Schaktarbeten i Västerbotten',
-    'Läs mer om Finnträsk Entreprenad. Familjeföretaget i Västerbotten som gör visioner till verklighet inom mark och schaktarbeten, tomtplanering och maskintjänster.'
-  );
   return (
     <main style={{ fontFamily: 'var(--font-family)' }}>
 
@@ -65,7 +60,7 @@ export default function About() {
             </ScrollReveal>
             <ScrollReveal animation="fade-up" delay={150}>
               <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.08rem', margin: '0 auto', maxWidth: '640px', lineHeight: 1.6 }}>
-                Familjeföretaget i Västerbotten som gör visioner till verklighet. Professionella mark och schaktarbeten med stark lokal förankring och goda kundrelationer.
+                Familjeföretaget i Västerbotten som gör visioner till verklighet. Professionella mark- och schaktarbeten i Skellefteå, Byske och hela regionen med personlig service och goda kundrelationer.
               </p>
             </ScrollReveal>
           </div>
@@ -338,7 +333,7 @@ export default function About() {
       {/* ── SECTION E: CTA BANNER ─────────────────────────────── */}
       <CTABanner />
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @media (max-width: 768px) {
           .two-col { grid-template-columns: 1fr !important; gap: 40px !important; }
           .team-grid { grid-template-columns: 1fr !important; }
@@ -351,7 +346,7 @@ export default function About() {
             justifyContent: center;
           }
         }
-      `}</style>
+      ` }} />
     </main>
   );
 }

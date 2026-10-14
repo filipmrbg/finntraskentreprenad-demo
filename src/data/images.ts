@@ -132,8 +132,8 @@ const images: SiteImages = {
       alt: 'Finnträsk Entreprenad projekt',
     },
     midSection: {
-      url: '/hero-main.webp',
-      alt: 'Finnträsk Entreprenad arbetsplats Västerbotten',
+      url: '/cta-mid-section.webp',
+      alt: 'Finnträsk Entreprenad verksamhetsområde i Skellefteå och Västerbotten',
     },
   },
 

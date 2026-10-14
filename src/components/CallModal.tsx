@@ -11,14 +11,14 @@ export default function CallModal({ isOpen, onClose }: CallModalProps) {
   const contacts = [
     {
       name: 'Niklas Lundmark',
-      role: 'Ägare & Grundare',
-      phone: '070 588 40 32',
+      role: 'Ägare och grundare',
+      phone: '070-588 40 32',
       tel: 'tel:0705884032',
     },
     {
       name: 'Kevin Lundmark',
-      role: 'Ägare & Grundare',
-      phone: '070 588 40 42',
+      role: 'Ägare och grundare',
+      phone: '070-588 40 42',
       tel: 'tel:0705884042',
     },
   ];
@@ -203,7 +203,7 @@ export default function CallModal({ isOpen, onClose }: CallModalProps) {
           ))}
         </div>
 
-        <style>{`
+        <style dangerouslySetInnerHTML={{ __html: `
           @keyframes callFadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -212,7 +212,7 @@ export default function CallModal({ isOpen, onClose }: CallModalProps) {
             from { opacity: 0; transform: scale(0.94); }
             to { opacity: 1; transform: scale(1); }
           }
-        `}</style>
+        ` }} />
       </div>
     </div>
   );

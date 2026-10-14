@@ -137,8 +137,70 @@ export function MaskinforareIcon({ color = '#c28447', size = 38, style }: IconPr
   );
 }
 
+/**
+ * 5. Skogsentreprenad: Spruce trees beside a winding forest road
+ */
+export function SkogIcon({ color = '#c28447', size = 38, style }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 40 40"
+      fill="none"
+      stroke={color}
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={{ display: 'block', ...style }}
+    >
+      {/* Tall spruce */}
+      <path d="M12 5L6 15H9L4.5 23H19.5L15 15H18L12 5Z" />
+      <line x1="12" y1="23" x2="12" y2="28" />
+      {/* Small spruce */}
+      <path d="M28 11L24 18H26L23 24H33L30 18H32L28 11Z" />
+      <line x1="28" y1="24" x2="28" y2="27" />
+      {/* Winding forest road */}
+      <path d="M17 36C19 32 24 31 27 29" />
+      <path d="M25 36C26.5 33.5 30 32.5 34 31" />
+      <path d="M21.5 35L22.5 33.5" strokeDasharray="1.5 2" />
+    </svg>
+  );
+}
+
+/**
+ * 6. Fastighetsservice: House with snow on the roof and a tree beside it
+ */
+export function FastighetIcon({ color = '#c28447', size = 38, style }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 40 40"
+      fill="none"
+      stroke={color}
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={{ display: 'block', ...style }}
+    >
+      {/* Roof with snow layer */}
+      <path d="M4 19L16 8L28 19" />
+      <path d="M7.5 14.5C10 13 13 10.5 16 8C19 10.5 22 13 24.5 14.5" opacity="0.6" />
+      {/* House body */}
+      <path d="M7 17V33H25V17" />
+      <rect x="13" y="24" width="6" height="9" />
+      {/* Tree */}
+      <circle cx="32" cy="20" r="4.5" />
+      <line x1="32" y1="24.5" x2="32" y2="33" />
+      {/* Ground */}
+      <line x1="3" y1="33" x2="37" y2="33" />
+    </svg>
+  );
+}
+
 export function ServiceIcon({ type, color, size = 38 }: { type: string; color?: string; size?: number }) {
   switch (type) {
+    case 'markarbeten':
     case 'gravning':
     case 'gravning-markarbete':
       return <GravningIcon color={color} size={size} />;
@@ -146,8 +208,13 @@ export function ServiceIcon({ type, color, size = 38 }: { type: string; color?: 
     case 'nybyggnation':
     case 'smahusbyggnation':
       return <ByggnationIcon color={color} size={size} />;
+    case 'grundlaggning':
     case 'betong':
       return <BetongIcon color={color} size={size} />;
+    case 'skogsentreprenad':
+      return <SkogIcon color={color} size={size} />;
+    case 'fastighetsservice':
+      return <FastighetIcon color={color} size={size} />;
     case 'maskinforare':
     case 'maskintjanster':
     case 'totalentreprenad':

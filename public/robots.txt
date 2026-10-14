@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://finntraskentreprenad-demo.vercel.app/sitemap.xml

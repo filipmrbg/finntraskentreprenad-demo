@@ -3,7 +3,6 @@ import { useLocation, Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import ScrollReveal from '../components/ScrollReveal';
 import CTABanner from '../components/CTABanner';
-import { usePageTitle } from '../hooks/usePageTitle';
 import services, { ServiceItem } from '../data/services';
 
 const container: React.CSSProperties = {
@@ -13,11 +12,6 @@ const container: React.CSSProperties = {
 };
 
 export default function ServicesOverview() {
-  usePageTitle(
-    'Våra Tjänster | Finnträsk Entreprenad',
-    'Utforska våra entreprenadtjänster: Schaktning, markanläggning, grundläggning och maskintjänster i Västerbotten med omnejd.'
-  );
-
   const { hash } = useLocation();
 
   useEffect(() => {
@@ -71,18 +65,18 @@ export default function ServicesOverview() {
               lineHeight: 1.15,
               letterSpacing: '-0.03em',
             }}>
-              Våra Tjänster
+              Tjänster i Skellefteå och Västerbotten
             </h1>
           </ScrollReveal>
           <ScrollReveal animation="fade-up" delay={150}>
             <p style={{
-              color: 'rgba(255,255,255,0.85)',
+              color: 'rgba(255,255,255,0.88)',
               fontSize: '1.08rem',
-              maxWidth: '640px',
+              maxWidth: '680px',
               margin: '0 auto',
               lineHeight: 1.65,
             }}>
-              Finnträsk Entreprenad erbjuder professionella tjänster inom mark och schaktarbeten, tomtplanering, anläggning och maskintjänster i Västerbotten med omnejd.
+              Markarbeten, grundläggning, skogsentreprenad och fastighetsservice. Alla våra tjänster samlade i fyra områden, utförda av ett lokalt familjeföretag från Finnträsk.
             </p>
           </ScrollReveal>
         </div>
@@ -182,10 +176,10 @@ export default function ServicesOverview() {
                       }}>
                         <img
                           src={svc.image}
-                          alt={svc.title}
-                          loading="eager"
+                          alt={svc.imageAlt}
+                          loading={index < 2 ? 'eager' : 'lazy'}
                           decoding="async"
-                          fetchPriority={index < 2 ? "high" : "auto"}
+                          {...{ fetchpriority: index < 2 ? "high" : "auto" }}
                           style={{
                             width: '100%',
                             height: '100%',
@@ -222,65 +216,71 @@ export default function ServicesOverview() {
                         margin: '0 0 16px 0',
                         lineHeight: 1.2,
                       }}>
-                        {svc.title}
+                        <Link to={svc.href} style={{ color: 'inherit', textDecoration: 'none' }}>
+                          {svc.title}
+                        </Link>
                       </h2>
                       <p style={{
                         color: 'var(--color-gray-600)',
                         fontSize: '1.02rem',
                         lineHeight: 1.75,
                         margin: '0 0 24px 0',
-                        whiteSpace: 'pre-line',
                       }}>
-                        {svc.detailedDescription}
+                        {svc.detailedDescription.split('\n\n')[0]}
                       </p>
 
-                      {/* Highlights */}
-                      {svc.highlights && svc.highlights.length > 0 && (
-                        <div style={{
-                          display: 'grid',
-                          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-                          gap: '10px 16px',
-                          marginBottom: '28px',
-                        }}>
-                          {svc.highlights.map((h, i) => (
-                            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      {/* Sub-services, each linking into the service page */}
+                      <ul style={{
+                        listStyle: 'none',
+                        padding: 0,
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+                        gap: '8px 16px',
+                        margin: '0 0 28px 0',
+                      }}>
+                        {svc.subServices.map((sub) => (
+                          <li key={sub.id}>
+                            <Link to={`${svc.href}#${sub.id}`} className="so-sub-link">
                               <CheckCircle2 size={18} color="var(--color-primary)" style={{ flexShrink: 0 }} />
-                              <span style={{ fontSize: '0.92rem', color: '#334155', fontWeight: 600 }}>
-                                {h}
-                              </span>
-                            </div>
-                          ))}
-                        </div>
-                      )}
+                              <span>{sub.name}</span>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
 
-                      {/* Action Button */}
-                      <Link
-                        to="/offert"
-                        style={{
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          gap: '10px',
-                          background: 'var(--color-primary)',
-                          color: '#ffffff',
-                          fontWeight: 700,
-                          fontSize: '0.95rem',
-                          padding: '14px 28px',
-                          borderRadius: 'var(--border-radius-pill)',
-                          textDecoration: 'none',
-                          boxShadow: '0 4px 14px rgba(234, 88, 12, 0.35)',
-                          transition: 'all 0.25s ease',
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.background = 'var(--color-primary-hover)';
-                          e.currentTarget.style.transform = 'translateY(-2px)';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.background = 'var(--color-primary)';
-                          e.currentTarget.style.transform = 'translateY(0)';
-                        }}
-                      >
-                        Begär offert för {svc.title} <ArrowRight size={16} />
-                      </Link>
+                      {/* Action Buttons */}
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}>
+                        <Link
+                          to={svc.href}
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '10px',
+                            background: 'var(--color-primary)',
+                            color: '#ffffff',
+                            fontWeight: 700,
+                            fontSize: '0.95rem',
+                            padding: '14px 28px',
+                            borderRadius: 'var(--border-radius-pill)',
+                            textDecoration: 'none',
+                            boxShadow: '0 4px 14px rgba(234, 88, 12, 0.35)',
+                            transition: 'all 0.25s ease',
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.background = 'var(--color-primary-hover)';
+                            e.currentTarget.style.transform = 'translateY(-2px)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.background = 'var(--color-primary)';
+                            e.currentTarget.style.transform = 'translateY(0)';
+                          }}
+                        >
+                          Läs mer om {svc.title.toLowerCase()} <ArrowRight size={16} />
+                        </Link>
+                        <Link to={`/offert?tjanst=${svc.slug}`} className="so-secondary">
+                          Begär offert
+                        </Link>
+                      </div>
                     </ScrollReveal>
                   </div>
 
@@ -294,6 +294,21 @@ export default function ServicesOverview() {
       {/* ── CTA BANNER ────────────────────────────────────────── */}
       <CTABanner />
 
+      <style dangerouslySetInnerHTML={{ __html: `
+        .so-sub-link {
+          display: flex; align-items: center; gap: 8px; padding: 6px 0;
+          font-size: 0.95rem; color: #334155; font-weight: 600; text-decoration: none;
+          transition: color 0.2s ease;
+        }
+        .so-sub-link:hover { color: var(--color-primary); }
+        .so-secondary {
+          display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px;
+          border-radius: var(--border-radius-pill); border: 1.5px solid #cbd5e1;
+          color: #334155; font-weight: 700; font-size: 0.95rem; text-decoration: none;
+          transition: all 0.2s ease;
+        }
+        .so-secondary:hover { border-color: var(--color-primary); color: var(--color-primary); }
+      ` }} />
     </main>
   );
 }

@@ -1,85 +1,57 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { getRouteMeta } from '../data/seo';
+import { OG_IMAGE_URL, absoluteUrl } from '../config/site';
 
-export function usePageTitle(title: string, description?: string) {
+function upsertMeta(attr: 'name' | 'property', key: string, content: string) {
+  let el = document.head.querySelector(`meta[${attr}="${key}"]`);
+  if (!el) {
+    el = document.createElement('meta');
+    el.setAttribute(attr, key);
+    document.head.appendChild(el);
+  }
+  el.setAttribute('content', content);
+}
+
+/**
+ * Keeps <head> in sync with the current route during client-side navigation.
+ * The initial HTML for every URL is already prerendered with the same values
+ * (see src/seo/head.ts and scripts/prerender.mjs), so this only matters after
+ * the visitor clicks around inside the app.
+ */
+export function useRouteSeo() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // 1. Update Document Title
-    document.title = title;
+    const meta = getRouteMeta(pathname);
+    const url = absoluteUrl(meta.path === '/404' ? pathname : meta.path);
 
-    // 2. Update Description
-    const defaultDesc = "Finnträsk Entreprenad utför allt inom mark och schaktarbeten, tomtplanering, anläggning, grundarbeten och maskintjänster i Västerbotten med omnejd.";
-    const activeDesc = description || defaultDesc;
-    
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', activeDesc);
+    document.title = meta.title;
+    upsertMeta('name', 'description', meta.description);
+    upsertMeta('name', 'robots', meta.noindex ? 'noindex, follow' : 'index, follow');
+    upsertMeta('property', 'og:title', meta.title);
+    upsertMeta('property', 'og:description', meta.description);
+    upsertMeta('property', 'og:url', url);
+    upsertMeta('property', 'og:image', OG_IMAGE_URL);
+    upsertMeta('name', 'twitter:title', meta.title);
+    upsertMeta('name', 'twitter:description', meta.description);
+    upsertMeta('name', 'twitter:image', OG_IMAGE_URL);
+
+    let canonical = document.head.querySelector('link[rel="canonical"]');
+    if (meta.noindex) {
+      canonical?.remove();
     } else {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      metaDescription.setAttribute('content', activeDesc);
-      document.head.appendChild(metaDescription);
+      if (!canonical) {
+        canonical = document.createElement('link');
+        canonical.setAttribute('rel', 'canonical');
+        document.head.appendChild(canonical);
+      }
+      canonical.setAttribute('href', url);
     }
+  }, [pathname]);
+}
 
-    // 3. Update Open Graph Title & Description
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute('content', title);
-
-    const ogDescription = document.querySelector('meta[property="og:description"]');
-    if (ogDescription) ogDescription.setAttribute('content', activeDesc);
-
-    // 4. Update Twitter Title & Description
-    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
-    if (twitterTitle) twitterTitle.setAttribute('content', title);
-
-    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
-    if (twitterDescription) twitterDescription.setAttribute('content', activeDesc);
-
-    // 5. Update Canonical Link & Absolute URL
-    const origin = typeof window !== 'undefined' && window.location.origin.startsWith('http')
-      ? window.location.origin
-      : 'https://finntraskentreprenad-demo.vercel.app';
-    const absoluteUrl = `${origin}${pathname === '/' ? '' : pathname}`;
-    const ogImageUrl = `${origin}/og-image.png`;
-
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) {
-      canonical.setAttribute('href', absoluteUrl);
-    } else {
-      canonical = document.createElement('link');
-      canonical.setAttribute('rel', 'canonical');
-      canonical.setAttribute('href', absoluteUrl);
-      document.head.appendChild(canonical);
-    }
-
-    // 6. Update Open Graph URL & Image
-    const ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogUrl) ogUrl.setAttribute('content', absoluteUrl);
-
-    let ogImage = document.querySelector('meta[property="og:image"]');
-    if (ogImage) {
-      ogImage.setAttribute('content', ogImageUrl);
-    } else {
-      ogImage = document.createElement('meta');
-      ogImage.setAttribute('property', 'og:image');
-      ogImage.setAttribute('content', ogImageUrl);
-      document.head.appendChild(ogImage);
-    }
-
-    const ogImageSecure = document.querySelector('meta[property="og:image:secure_url"]');
-    if (ogImageSecure) ogImageSecure.setAttribute('content', ogImageUrl);
-
-    let twitterImage = document.querySelector('meta[name="twitter:image"]');
-    if (twitterImage) {
-      twitterImage.setAttribute('content', ogImageUrl);
-    }
-
-    const metaImage = document.querySelector('meta[name="image"]');
-    if (metaImage) metaImage.setAttribute('content', ogImageUrl);
-
-    const linkImageSrc = document.querySelector('link[rel="image_src"]');
-    if (linkImageSrc) linkImageSrc.setAttribute('href', ogImageUrl);
-
-  }, [title, description, pathname]);
+export function SeoManager() {
+  useRouteSeo();
+  return null;
 }

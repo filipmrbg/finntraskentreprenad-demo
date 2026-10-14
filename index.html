@@ -2,6 +2,7 @@
 <html lang="sv">
 
 <head>
+  <meta charset="UTF-8" />
   <!-- Preconnect & Preload for Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -10,105 +11,27 @@
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
   <link rel="preload" as="image" href="/logo.png" fetchpriority="high" type="image/png" />
   <link rel="preload" as="image" href="/logo-white.png" fetchpriority="high" type="image/png" />
-  <link rel="preload" as="image" href="/hero-main.webp" fetchpriority="high" />
 
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-  <link rel="canonical" href="https://finntraskentreprenad-demo.vercel.app" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#ff7900" />
 
-  <!-- Primary meta -->
-  <title>Finnträsk Entreprenad | Mark och Schaktarbeten i Västerbotten</title>
-  <meta name="description" content="Finnträsk Entreprenad utför allt inom mark och schaktarbeten, tomtplanering, anläggning, grundarbeten och maskintjänster i Västerbotten med omnejd. Begär offert!" />
-  <meta name="robots" content="index, follow" />
-  <meta name="image" content="https://finntraskentreprenad-demo.vercel.app/og-image.png" />
-  <link rel="image_src" href="https://finntraskentreprenad-demo.vercel.app/og-image.png" />
-
-  <!-- Open Graph / Link Preview (Critical for iMessage, SMS & Social Media) -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Finnträsk Entreprenad" />
-  <meta property="og:title" content="Finnträsk Entreprenad | Mark och Schaktarbeten i Västerbotten" />
-  <meta property="og:description" content="Finnträsk Entreprenad utför allt inom mark och schaktarbeten, tomtplanering, anläggning, grundarbeten och maskintjänster i Västerbotten med omnejd. Begär offert!" />
-  <meta property="og:url" content="https://finntraskentreprenad-demo.vercel.app" />
-  <meta property="og:image" content="https://finntraskentreprenad-demo.vercel.app/og-image.png" />
-  <meta property="og:image:secure_url" content="https://finntraskentreprenad-demo.vercel.app/og-image.png" />
-  <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Finnträsk Entreprenad Logotyp" />
-  <meta property="og:locale" content="sv_SE" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Finnträsk Entreprenad | Mark och Schaktarbeten i Västerbotten" />
-  <meta name="twitter:description" content="Finnträsk Entreprenad utför allt inom mark och schaktarbeten, tomtplanering, anläggning och maskintjänster i Västerbotten." />
-  <meta name="twitter:image" content="https://finntraskentreprenad-demo.vercel.app/og-image.png" />
-  <meta name="twitter:image:alt" content="Finnträsk Entreprenad Logotyp" />
-
-  <!-- JSON-LD: ConstructionBusiness -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "HomeAndConstructionBusiness",
-      "name": "Finnträsk Entreprenad",
-      "description": "Familjeföretaget i Västerbotten som gör visioner till verklighet. Vi utför allt inom mark och schaktarbeten, anläggning, tomtplanering, dikesgrävning, trädfällning med skylift och maskintjänster med högsta kvalitet och lokal förankring.",
-      "url": "https://finntraskentreprenad-demo.vercel.app",
-      "logo": "https://finntraskentreprenad-demo.vercel.app/logo.png",
-      "image": "https://finntraskentreprenad-demo.vercel.app/og-image.png",
-      "telephone": ["070 588 40 32", "070 588 40 42"],
-      "email": "info@finntraskentreprenad.se",
-      "taxID": "556854-3465",
-      "priceRange": "$$",
-      "founder": {
-        "@type": "Person",
-        "name": "Niklas Lundmark och Kevin Lundmark",
-        "jobTitle": "Ägare och Grundare"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Finnträsk",
-        "addressRegion": "Västerbottens län",
-        "addressCountry": "SE"
-      },
-      "areaServed": [
-        {
-          "@type": "AdministrativeArea",
-          "name": "Västerbotten"
-        },
-        {
-          "@type": "AdministrativeArea",
-          "name": "Byske"
-        },
-        {
-          "@type": "AdministrativeArea",
-          "name": "Skellefteå"
-        },
-        {
-          "@type": "AdministrativeArea",
-          "name": "Piteå"
-        }
-      ],
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday"
-        ],
-        "opens": "07:00",
-        "closes": "17:00"
-      },
-      "legalName": "Finnträsk Entreprenad"
-    }
-  </script>
+  <!--
+    Per-route SEO (title, description, canonical, Open Graph, Twitter, JSON-LD) is
+    generated at build time by scripts/prerender.mjs from src/data/seo.ts and
+    src/seo/head.ts. Everything between the markers below is replaced for each page.
+    The domain is configured in src/config/site.ts.
+  -->
+  <!--app-head-start-->
+  <title>Mark- och schaktarbeten i Skellefteå | Finnträsk Entreprenad</title>
+  <meta name="description" content="Finnträsk Entreprenad utför markarbeten, grundläggning, skogsvägar och trädfällning i Skellefteå, Byske och Västerbotten. Begär kostnadsfri offert!" />
+  <!--app-head-end-->
 </head>
 
 <body>
-  <div id="root"></div>
+  <div id="root"><!--app-html--></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>
 

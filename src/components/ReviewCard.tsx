@@ -167,15 +167,17 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
       </div>
 
       {/* Review Text */}
-      <p style={{
-        margin: 0,
-        fontSize: '0.875rem',
-        lineHeight: '1.6',
-        color: '#4b5563',
-        fontWeight: 400,
-      }}>
-        {text || 'Gav Finnträsk Entreprenad högsta betyg (5 av 5 stjärnor) på Google.'}
-      </p>
+      {text && (
+        <p style={{
+          margin: 0,
+          fontSize: '0.875rem',
+          lineHeight: '1.6',
+          color: '#4b5563',
+          fontWeight: 400,
+        }}>
+          {text}
+        </p>
+      )}
     </div>
   );
 };

@@ -3,9 +3,8 @@ import { Phone, MapPin, Mail, Send, CheckCircle2, AlertCircle, Loader2 } from 'l
 import ScrollReveal from '../components/ScrollReveal';
 import FAQAccordion from '../components/FAQAccordion';
 import CTABanner from '../components/CTABanner';
-import { usePageTitle } from '../hooks/usePageTitle';
 import { submitContactForm } from '../lib/submitForm';
-import { services } from '../data/services';
+import services from '../data/services';
 
 const container: React.CSSProperties = {
   maxWidth: 'var(--container-max)',
@@ -20,7 +19,7 @@ const faqItems = [
   },
   {
     question: 'Hur lång tid tar det att få ett prisförslag?',
-    answer: 'Vi återkopplar vanligtvis inom 24 timmar och lämnar en tydlig, specificerad offert inom 1 till 3 arbetsdagar efter genomgång eller platsbesök.',
+    answer: 'Vi återkopplar vanligtvis så snart som möjligt och lämnar en tydlig, specificerad offert efter genomgång eller platsbesök.',
   },
   {
     question: 'Vilka områden är ert huvudsakliga upptagningsområde?',
@@ -58,10 +57,6 @@ function blurInput(e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | 
 }
 
 export default function Contact() {
-  usePageTitle(
-    'Kontakta Finnträsk Entreprenad | Västerbotten',
-    'Kontakta Finnträsk Entreprenad. Vi utför allt inom mark och schaktarbeten, tomtplanering, anläggning och maskintjänster i Västerbotten. Ring Niklas 070 588 40 32 eller Kevin 070 588 40 42.'
-  );
   const [name, setName]       = useState('');
   const [email, setEmail]     = useState('');
   const [phone, setPhone]     = useState('');
@@ -127,12 +122,12 @@ export default function Contact() {
                 lineHeight: 1.15,
                 letterSpacing: '-0.02em',
               }}>
-                Kontakta oss
+                Kontakta Finnträsk Entreprenad
               </h1>
             </ScrollReveal>
             <ScrollReveal animation="fade-up" delay={150}>
-              <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.08rem', margin: 0, maxWidth: '600px', marginInline: 'auto', lineHeight: 1.6 }}>
-                Vi återkopplar vanligtvis inom 24 timmar. Kostnadsfritt platsbesök och offert ingår alltid.
+              <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.08rem', margin: 0, maxWidth: '640px', marginInline: 'auto', lineHeight: 1.6 }}>
+                Planerar du schaktning, husgrund eller markarbete i Skellefteå, Byske eller övriga Västerbotten? Hör av dig direkt till Niklas eller Kevin för rådgivning och kostnadsfri offert.
               </p>
             </ScrollReveal>
           </div>
@@ -189,7 +184,7 @@ export default function Contact() {
                         onMouseEnter={e => (e.currentTarget.style.color = 'var(--color-primary)')}
                         onMouseLeave={e => (e.currentTarget.style.color = 'var(--color-gray-600)')}
                       >
-                        Niklas: 070 588 40 32
+                        Niklas: 070-588 40 32
                       </a>
                       <a
                         href="tel:0705884042"
@@ -197,7 +192,7 @@ export default function Contact() {
                         onMouseEnter={e => (e.currentTarget.style.color = 'var(--color-primary)')}
                         onMouseLeave={e => (e.currentTarget.style.color = 'var(--color-gray-600)')}
                       >
-                        Kevin: 070 588 40 42
+                        Kevin: 070-588 40 42
                       </a>
                     </div>
                   </div>
@@ -218,10 +213,10 @@ export default function Contact() {
                   </div>
                   <div>
                     <p style={{ margin: '0 0 4px 0', fontWeight: 700, fontSize: '0.9rem', color: 'var(--color-text-dark)' }}>
-                      Plats och område
+                      Plats och verksamhetsområde
                     </p>
                     <p style={{ margin: 0, color: 'var(--color-gray-600)', fontSize: '0.95rem', lineHeight: 1.5 }}>
-                      Bas i Finnträsk • Byske, Skellefteå, Piteå och Västerbotten
+                      Bas i Finnträsk • Skellefteå, Byske, Kåge, Ursviken, Bureå och Västerbotten
                     </p>
                   </div>
                 </div>
@@ -290,7 +285,7 @@ export default function Contact() {
                     }}>
                       <CheckCircle2 size={22} color="#22c55e" />
                       <p style={{ margin: 0, color: '#16a34a', fontSize: '0.9rem', fontWeight: 600 }}>
-                        Tack för ditt meddelande! Vi återkommer inom 24 timmar.
+                        Tack för ditt meddelande! Vi återkommer så snart som möjligt.
                       </p>
                     </div>
                   )}
@@ -365,10 +360,10 @@ export default function Contact() {
                     onBlur={blurInput}
                   >
                     <option value="">Välj tjänst...</option>
-                    {services.map(s => (
-                      <option key={s.slug} value={s.slug}>{s.title}</option>
+                    {services.map((svc) => (
+                      <option key={svc.slug} value={svc.slug}>{svc.title}</option>
                     ))}
-                    <option value="annat">Övrigt / Annat arbete</option>
+                    <option value="annat">Annat entreprenadprojekt</option>
                   </select>
 
                   <label style={{ display: 'block', marginBottom: '4px', fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-text-dark)' }}>
@@ -445,11 +440,11 @@ export default function Contact() {
 
       <CTABanner />
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @media (max-width: 768px) {
           .contact-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
         }
-      `}</style>
+      ` }} />
     </main>
   );
 }

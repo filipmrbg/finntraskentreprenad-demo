@@ -1,12 +1,16 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Instagram, Mail, Phone, MapPin } from 'lucide-react';
 import images from '../data/images';
+import services from '../data/services';
 
-const serviceLinks = [
-  { label: 'Schaktning', href: '/tjanster#gravning' },
-  { label: 'Markanläggning', href: '/tjanster#byggnation' },
-  { label: 'Grundläggning', href: '/tjanster#betong' },
-  { label: 'Maskintjänster', href: '/tjanster#maskinforare' },
+const serviceLinks = services.map((svc) => ({ label: svc.title, href: svc.href }));
+
+const areas = [
+  'Skellefteå',
+  'Byske och Finnträsk',
+  'Kåge och Ursviken',
+  'Bureå och Boliden',
+  'Burträsk och Piteå',
 ];
 
 const socialIcons = [
@@ -32,8 +36,8 @@ export default function Footer() {
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', padding: '80px clamp(20px, 5vw, 40px) 0' }}>
         <div className="footer-grid" style={{
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr 1fr',
-          gap: '40px',
+          gridTemplateColumns: 'minmax(240px, 1.2fr) 1fr 1fr 1fr',
+          gap: '36px',
         }}>
           <div>
             <div style={{ marginBottom: '24px' }}>
@@ -56,7 +60,7 @@ export default function Footer() {
               </Link>
             </div>
             <p style={{ color: 'var(--color-gray-600)', fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 20px 0' }}>
-              Finnträsk Entreprenad är familjeföretaget i Västerbotten som gör visioner till verklighet. Vi utför allt inom mark och schaktarbeten med högsta yrkesskicklighet och lokal förankring.
+              Finnträsk Entreprenad är familjeföretaget i Västerbotten som gör visioner till verklighet. Professionella mark- och schaktarbeten i Skellefteå, Byske och hela regionen.
             </p>
             <div style={{ display: 'flex', gap: '12px' }}>
               {socialIcons.map(({ Icon, label, href }) => (
@@ -93,7 +97,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Navigera */}
+          {/* Column 2: Tjänster */}
           <div>
             <h3 style={{ fontWeight: 700, color: 'var(--color-text-dark)', fontSize: '1rem', margin: '0 0 20px 0' }}>
               Tjänster
@@ -107,7 +111,7 @@ export default function Footer() {
                       color: 'var(--color-gray-600)',
                       textDecoration: 'none',
                       lineHeight: '2.2',
-                      fontSize: '0.95rem',
+                      fontSize: '0.92rem',
                       display: 'inline-block',
                       transition: 'color 0.2s ease',
                     }}
@@ -121,12 +125,38 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Contact */}
+          {/* Column 3: Verksamhetsområden */}
+          <div>
+            <h3 style={{ fontWeight: 700, color: 'var(--color-text-dark)', fontSize: '1rem', margin: '0 0 20px 0' }}>
+              Områden vi verkar i
+            </h3>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+              {areas.map(area => (
+                <li
+                  key={area}
+                  style={{
+                    color: 'var(--color-gray-600)',
+                    lineHeight: '2.2',
+                    fontSize: '0.92rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                  }}
+                  className="footer-area"
+                >
+                  <span style={{ color: 'var(--color-primary)', fontSize: '0.8rem' }}>•</span>
+                  {area}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 4: Contact */}
           <div>
             <h3 style={{ fontWeight: 700, color: 'var(--color-text-dark)', fontSize: '1rem', margin: '0 0 20px 0' }}>
               Kontaktuppgifter
             </h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.95rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.92rem' }}>
 
               <a
                 href="mailto:info@finntraskentreprenad.se"
@@ -145,7 +175,7 @@ export default function Footer() {
                 <div className="footer-contact-icon">
                   <Phone size={16} strokeWidth={2} />
                 </div>
-                <span>Niklas: 070 588 40 32</span>
+                <span>Niklas: 070-588 40 32</span>
               </a>
 
               <a
@@ -155,7 +185,7 @@ export default function Footer() {
                 <div className="footer-contact-icon">
                   <Phone size={16} strokeWidth={2} />
                 </div>
-                <span>Kevin: 070 588 40 42</span>
+                <span>Kevin: 070-588 40 42</span>
               </a>
 
               <div
@@ -164,7 +194,7 @@ export default function Footer() {
                 <div className="footer-contact-icon">
                   <MapPin size={16} strokeWidth={2} />
                 </div>
-                <span>Finnträsk • Byske • Skellefteå • Västerbotten</span>
+                <span>Finnträsk • Skellefteå • Västerbotten</span>
               </div>
             </div>
           </div>
@@ -191,7 +221,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .footer-contact-item {
           display: flex;
           align-items: center;
@@ -220,8 +250,12 @@ export default function Footer() {
           color: var(--color-gray-600);
           padding: 2px 0;
         }
+        @media (max-width: 1024px) {
+          .footer-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 32px !important; }
+        }
         @media (max-width: 768px) {
           .footer-grid { grid-template-columns: 1fr !important; text-align: center; }
+          .footer-area { justify-content: center; }
           .footer-grid > div:first-child > div { justify-content: center; }
           .footer-bottom { flex-direction: column; align-items: center !important; text-align: center; }
           .footer-contact-static, .footer-contact-item {
@@ -231,7 +265,7 @@ export default function Footer() {
             transform: none;
           }
         }
-      `}</style>
+      ` }} />
     </footer>
   );
 }

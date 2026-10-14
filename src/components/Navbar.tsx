@@ -133,10 +133,10 @@ export default function Navbar() {
           left: 0,
           right: 0,
           zIndex: 1000,
-          minHeight: scrolled ? '74px' : '82px',
+          minHeight: scrolled ? '78px' : '96px',
           padding: scrolled
-            ? '8px clamp(16px, 3.5vw, 36px)'
-            : '12px clamp(16px, 3.5vw, 36px)',
+            ? '6px clamp(16px, 3.5vw, 36px)'
+            : '8px clamp(16px, 3.5vw, 36px)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -170,7 +170,7 @@ export default function Navbar() {
             alt={images.logo.alt}
             loading="eager"
             decoding="sync"
-            fetchPriority="high"
+            {...{ fetchpriority: "high" }}
             className={`nav-logo ${scrolled ? 'scrolled' : ''}`}
           />
         </Link>
@@ -200,9 +200,11 @@ export default function Navbar() {
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <button
-                    onClick={() => handleNavClick(link.href)}
+                  <Link
+                    to={link.href}
+                    onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
                     style={{
+                      textDecoration: 'none',
                       background: active || isServicesOpen ? 'rgba(255,255,255,0.1)' : 'none',
                       border: 'none',
                       cursor: 'pointer',
@@ -228,7 +230,7 @@ export default function Navbar() {
                         opacity: 0.8,
                       }}
                     />
-                  </button>
+                  </Link>
 
                   {/* Clean Dropdown */}
                   <div
@@ -254,10 +256,12 @@ export default function Navbar() {
                     }}
                   >
                     {services.map(svc => (
-                      <button
+                      <Link
                         key={svc.slug}
-                        onClick={() => handleNavClick(svc.href)}
+                        to={svc.href}
+                        onClick={(e) => { e.preventDefault(); handleNavClick(svc.href); }}
                         style={{
+                          textDecoration: 'none',
                           width: '100%',
                           display: 'block',
                           textAlign: 'left',
@@ -285,7 +289,7 @@ export default function Navbar() {
                         }}
                       >
                         {svc.title}
-                      </button>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -293,10 +297,13 @@ export default function Navbar() {
             }
 
             return (
-              <button
+              <Link
                 key={link.href}
-                onClick={() => handleNavClick(link.href)}
+                to={link.href}
+                onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
                 style={{
+                  textDecoration: 'none',
+                  display: 'inline-block',
                   background: active ? 'rgba(255,255,255,0.1)' : 'none',
                   border: 'none',
                   cursor: 'pointer',
@@ -317,7 +324,7 @@ export default function Navbar() {
                 }}
               >
                 {link.label}
-              </button>
+              </Link>
             );
           })}
         </div>
@@ -486,10 +493,12 @@ export default function Navbar() {
           const active = isActive(link.href, location.pathname, activeSection);
           const delay = idx * 60;
           return (
-            <button
+            <Link
               key={link.href}
-              onClick={() => handleNavClick(link.href)}
+              to={link.href}
+              onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
               style={{
+                textDecoration: 'none',
                 background: 'none',
                 border: 'none',
                 cursor: 'pointer',
@@ -509,7 +518,7 @@ export default function Navbar() {
               onMouseLeave={e => { if (!active) (e.currentTarget as HTMLElement).style.color = 'var(--color-white)'; }}
             >
               {link.label}
-            </button>
+            </Link>
           );
         })}
 
@@ -565,7 +574,7 @@ export default function Navbar() {
               fontWeight: 600,
               fontSize: '0.9rem',
             }}>
-              <Phone size={14} color="var(--color-primary)" /> Niklas: 070 588 40 32
+              <Phone size={14} color="var(--color-primary)" /> Niklas: 070-588 40 32
             </a>
             <a href="tel:0705884042" style={{
               display: 'flex',
@@ -581,13 +590,13 @@ export default function Navbar() {
               fontWeight: 600,
               fontSize: '0.9rem',
             }}>
-              <Phone size={14} color="var(--color-primary)" /> Kevin: 070 588 40 42
+              <Phone size={14} color="var(--color-primary)" /> Kevin: 070-588 40 42
             </a>
           </div>
         </div>
       </div>
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .nav-dropdown-wrapper::after {
           content: '';
           position: absolute;
@@ -597,8 +606,8 @@ export default function Navbar() {
           height: 15px;
         }
         .nav-logo {
-          height: 68px;
-          max-height: 68px;
+          height: 86px;
+          max-height: 86px;
           width: auto;
           display: block;
           object-fit: contain;
@@ -610,8 +619,8 @@ export default function Navbar() {
           transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .nav-logo.scrolled {
-          height: 56px;
-          max-height: 56px;
+          height: 66px;
+          max-height: 66px;
           background-color: transparent;
           padding: 0;
           border-radius: 0;
@@ -624,17 +633,17 @@ export default function Navbar() {
           .nav-pill { display: none !important; }
           .hamburger { display: flex !important; }
           .offert-btn { display: none !important; }
-          nav.navbar-el { padding: 10px 16px !important; }
-          nav.navbar-el.scrolled { padding: 8px 16px !important; }
+          nav.navbar-el { padding: 8px 16px !important; }
+          nav.navbar-el.scrolled { padding: 6px 16px !important; }
           .mobile-phone-btn { display: flex !important; align-items: center; }
           .nav-logo {
-            height: 48px;
-            max-height: 48px;
+            height: 56px;
+            max-height: 56px;
             padding: 0;
           }
           .nav-logo.scrolled {
-            height: 42px;
-            max-height: 42px;
+            height: 48px;
+            max-height: 48px;
             padding: 0;
           }
         }
@@ -642,7 +651,7 @@ export default function Navbar() {
           .offert-short { display: none; }
           .offert-full { display: inline; }
         }
-      `}</style>
+      ` }} />
 
       <CallModal
         isOpen={isCallModalOpen}

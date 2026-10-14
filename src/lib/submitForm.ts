@@ -1,4 +1,4 @@
-import { supabase } from './supabaseClient';
+import { getSupabase } from './supabaseClient';
 
 export interface ContactFormData {
   name: string;
@@ -17,7 +17,7 @@ export async function submitContactForm(data: ContactFormData): Promise<SubmitRe
   const submissionId = crypto.randomUUID();
 
   // 1. Always save to database first
-  const { error: dbError } = await supabase.from('contact_submissions').insert({
+  const { error: dbError } = await getSupabase().from('contact_submissions').insert({
     name: data.name,
     email: data.email,
     phone: data.phone,

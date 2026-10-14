@@ -171,14 +171,14 @@ export default function FAQAccordion({ items, title, subtitle, buttonText, butto
         ))}
       </div>
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @media (max-width: 768px) {
           .faq-grid {
             grid-template-columns: 1fr !important;
             gap: 32px !important;
           }
         }
-      `}</style>
+      ` }} />
     </div>
   );
 }
