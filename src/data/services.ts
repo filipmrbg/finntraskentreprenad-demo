@@ -164,9 +164,9 @@ Vi gör grundarbeten för villor, garage, attefallshus och ekonomibyggnader, dr�
     detailedDescription: `Många av våra uppdrag ligger utanför tätorterna. Vi bygger och förbättrar skogsvägar och stugvägar och hjälper skogsägare att förbereda hyggen inför föryngring.
 
 Vi känner terrängen och förhållandena i Skellefteå kommun och Västerbotten, med tjäle, myrmark och korta säsonger. Det påverkar hur en väg ska byggas för att hålla i många år.`,
-    heroImage: '/service-maskinforare.webp',
-    image: '/service-maskinforare.webp',
-    imageAlt: 'Grävmaskin i skogsterräng i Västerbotten',
+    heroImage: '/service-skog.webp',
+    image: '/service-skog.webp',
+    imageAlt: 'Grävmaskin i skogsterräng för skogsvägar i Västerbotten',
     href: '/tjanster/skogsentreprenad',
     tag: 'Skogsentreprenad',
     badge: 'Skog och väg',

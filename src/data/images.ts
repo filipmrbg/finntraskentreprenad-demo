@@ -94,8 +94,8 @@ const images: SiteImages = {
       alt: 'Maskintjänster och entreprenad i Västerbotten',
     },
     totalentreprenad: {
-      url: '/service-maskinforare.webp',
-      alt: 'Maskinförare och transport i Västerbotten',
+      url: '/service-skog.webp',
+      alt: 'Skogsentreprenad och skogsvägar i Västerbotten',
     },
   },
 
