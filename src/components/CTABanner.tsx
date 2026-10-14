@@ -213,48 +213,8 @@ export default function CTABanner({ heading = defaultHeading, checkItems = defau
             </div>
           </ScrollReveal>
 
-          {/* Right: Subtle decorative brand element over background video */}
-          <div
-            className="cta-video-focus-space"
-            aria-hidden="true"
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              pointerEvents: 'none',
-              userSelect: 'none',
-            }}
-          >
-            <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '12px',
-              padding: '16px 28px',
-              borderRadius: '9999px',
-              background: 'rgba(255, 255, 255, 0.05)',
-              border: '1px solid rgba(255, 255, 255, 0.12)',
-              backdropFilter: 'blur(8px)',
-              WebkitBackdropFilter: 'blur(8px)',
-            }}>
-              <span style={{
-                width: '8px',
-                height: '8px',
-                borderRadius: '50%',
-                background: 'var(--color-primary)',
-                boxShadow: '0 0 10px var(--color-primary)',
-              }} />
-              <span style={{
-                color: 'rgba(255, 255, 255, 0.35)',
-                fontSize: '0.95rem',
-                fontWeight: 600,
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-              }}>
-                Vi gör visioner till verklighet
-              </span>
-            </div>
-          </div>
+          {/* Right: Empty Column to let background video display unobstructed */}
+          <div className="cta-video-focus-space" aria-hidden="true" />
         </div>
       </div>
 
