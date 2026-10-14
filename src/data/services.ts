@@ -42,9 +42,9 @@ export const services: ServiceItem[] = [
     detailedDescription: `Ett bra markarbete märks inte, det bara fungerar. Vattnet rinner åt rätt håll, infarten håller för tung trafik och marken sätter sig inte efter första vintern. Det är det vi jobbar för på varje uppdrag.
 
 Vi utgår från Finnträsk och gör markarbeten åt privatpersoner, lantbruk och företag i Skellefteå, Byske, Kåge, Ursviken, Bureå och resten av Västerbotten. Du har direktkontakt med Niklas eller Kevin genom hela jobbet, från platsbesök till färdig yta.`,
-    heroImage: '/service-gravning.webp',
-    image: '/service-gravning.webp',
-    imageAlt: 'Grävmaskin som schaktar inför markarbete i Skellefteå',
+    heroImage: '/service-markarbeten.webp',
+    image: '/service-markarbeten.webp',
+    imageAlt: 'Nyanlagd infart och markarbete med vägtrumma i Västerbotten',
     href: '/tjanster/markarbeten',
     tag: 'Markarbeten',
     badge: 'Schakt och mark',

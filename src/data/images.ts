@@ -78,8 +78,8 @@ const images: SiteImages = {
 
   services: {
     nybyggnation: {
-      url: '/service-gravning.webp',
-      alt: 'Grävning och schaktning i Västerbotten',
+      url: '/service-markarbeten.webp',
+      alt: 'Nyanlagd infart och markarbete i Västerbotten',
     },
     smahusbyggnation: {
       url: '/service-byggnation.webp',
