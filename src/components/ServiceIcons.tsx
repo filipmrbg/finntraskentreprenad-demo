@@ -198,6 +198,39 @@ export function FastighetIcon({ color = '#ff7900', size = 38, style }: IconProps
   );
 }
 
+/**
+ * 7. Transport: Heavy truck with flatbed, container cargo and dual axles
+ */
+export function TransportIcon({ color = '#ff7900', size = 38, style }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 40 40"
+      fill="none"
+      stroke={color}
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={{ display: 'block', ...style }}
+    >
+      {/* Truck cab */}
+      <path d="M4 14H14V27H4V14Z" />
+      <path d="M14 17H21L24 22V27H14" />
+      <circle cx="8" cy="28.5" r="2.5" />
+      <circle cx="19" cy="28.5" r="2.5" />
+      {/* Flatbed container / cargo bed */}
+      <rect x="23" y="13" width="13" height="14" rx="1.5" />
+      <line x1="27" y1="16" x2="27" y2="24" opacity="0.6" />
+      <line x1="32" y1="16" x2="32" y2="24" opacity="0.6" />
+      <circle cx="27" cy="28.5" r="2.5" />
+      <circle cx="33" cy="28.5" r="2.5" />
+      {/* Ground road line */}
+      <line x1="2" y1="33" x2="38" y2="33" strokeDasharray="3 2" />
+    </svg>
+  );
+}
+
 export function ServiceIcon({ type, color, size = 38 }: { type: string; color?: string; size?: number }) {
   switch (type) {
     case 'markarbeten':
@@ -215,6 +248,11 @@ export function ServiceIcon({ type, color, size = 38 }: { type: string; color?: 
       return <SkogIcon color={color} size={size} />;
     case 'fastighetsservice':
       return <FastighetIcon color={color} size={size} />;
+    case 'transport-maskintransport':
+    case 'transport':
+    case 'maskintransport':
+    case 'container':
+      return <TransportIcon color={color} size={size} />;
     case 'maskinforare':
     case 'maskintjanster':
     case 'totalentreprenad':

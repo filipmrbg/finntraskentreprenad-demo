@@ -96,43 +96,7 @@ export default function Footer() {
               ))}
             </div>
 
-            {/* Huvudnavigering */}
-            <div style={{ marginTop: '22px' }}>
-              <div style={{
-                fontSize: '0.78rem',
-                fontWeight: 700,
-                textTransform: 'uppercase',
-                letterSpacing: '0.06em',
-                color: 'var(--color-text-dark)',
-                marginBottom: '10px',
-              }}>
-                Snabblänkar
-              </div>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 14px' }}>
-                {[
-                  { label: 'Hem', href: '/' },
-                  { label: 'Tjänster', href: '/tjanster' },
-                  { label: 'Om oss', href: '/om-oss' },
-                  { label: 'Kontakt och offert', href: '/offert' },
-                ].map(item => (
-                  <Link
-                    key={item.href}
-                    to={item.href}
-                    style={{
-                      color: 'var(--color-gray-600)',
-                      textDecoration: 'none',
-                      fontSize: '0.88rem',
-                      fontWeight: 500,
-                      transition: 'color 0.2s ease',
-                    }}
-                    onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = 'var(--color-primary)')}
-                    onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = 'var(--color-gray-600)')}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
+
           </div>
 
           {/* Column 2: Tjänster */}
@@ -254,7 +218,7 @@ export default function Footer() {
           }}
         >
           <div style={{ display: 'flex', gap: '12px', alignItems: 'center', color: 'var(--color-gray-600)', fontSize: '0.875rem', flexWrap: 'wrap' }}>
-            <span>© 2026 Finnträsk Entreprenad</span>
+            <span>© 2026 Finnträsk Entreprenad AB</span>
           </div>
 
           <Link

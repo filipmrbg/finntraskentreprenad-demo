@@ -76,7 +76,7 @@ export default function ServicesOverview() {
               margin: '0 auto',
               lineHeight: 1.65,
             }}>
-              Markarbeten, grundläggning, skogsentreprenad och fastighetsservice. Alla våra tjänster samlade i fyra områden, utförda av ett lokalt familjeföretag från Finnträsk.
+              Markarbeten, grundläggning, skogsentreprenad, fastighetsservice samt transport- och maskintransporter. Alla våra tjänster samlade i fem områden, utförda av ett lokalt familjeföretag från Finnträsk.
             </p>
           </ScrollReveal>
         </div>
@@ -184,7 +184,7 @@ export default function ServicesOverview() {
                             width: '100%',
                             height: '100%',
                             objectFit: 'cover',
-                            objectPosition: 'center 35%',
+                            objectPosition: svc.imagePosition || 'center 35%',
                             display: 'block',
                           }}
                         />

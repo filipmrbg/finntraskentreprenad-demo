@@ -21,6 +21,7 @@ export interface ServiceItem {
   detailedDescription: string;
   heroImage: string;
   image: string;
+  imagePosition?: string;
   imageAlt: string;
   href: string;
   tag?: string;
@@ -42,9 +43,9 @@ export const services: ServiceItem[] = [
     detailedDescription: `Ett bra markarbete märks inte, det bara fungerar. Vattnet rinner åt rätt håll, infarten håller för tung trafik och marken sätter sig inte efter första vintern. Det är det vi jobbar för på varje uppdrag.
 
 Vi utgår från Finnträsk och gör markarbeten åt privatpersoner, lantbruk och företag i Skellefteå, Byske, Kåge, Ursviken, Bureå och resten av Västerbotten. Du har direktkontakt med Niklas eller Kevin genom hela jobbet, från platsbesök till färdig yta.`,
-    heroImage: '/service-markarbeten.webp',
-    image: '/service-markarbeten.webp',
-    imageAlt: 'Nyanlagd infart och markarbete med vägtrumma i Västerbotten',
+    heroImage: '/service-markarbeten.jpg',
+    image: '/service-markarbeten.jpg',
+    imageAlt: 'Finnträsk Entreprenad grävmaskin utför markarbete och schaktning vid bostadstomt',
     href: '/tjanster/markarbeten',
     tag: 'Markarbeten',
     badge: 'Schakt och mark',
@@ -106,9 +107,10 @@ Vi utgår från Finnträsk och gör markarbeten åt privatpersoner, lantbruk och
     detailedDescription: `Grunden är den del av huset du aldrig ser, men som allt annat vilar på. Ett misstag här blir dyrt att rätta till i efterhand. Därför lägger vi stor vikt vid underarbetet: rätt schaktdjup, dränerande material, ordentlig packning och exakta höjder.
 
 Vi gör grundarbeten för villor, garage, attefallshus och ekonomibyggnader, dränerar om äldre hus och utför VA-arbeten i Skellefteå, Byske, Kåge, Bureå, Burträsk och övriga Västerbotten.`,
-    heroImage: '/service-betong.webp',
-    image: '/service-betong.webp',
-    imageAlt: 'Grundarbete inför platta på mark för garage i Västerbotten',
+    heroImage: '/service-grundlaggning.jpg',
+    image: '/service-grundlaggning.jpg',
+    imagePosition: 'center 65%',
+    imageAlt: 'Gjuten betongplatta och färdigställd husgrund utförd av Finnträsk Entreprenad',
     href: '/tjanster/grundlaggning',
     tag: 'Grundläggning',
     badge: 'Stabila grunder',
@@ -164,9 +166,10 @@ Vi gör grundarbeten för villor, garage, attefallshus och ekonomibyggnader, dr�
     detailedDescription: `Många av våra uppdrag ligger utanför tätorterna. Vi bygger och förbättrar skogsvägar och stugvägar och hjälper skogsägare att förbereda hyggen inför föryngring.
 
 Vi känner terrängen och förhållandena i Skellefteå kommun och Västerbotten, med tjäle, myrmark och korta säsonger. Det påverkar hur en väg ska byggas för att hålla i många år.`,
-    heroImage: '/service-skog.webp',
-    image: '/service-skog.webp',
-    imageAlt: 'Grävmaskin i skogsterräng för skogsvägar i Västerbotten',
+    heroImage: '/service-skog.jpg',
+    image: '/service-skog.jpg',
+    imagePosition: 'center 48%',
+    imageAlt: 'Skogsväg, dumper och grävmaskin i skogsterräng vid stuga i Västerbotten',
     href: '/tjanster/skogsentreprenad',
     tag: 'Skogsentreprenad',
     badge: 'Skog och väg',
@@ -218,8 +221,8 @@ Vi känner terrängen och förhållandena i Skellefteå kommun och Västerbotten
     detailedDescription: `Vi hjälper villaägare, bostadsrättsföreningar och företag med tomten och fastigheten under hela året. På sommaren anlägger vi trädgårdar och tar ner träd, på vintern skottar vi tak innan snölasten blir ett problem.
 
 Vi arbetar i Skellefteå, Byske, Kåge, Ursviken och omkringliggande orter. Du får ett fast pris eller ett tydligt upplägg innan vi börjar.`,
-    heroImage: '/gallery/gallery-3.jpg',
-    image: '/gallery/gallery-3.jpg',
+    heroImage: '/service-fastighetsservice.jpg',
+    image: '/service-fastighetsservice.jpg',
     imageAlt: 'Trädfällning med skylift vid villa i Skellefteå',
     href: '/tjanster/fastighetsservice',
     tag: 'Fastighetsservice',
@@ -269,6 +272,70 @@ Vi arbetar i Skellefteå, Byske, Kåge, Ursviken och omkringliggande orter. Du f
     seoTitle: 'Trädfällning, stubbortagning och takskottning i Skellefteå | Finnträsk Entreprenad',
     seoDescription: 'Trädgårdsanläggning, trädfällning med skylift, stubbortagning och skottning av tak i Skellefteå, Byske och Kåge. Begär kostnadsfri offert.',
   },
+  {
+    slug: 'transport-maskintransport',
+    title: 'Transport och Maskintransport',
+    h1: 'Transport, maskintransporter och containeruthyrning i Skellefteå',
+    shortDescription: 'Grustransporter, maskintransporter, väggblock och uthyrning av 22 m³ container med tömning för företag och privatpersoner.',
+    heroText: 'Flexibla transporter med egen lastbil, maskinflak och släp samt uthyrning av 22 m³ container i Skellefteå och Västerbotten.',
+    detailedDescription: `Med egen lastbil utrustad med maskinflak och släp erbjuder vi pålitliga transporttjänster åt både företag och privatpersoner i Skellefteå, Byske, Kåge, Ursviken och hela Västerbotten.
+
+Vi kör mestadels grus, bergkross och matjord till bygg- och trädgårdsprojekt, men utför även maskintransporter av grävmaskiner och utrustning samt transport av väggblock och skrymmande byggmaterial. Dessutom har vi en rymlig 22 m³ container för uthyrning – perfekt vid renovering, städning eller bygge – där vi sköter både utkörning, etablering och tömning. Det mesta som går att lasta på ett maskinflak och släp löser vi smidigt och punktligt.`,
+    heroImage: '/service-transport.jpg',
+    image: '/service-transport.jpg',
+    imageAlt: 'Volvo lastbil med maskinflak för maskintransporter och materialleveranser i Skellefteå',
+    href: '/tjanster/transport-maskintransport',
+    tag: 'Transport',
+    badge: 'Egen lastbil',
+    highlights: [
+      'Grustransporter och materialleveranser (grus, kross, matjord)',
+      'Maskintransporter med maskinflak och släp',
+      'Transport av väggblock och skrymmande byggmaterial',
+      'Uthyrning av 22 m³ container inklusive utkörning och tömning',
+    ],
+    subServices: [
+      {
+        id: 'grustransporter',
+        name: 'Grus- och materialtransporter',
+        text: 'Ska du anlägga en ny infart, gjuta en platta eller fixa trädgården? Vi levererar grus, bergkross, makadam, sand och matjord direkt till din tomt eller byggarbetsplats. Med egen lastbil slipper du dyra mellanhänder och kan få materialet tippat precis där du vill ha det. Vi kan även köra bort schaktmassor och fyllnadsmaterial.',
+        bullets: ['Grus, bergkross och makadam', 'Matjord och harpad planteringsjord', 'Bortforsling av schaktmassor och fyllnadsmaterial'],
+      },
+      {
+        id: 'maskintransporter',
+        name: 'Maskintransporter',
+        text: 'Behöver du flytta en grävmaskin, dumper, traktor eller tunga redskap mellan arbetsplatser? Med vårt maskinflak och släp transporterar vi entreprenadmaskiner och utrustning tryggt och säkert åt byggföretag, entreprenörer och maskinägare i Västerbotten.',
+        bullets: ['Flytt av grävmaskiner och entreprenadmaskiner', 'Maskinflak med god lastkapacitet och lastsäkring', 'Snabba ryck och pålitliga tider'],
+      },
+      {
+        id: 'vaggblock-specialgods',
+        name: 'Väggblock och byggmaterial',
+        text: 'Vi transporterar prefabricerade väggblock, byggmoduler, takstolar och virkespaket för byggprojekt. Tack vare flexibelt flak och släp kan vi lasta och leverera långt, tungt och skrymmande byggmaterial direkt till byggarbetsplatsen.',
+        bullets: ['Prefabricerade väggblock och takelement', 'Skrymmande byggmoduler och konstruktionsvirke', 'Direktleverans till byggplatsen'],
+      },
+      {
+        id: 'containeruthyrning',
+        name: 'Containeruthyrning 22 m³',
+        text: 'Hyr vår rejäla 22 m³ container när du rensar, bygger om eller renoverar. Vi kör ut containern till din fastighet, placerar den där du önskar och hämtar upp den för tömning när du är klar. Enkelt, smidigt och prisvärt för både privatpersoner, bostadsrättsföreningar och företag.',
+        bullets: ['22 m³ volym för byggavfall, ris, skrot eller rivning', 'Utkörning, etablering och hämtning ingår', 'Miljöriktig sortering och tömning på återvinning'],
+      },
+    ],
+    faq: [
+      {
+        question: 'Vem kan anlita er för transport och containeruthyrning?',
+        answer: 'Vi kör åt både privatpersoner och företag (byggbolag, lantbrukare och andra entreprenörer). Oavsett om du behöver ett enstaka gruslass till uppfarten eller löpande maskintransporter är du varmt välkommen att höra av dig.',
+      },
+      {
+        question: 'Vad ryms i en 22 m³ container och vad får man slänga?',
+        answer: 'En 22 m³ container rymmer stora volymer och passar utmärkt för byggspill, trä, ris och trädgårdsavfall, möbler och blandat skrot. Hör av dig till oss inför uthyrningen så stämmer vi av vilket avfallsslag det gäller och ger dig ett fast pris inklusive utkörning och tömning.',
+      },
+      {
+        question: 'Hur snabbt kan ni leverera grus eller transportera en maskin?',
+        answer: 'Vi är flexibla och kan ofta lösa materialleveranser och lokala maskintransporter med kort varsel i Skellefteåområdet. Ring Niklas (070-588 40 32) eller Kevin (070-588 40 42) så kikar vi på schemat direkt.',
+      },
+    ],
+    seoTitle: 'Transport, maskintransport och containeruthyrning i Skellefteå | Finnträsk Entreprenad',
+    seoDescription: 'Grustransporter, maskintransporter med maskinflak, transport av väggblock och uthyrning av 22 m³ container med tömning i Skellefteå och Västerbotten. Begär kostnadsfri offert.',
+  },
 ];
 
 /** Maps old slugs (used in earlier links/bookmarks) to the new service groups. */
@@ -278,6 +345,10 @@ export const legacyServiceSlugs: Record<string, string> = {
   betong: 'grundlaggning',
   maskinforare: 'skogsentreprenad',
   maskintjanster: 'skogsentreprenad',
+  transport: 'transport-maskintransport',
+  maskintransport: 'transport-maskintransport',
+  container: 'transport-maskintransport',
+  akeri: 'transport-maskintransport',
 };
 
 export function getServiceBySlug(slug: string | undefined): ServiceItem | undefined {

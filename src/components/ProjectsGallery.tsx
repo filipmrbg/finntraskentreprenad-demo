@@ -262,7 +262,7 @@ export default function ProjectsGallery() {
           display: flex;
           gap: 24px;
           width: max-content;
-          animation: infiniteRoll 42s linear infinite;
+          animation: infiniteRoll 55s linear infinite;
           will-change: transform;
         }
 
@@ -323,7 +323,7 @@ export default function ProjectsGallery() {
           }
           .gallery-marquee-track {
             gap: 16px;
-            animation-duration: 30s;
+            animation-duration: 38s;
           }
         }
 

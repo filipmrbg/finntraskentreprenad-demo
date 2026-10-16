@@ -304,6 +304,7 @@ export default function Quote() {
                     {services.map((svc) => (
                       <option key={svc.slug} value={svc.slug}>{svc.title}</option>
                     ))}
+                    <option value="containeruthyrning">Containeruthyrning (22 m³)</option>
                     <option value="annat">Annat entreprenadprojekt</option>
                   </select>
 

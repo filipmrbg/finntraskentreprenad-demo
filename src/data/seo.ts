@@ -20,7 +20,7 @@ const staticRoutes: RouteMeta[] = [
   {
     path: '/tjanster',
     title: 'Våra tjänster i Skellefteå och Västerbotten | Finnträsk Entreprenad',
-    description: 'Markarbeten, grundläggning, skogsentreprenad och fastighetsservice i Skellefteå och Västerbotten. Se alla tjänster vi utför och begär kostnadsfri offert.',
+    description: 'Markarbeten, grundläggning, skogsentreprenad, fastighetsservice samt transport- och maskintransporter i Skellefteå och Västerbotten. Se alla tjänster och begär offert.',
     changefreq: 'monthly',
     priority: 0.9,
   },

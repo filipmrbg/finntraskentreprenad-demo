@@ -400,7 +400,7 @@ export default function Home() {
                   margin: 0,
                   lineHeight: 1.18,
                 }}>
-                  Mark, grund, skog och fastighetsservice
+                  Mark, grund, skog, fastighet och transport
                 </h2>
               </ScrollReveal>
             </div>
@@ -413,7 +413,7 @@ export default function Home() {
                   lineHeight: 1.65,
                   margin: '0 0 12px 0',
                 }}>
-                  Från schakt och grunder till skogsvägar, trädfällning och takskottning. Vi hjälper villaägare, skogsägare, lantbruk och företag i Skellefteå med omnejd.
+                  Från schakt, grunder och skogsvägar till maskintransporter, grusleveranser och containeruthyrning. Vi hjälper privatpersoner, skogsägare, lantbruk och företag i Skellefteå med omnejd.
                 </p>
                 <Link
                   to="/tjanster"
@@ -433,14 +433,10 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Clean Modern Photo Grid - 4 Services with Icons */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-            gap: '24px',
-          }}>
+          {/* Clean Modern 5-Service Row Grid - All 5 side by side on desktop */}
+          <div className="home-services-5row">
             {services.map((svc: ServiceItem, index: number) => (
-              <ScrollReveal key={svc.slug} animation="fade-up" delay={index * 80}>
+              <ScrollReveal key={svc.slug} animation="fade-up" delay={index * 60}>
                 <Link
                   to={svc.href}
                   className="modern-photo-card"
@@ -477,8 +473,8 @@ export default function Home() {
                   <div style={{
                     position: 'relative',
                     width: '100%',
-                    aspectRatio: '4 / 3',
-                    minHeight: '230px',
+                    aspectRatio: '16 / 11',
+                    minHeight: '155px',
                     overflow: 'hidden',
                     background: '#0f172a',
                   }}>
@@ -491,7 +487,7 @@ export default function Home() {
                         width: '100%',
                         height: '100%',
                         objectFit: 'cover',
-                        objectPosition: 'center 35%',
+                        objectPosition: svc.imagePosition || 'center 35%',
                         display: 'block',
                         transition: 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
                       }}
@@ -506,21 +502,21 @@ export default function Home() {
 
                   {/* Content Container */}
                   <div style={{
-                    padding: '24px',
+                    padding: 'clamp(14px, 1.3vw, 20px)',
                     display: 'flex',
                     flexDirection: 'column',
                     flex: 1,
                   }}>
                     {/* Architectural Service Icon */}
-                    <div style={{ marginBottom: '16px' }}>
-                      <ServiceIcon type={svc.slug} color="#ff7900" size={38} />
+                    <div style={{ marginBottom: '12px' }}>
+                      <ServiceIcon type={svc.slug} color="#ff7900" size={32} />
                     </div>
 
                     <h3 style={{
                       color: 'var(--color-text-dark)',
                       fontWeight: 800,
-                      fontSize: '1.25rem',
-                      margin: '0 0 10px 0',
+                      fontSize: 'clamp(1.04rem, 1.1vw, 1.18rem)',
+                      margin: '0 0 8px 0',
                       letterSpacing: '-0.015em',
                       lineHeight: 1.25,
                     }}>
@@ -528,9 +524,9 @@ export default function Home() {
                     </h3>
                     <p style={{
                       color: 'var(--color-gray-600)',
-                      fontSize: '0.92rem',
-                      lineHeight: 1.6,
-                      margin: '0 0 20px 0',
+                      fontSize: '0.85rem',
+                      lineHeight: 1.52,
+                      margin: '0 0 16px 0',
                     }}>
                       {svc.shortDescription}
                     </p>
@@ -538,15 +534,15 @@ export default function Home() {
                     <div style={{
                       display: 'flex',
                       alignItems: 'center',
-                      gap: '6px',
+                      gap: '5px',
                       color: 'var(--color-primary)',
                       fontWeight: 700,
-                      fontSize: '0.9rem',
+                      fontSize: '0.85rem',
                       marginTop: 'auto',
-                      paddingTop: '14px',
+                      paddingTop: '12px',
                       borderTop: '1px solid #f1f5f9',
                     }}>
-                      Läs mer om {svc.title.toLowerCase()} <ArrowRight size={15} />
+                      <span>Läs mer</span> <ArrowRight size={14} />
                     </div>
                   </div>
                 </Link>
@@ -1043,6 +1039,25 @@ export default function Home() {
       {/* ── TWEAKED SPACED STYLES ───────────────────────────────── */}
       <style dangerouslySetInnerHTML={{
         __html: `
+        /* 5 services in one horizontal row on desktop */
+        .home-services-5row {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: 16px;
+        }
+        @media (max-width: 1040px) {
+          .home-services-5row {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+          }
+        }
+        @media (max-width: 640px) {
+          .home-services-5row {
+            grid-template-columns: 1fr;
+            gap: 16px;
+          }
+        }
+
         .area-strip {
           display: flex;
           align-items: center;

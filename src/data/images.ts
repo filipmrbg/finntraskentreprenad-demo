@@ -78,23 +78,23 @@ const images: SiteImages = {
 
   services: {
     nybyggnation: {
-      url: '/service-markarbeten.webp',
-      alt: 'Nyanlagd infart och markarbete i Västerbotten',
+      url: '/service-markarbeten.jpg',
+      alt: 'Finnträsk Entreprenad grävmaskin utför markarbete och schakt',
     },
     smahusbyggnation: {
-      url: '/service-byggnation.webp',
+      url: '/service-markarbeten.jpg',
       alt: 'Mark och anläggningsarbeten i Västerbotten',
     },
     renovering: {
-      url: '/service-betong.webp',
-      alt: 'Betong och grundläggning i Västerbotten',
+      url: '/service-grundlaggning.jpg',
+      alt: 'Gjuten betongplatta och grundläggning utförd av Finnträsk Entreprenad',
     },
     ombyggnation: {
       url: '/service-markarbete.webp',
       alt: 'Maskintjänster och entreprenad i Västerbotten',
     },
     totalentreprenad: {
-      url: '/service-skog.webp',
+      url: '/service-skog.jpg',
       alt: 'Skogsentreprenad och skogsvägar i Västerbotten',
     },
   },
@@ -102,27 +102,43 @@ const images: SiteImages = {
   gallery: [
     {
       url: '/gallery/gallery-1.jpg',
-      alt: 'Finnträsk Entreprenad anläggande av grillplats och utemiljö',
+      alt: 'Hitachi bandgrävare i djup schaktning och dikesarbete i Västerbotten',
     },
     {
       url: '/gallery/gallery-2.jpg',
-      alt: 'Finnträsk Entreprenad schaktning och tomtplanering med grävmaskin',
+      alt: 'Finnträsk Entreprenad grävmaskin utför grund- och tomtgrävning vid bostadshus',
     },
     {
       url: '/gallery/gallery-3.jpg',
-      alt: 'Finnträsk Entreprenad säker trädfällning från skylift',
+      alt: 'Installation och nedgrävning av slamavskiljare och enskilt avlopp',
     },
     {
       url: '/gallery/gallery-4.jpg',
-      alt: 'Finnträsk Entreprenad dikesgrävning och markberedning',
+      alt: 'Hitachi grävmaskin förbereder mark och sänker ner tank för avloppssystem',
     },
     {
       url: '/gallery/gallery-5.jpg',
-      alt: 'Finnträsk Entreprenad finplanering och tomtarbete',
+      alt: 'Anläggning och grusning av väg och infart med bärlager vid fastighet',
     },
     {
       url: '/gallery/gallery-6.jpg',
-      alt: 'Finnträsk Entreprenad ledningsarbete och schakt',
+      alt: 'Volvo lastbil och maskintransport med schaktutrustning i bergtäkt',
+    },
+    {
+      url: '/gallery/gallery-7.jpg',
+      alt: 'Förarperspektiv från grävmaskin vid markberedning och dikesgrävning över fält',
+    },
+    {
+      url: '/gallery/gallery-8.jpg',
+      alt: 'Slutfinish och finplanering av tomt och slänt mot sjöutsikt',
+    },
+    {
+      url: '/gallery/gallery-9.jpg',
+      alt: 'Professionell stensättning med rundad kant och marksten vid husgrund',
+    },
+    {
+      url: '/gallery/gallery-10.jpg',
+      alt: 'Gjuten betongplatta och färdigställt markunderlag för nybyggnation',
     },
   ],
 
@@ -162,50 +178,82 @@ const images: SiteImages = {
     {
       image: {
         url: '/gallery/gallery-1.jpg',
-        alt: 'Anläggande av grillplats och utemiljö i Västerbotten',
+        alt: 'Hitachi bandgrävare i djup schaktning och dikesarbete i Västerbotten',
       },
-      title: 'Grillplats och utemiljö',
-      category: 'Anläggning och utemiljö',
-    },
-    {
-      image: {
-        url: '/gallery/gallery-2.jpg',
-        alt: 'Schaktning och tomtplanering i Västerbotten',
-      },
-      title: 'Schakt och tomtplanering',
+      title: 'Djup schaktning och dikesgrävning',
       category: 'Mark och schakt',
     },
     {
       image: {
-        url: '/gallery/gallery-3.jpg',
-        alt: 'Säker trädfällning med skylift i Västerbotten',
+        url: '/gallery/gallery-2.jpg',
+        alt: 'Finnträsk Entreprenad grävmaskin utför grund- och tomtgrävning vid bostadshus',
       },
-      title: 'Trädfällning med Skylift',
-      category: 'Trädfällning',
+      title: 'Tomtgrävning och schakt vid villa',
+      category: 'Tomt och grund',
+    },
+    {
+      image: {
+        url: '/gallery/gallery-3.jpg',
+        alt: 'Installation och nedgrävning av slamavskiljare och enskilt avlopp',
+      },
+      title: 'Installation av enskilt avlopp',
+      category: 'Enskilt avlopp',
     },
     {
       image: {
         url: '/gallery/gallery-4.jpg',
-        alt: 'Dikesgrävning och vägunderhåll i Västerbotten',
+        alt: 'Hitachi grävmaskin förbereder mark och sänker ner tank för avloppssystem',
       },
-      title: 'Dikesgrävning och väg',
-      category: 'Diken och infrastruktur',
+      title: 'Avloppstank och markförberedelse',
+      category: 'Enskilt avlopp',
     },
     {
       image: {
         url: '/gallery/gallery-5.jpg',
-        alt: 'Finplanering och tomtarbete i Västerbotten',
+        alt: 'Anläggning och grusning av väg och infart med bärlager vid fastighet',
       },
-      title: 'Finplanering och markberedning',
-      category: 'Tomtplanering',
+      title: 'Väg- och infartsanläggning',
+      category: 'Väg och infart',
     },
     {
       image: {
         url: '/gallery/gallery-6.jpg',
-        alt: 'Ledningsgrävning och schakt i Västerbotten',
+        alt: 'Volvo lastbil och maskintransport med schaktutrustning i bergtäkt',
       },
-      title: 'Ledningsgrävning och schakt',
-      category: 'Ledningsarbete',
+      title: 'Transport och materialhantering',
+      category: 'Transport och åkeri',
+    },
+    {
+      image: {
+        url: '/gallery/gallery-7.jpg',
+        alt: 'Förarperspektiv från grävmaskin vid markberedning och dikesgrävning över fält',
+      },
+      title: 'Markberedning från förarhytten',
+      category: 'Maskinarbeten',
+    },
+    {
+      image: {
+        url: '/gallery/gallery-8.jpg',
+        alt: 'Slutfinish och finplanering av tomt och slänt mot sjöutsikt',
+      },
+      title: 'Finplanering och tomtutjämning vid vatten',
+      category: 'Tomtplanering',
+    },
+    {
+      image: {
+        url: '/gallery/gallery-9.jpg',
+        alt: 'Professionell stensättning med rundad kant och marksten vid husgrund',
+      },
+      title: 'Stensättning och marksten vid grund',
+      category: 'Stensättning och mark',
+    },
+    {
+      image: {
+        url: '/gallery/gallery-10.jpg',
+        alt: 'Gjuten betongplatta och färdigställt markunderlag för nybyggnation',
+      },
+      title: 'Gjuten platta och grundläggning',
+      category: 'Grundläggning',
     },
   ],
 
@@ -226,11 +274,11 @@ const images: SiteImages = {
     },
     dranering: {
       hero: {
-        url: '/service-dranering.webp',
+        url: '/service-markarbeten.jpg',
         alt: 'Dränering och ledningsarbete Västerbotten',
       },
       section1: {
-        url: '/service-dranering.webp',
+        url: '/service-markarbeten.jpg',
         alt: 'Fuktskydd och dräneringsarbete',
       },
       section2: {
@@ -240,11 +288,11 @@ const images: SiteImages = {
     },
     betong: {
       hero: {
-        url: '/service-betong.webp',
+        url: '/service-grundlaggning.jpg',
         alt: 'Gjutning av betongplatta Västerbotten',
       },
       section1: {
-        url: '/service-betong.webp',
+        url: '/service-grundlaggning.jpg',
         alt: 'Armering och betonggjutning',
       },
       section2: {

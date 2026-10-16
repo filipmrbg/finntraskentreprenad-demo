@@ -46,7 +46,7 @@ export default function ServiceDetail() {
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            objectPosition: 'center 40%',
+            objectPosition: svc.imagePosition || 'center 40%',
           }}
         />
         <div style={{
