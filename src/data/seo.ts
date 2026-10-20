@@ -34,7 +34,7 @@ const staticRoutes: RouteMeta[] = [
   {
     path: '/kontakt',
     title: 'Kontakta Finnträsk Entreprenad | Niklas och Kevin Lundmark',
-    description: 'Ring Niklas (070-588 40 32) eller Kevin (070-588 40 42) för mark- och schaktarbeten i Skellefteå och Västerbotten. Boka kostnadsfritt platsbesök!',
+    description: 'Ring Niklas (070-588 40 32) eller Kevin (070-588 40 42) för mark- och schaktarbeten i Skellefteå och Västerbotten. Kontakta oss för rådgivning och offert!',
     changefreq: 'yearly',
     priority: 0.7,
   },

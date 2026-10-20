@@ -8,9 +8,9 @@ const serviceLinks = services.map((svc) => ({ label: svc.title, href: svc.href }
 const areas = [
   'Skellefteå',
   'Byske och Finnträsk',
-  'Kåge och Ursviken',
-  'Bureå och Boliden',
-  'Burträsk och Piteå',
+  'Kåge och Boviken',
+  'Boliden och Burträsk',
+  'Piteå',
 ];
 
 const socialIcons = [

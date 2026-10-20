@@ -17,7 +17,7 @@ export default function CallModal({ isOpen, onClose }: CallModalProps) {
     },
     {
       name: 'Kevin Lundmark',
-      role: 'Ägare och grundare',
+      role: 'Delägare och transportansvarig',
       phone: '070-588 40 42',
       tel: 'tel:0705884042',
     },
@@ -203,7 +203,8 @@ export default function CallModal({ isOpen, onClose }: CallModalProps) {
           ))}
         </div>
 
-        <style dangerouslySetInnerHTML={{ __html: `
+        <style dangerouslySetInnerHTML={{
+          __html: `
           @keyframes callFadeIn {
             from { opacity: 0; }
             to { opacity: 1; }

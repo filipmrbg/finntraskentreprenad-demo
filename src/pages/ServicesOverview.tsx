@@ -294,7 +294,8 @@ export default function ServicesOverview() {
       {/* ── CTA BANNER ────────────────────────────────────────── */}
       <CTABanner />
 
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .so-sub-link {
           display: flex; align-items: center; gap: 8px; padding: 6px 0;
           font-size: 0.95rem; color: #334155; font-weight: 600; text-decoration: none;

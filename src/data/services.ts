@@ -102,7 +102,7 @@ Vi utgår från Finnträsk och gör markarbeten åt privatpersoner, lantbruk och
     slug: 'grundlaggning',
     title: 'Grundläggning',
     h1: 'Grundläggning och dränering i Skellefteå',
-    shortDescription: 'Grunder för hus och garage, dränering med Isodränskiva och VA-arbete.',
+    shortDescription: 'Grunder för hus och garage, dränering och grundisolering samt VA-arbete.',
     heroText: 'Stabila grunder, fungerande dränering och VA-arbete gjort ordentligt från början.',
     detailedDescription: `Grunden är den del av huset du aldrig ser, men som allt annat vilar på. Ett misstag här blir dyrt att rätta till i efterhand. Därför lägger vi stor vikt vid underarbetet: rätt schaktdjup, dränerande material, ordentlig packning och exakta höjder.
 
@@ -116,7 +116,7 @@ Vi gör grundarbeten för villor, garage, attefallshus och ekonomibyggnader, dr�
     badge: 'Stabila grunder',
     highlights: [
       'Grundarbeten för platta på mark',
-      'Dränering med Isodränskiva runt huset',
+      'Omdränering och grundisolering runt huset',
       'VA-arbete och anslutning till kommunalt nät',
       'Noggrann packning och laseravvägning',
     ],
@@ -128,10 +128,10 @@ Vi gör grundarbeten för villor, garage, attefallshus och ekonomibyggnader, dr�
         bullets: ['Villa, garage och attefallshus', 'Maskinhallar och ekonomibyggnader', 'Plintar och mindre grunder för förråd och altan'],
       },
       {
-        id: 'dranering-isodran',
-        name: 'Dränering med Isodränskiva',
-        text: 'Fuktig källare eller lukt i krypgrunden är ofta ett tecken på att dräneringen har gjort sitt. Vi gräver fram grunden, lägger ny dräneringsledning och monterar Isodränskiva mot grundmuren. Skivan både isolerar och leder bort vatten, vilket ger en torrare och varmare grund.',
-        bullets: ['Omdränering av äldre villor', 'Isodränskiva mot källarvägg och grundmur', 'Spolbrunnar och ny dräneringsledning'],
+        id: 'dranering-grundisolering',
+        name: 'Dränering och grundisolering',
+        text: 'Fuktig källare eller lukt i krypgrunden är ofta ett tecken på att dräneringen har gjort sitt. Vi gräver fram grunden, lägger ny dräneringsledning och monterar dräneringsskivor mot grundmuren. Skivorna både isolerar och leder bort vatten, vilket ger en torrare och varmare grund.',
+        bullets: ['Omdränering av äldre villor', 'Utvändig grundisolering mot källarvägg och grundmur', 'Spolbrunnar och ny dräneringsledning'],
       },
       {
         id: 'va-arbete',
@@ -150,18 +150,18 @@ Vi gör grundarbeten för villor, garage, attefallshus och ekonomibyggnader, dr�
         answer: 'Vanliga tecken är fukt eller mögellukt i källaren, saltutfällningar på källarväggen eller att huset är äldre än 30 till 40 år. Vi kommer gärna ut och tittar.',
       },
       {
-        question: 'Varför Isodränskiva?',
-        answer: 'Isodränskivan både isolerar grundmuren och leder bort vatten. Det ger en torrare och varmare grund jämfört med att bara byta dräneringsrör.',
+        question: 'Varför är det viktigt med grundisolering vid dränering?',
+        answer: 'Dräneringsskivorna både isolerar grundmuren och leder bort vatten. Det motverkar markfukt och ger en torrare och varmare källare med lägre uppvärmningskostnader jämfört med att bara byta dräneringsrör.',
       },
     ],
     seoTitle: 'Grundläggning, dränering och VA i Skellefteå | Finnträsk Entreprenad',
-    seoDescription: 'Grunder för hus och garage, dränering med Isodränskiva och VA-arbete i Skellefteå och Västerbotten. Noggrant underarbete. Begär kostnadsfri offert.',
+    seoDescription: 'Grunder för hus och garage, dränering och grundisolering samt VA-arbete i Skellefteå och Västerbotten. Noggrant underarbete. Begär offert.',
   },
   {
     slug: 'skogsentreprenad',
     title: 'Skogsentreprenad',
     h1: 'Skogsvägar, stugvägar och högläggning i Västerbotten',
-    shortDescription: 'Skogsvägar, stugvägar och högläggning av hyggen för skogsägare och fritidshusägare.',
+    shortDescription: 'Skogsvägar, stugvägar, högläggning av hyggen samt trädfällning och skotning.',
     heroText: 'Vägar som håller och hyggen som är redo för plantering, byggt med kunskap om norrländsk terräng.',
     detailedDescription: `Många av våra uppdrag ligger utanför tätorterna. Vi bygger och förbättrar skogsvägar och stugvägar och hjälper skogsägare att förbereda hyggen inför föryngring.
 
@@ -177,7 +177,7 @@ Vi känner terrängen och förhållandena i Skellefteå kommun och Västerbotten
       'Nybyggnation av skogsvägar',
       'Stugvägar och vägar till fritidshus',
       'Högläggning av hyggen inför plantering',
-      'Diken och trummor längs vägen',
+      'Trädfällning, vindfällor och skotning',
     ],
     subServices: [
       {
@@ -198,19 +198,33 @@ Vi känner terrängen och förhållandena i Skellefteå kommun och Västerbotten
         text: 'Högläggning innebär att plantorna sätts i upphöjda högar av omvänd torv och jord. Det ger varmare och torrare växtplats och bättre överlevnad för plantorna, särskilt på fuktig mark. Vi utför högläggning med grävmaskin på hyggen i hela Västerbotten.',
         bullets: ['Markberedning inför plantering', 'Passar fuktig och tung mark', 'Uppdrag åt skogsägare och skogsbolag'],
       },
+      {
+        id: 'tradfallning-skotning',
+        name: 'Trädfällning och skotning',
+        text: 'Vi hjälper till med trädfällning i skog och på gårdstomter, inklusive uppröjning av vindfällor och stormskador. Vi ombesörjer även skotning och uttransport av virke och ris från mindre skogspartier och gallringar.',
+        bullets: [
+          'Uppröjning av vindfällor och stormfällt',
+          'Fällning av gårdsträd och träd på tomt',
+          'Skotning av mindre skogspartier',
+        ],
+      },
     ],
     faq: [
       {
         question: 'Vad kostar det att bygga en stugväg?',
-        answer: 'Det beror på vägens längd, terrängen och vilket material som finns på plats. Vi gör ett kostnadsfritt platsbesök och lämnar ett tydligt prisförslag.',
+        answer: 'Det beror på vägens längd, terrängen och vilket material som finns på plats. Vi gör en genomgång på plats vid behov och lämnar ett tydligt prisförslag.',
       },
       {
         question: 'Vad är fördelen med högläggning jämfört med harvning?',
         answer: 'Högläggning ger plantorna en upphöjd, varmare och torrare växtplats. Det fungerar särskilt bra på fuktig mark där harvning ger sämre resultat.',
       },
+      {
+        question: 'Kan ni hjälpa till med vindfällor och enstaka gårdsträd?',
+        answer: 'Ja, vi tar hand om vindfällor, fäller gårdsträd och skotar ut virke från mindre skogspartier så att marken blir ren och framkomlig igen.',
+      },
     ],
-    seoTitle: 'Skogsvägar, stugvägar och högläggning i Västerbotten | Finnträsk Entreprenad',
-    seoDescription: 'Vi bygger skogsvägar och stugvägar och utför högläggning av hyggen i Skellefteå kommun och Västerbotten. Lokalt familjeföretag från Finnträsk.',
+    seoTitle: 'Skogsvägar, stugvägar, högläggning och trädfällning | Finnträsk Entreprenad',
+    seoDescription: 'Vi bygger skogsvägar och stugvägar, utför högläggning av hyggen samt hanterar trädfällning, vindfällor och skotning i Skellefteå och Västerbotten.',
   },
   {
     slug: 'fastighetsservice',
@@ -249,7 +263,7 @@ Vi arbetar i Skellefteå, Byske, Kåge, Ursviken och omkringliggande orter. Du f
       {
         id: 'stubbortagning',
         name: 'Stubbortagning',
-        text: 'En stubbe som står kvar efter fällningen är i vägen för gräsklipparen och skjuter ofta nya skott. Vi gräver eller fräser bort stubben och fyller igen hålet, så att ytan kan användas igen.',
+        text: 'En stubbe som står kvar efter fällningen är i vägen för gräsklipparen och skjuter ofta nya skott. Vi gräver effektivt upp stubben med grävmaskin, tar med rötterna och fyller igen hålet så att marken kan återställas och användas igen.',
         bullets: ['Stubbar efter trädfällning', 'Återfyllning av hålet', 'Gärna i samband med trädfällning'],
       },
       {
@@ -275,7 +289,7 @@ Vi arbetar i Skellefteå, Byske, Kåge, Ursviken och omkringliggande orter. Du f
   {
     slug: 'transport-maskintransport',
     title: 'Transport och Maskintransport',
-    h1: 'Transport, maskintransporter och containeruthyrning i Skellefteå',
+    h1: 'Transport, maskintransporter och flakuthyrning i Skellefteå',
     shortDescription: 'Grustransporter, maskintransporter, väggblock och uthyrning av 22 m³ container med tömning för företag och privatpersoner.',
     heroText: 'Flexibla transporter med egen lastbil, maskinflak och släp samt uthyrning av 22 m³ container i Skellefteå och Västerbotten.',
     detailedDescription: `Med egen lastbil utrustad med maskinflak och släp erbjuder vi pålitliga transporttjänster åt både företag och privatpersoner i Skellefteå, Byske, Kåge, Ursviken och hela Västerbotten.
@@ -313,15 +327,15 @@ Vi kör mestadels grus, bergkross och matjord till bygg- och trädgårdsprojekt,
         bullets: ['Prefabricerade väggblock och takelement', 'Skrymmande byggmoduler och konstruktionsvirke', 'Direktleverans till byggplatsen'],
       },
       {
-        id: 'containeruthyrning',
-        name: 'Containeruthyrning 22 m³',
+        id: 'flakuthyrning',
+        name: 'Flakuthyrning 22 m³',
         text: 'Hyr vår rejäla 22 m³ container när du rensar, bygger om eller renoverar. Vi kör ut containern till din fastighet, placerar den där du önskar och hämtar upp den för tömning när du är klar. Enkelt, smidigt och prisvärt för både privatpersoner, bostadsrättsföreningar och företag.',
         bullets: ['22 m³ volym för byggavfall, ris, skrot eller rivning', 'Utkörning, etablering och hämtning ingår', 'Miljöriktig sortering och tömning på återvinning'],
       },
     ],
     faq: [
       {
-        question: 'Vem kan anlita er för transport och containeruthyrning?',
+        question: 'Vem kan anlita er för transport och flakuthyrning?',
         answer: 'Vi kör åt både privatpersoner och företag (byggbolag, lantbrukare och andra entreprenörer). Oavsett om du behöver ett enstaka gruslass till uppfarten eller löpande maskintransporter är du varmt välkommen att höra av dig.',
       },
       {
@@ -333,7 +347,7 @@ Vi kör mestadels grus, bergkross och matjord till bygg- och trädgårdsprojekt,
         answer: 'Vi är flexibla och kan ofta lösa materialleveranser och lokala maskintransporter med kort varsel i Skellefteåområdet. Ring Niklas (070-588 40 32) eller Kevin (070-588 40 42) så kikar vi på schemat direkt.',
       },
     ],
-    seoTitle: 'Transport, maskintransport och containeruthyrning i Skellefteå | Finnträsk Entreprenad',
+    seoTitle: 'Transport, maskintransport och flakuthyrning i Skellefteå | Finnträsk Entreprenad',
     seoDescription: 'Grustransporter, maskintransporter med maskinflak, transport av väggblock och uthyrning av 22 m³ container med tömning i Skellefteå och Västerbotten. Begär kostnadsfri offert.',
   },
 ];

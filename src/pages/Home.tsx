@@ -54,8 +54,8 @@ export default function Home() {
   const heroBgRef = useRef<HTMLDivElement>(null);
   const heroVideoRef = useRef<HTMLVideoElement>(null);
 
-  const desktopVideoUrl = 'https://d8j0ntlcm91z4.cloudfront.net/user_3G5LlmMYORSdAk8SxzXrK2S0Is5/hf_20260930_051043_bafacc09-c033-4a24-ad3e-1038a50119ea.mp4';
-  const mobileVideoUrl = 'https://d8j0ntlcm91z4.cloudfront.net/user_3G5LlmMYORSdAk8SxzXrK2S0Is5/hf_20260930_051043_bafacc09-c033-4a24-ad3e-1038a50119ea.mp4';
+  const desktopVideoUrl = 'https://d8j0ntlcm91z4.cloudfront.net/user_3G5LlmMYORSdAk8SxzXrK2S0Is5/hf_20261020_115150_9418d913-e63d-4416-bfcf-868b3679936f.mp4';
+  const mobileVideoUrl = 'https://d8j0ntlcm91z4.cloudfront.net/user_3G5LlmMYORSdAk8SxzXrK2S0Is5/hf_20261020_115150_9418d913-e63d-4416-bfcf-868b3679936f.mp4';
 
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [isCallModalOpen, setIsCallModalOpen] = useState(false);
@@ -413,7 +413,7 @@ export default function Home() {
                   lineHeight: 1.65,
                   margin: '0 0 12px 0',
                 }}>
-                  Från schakt, grunder och skogsvägar till maskintransporter, grusleveranser och containeruthyrning. Vi hjälper privatpersoner, skogsägare, lantbruk och företag i Skellefteå med omnejd.
+                  Från schakt, grunder och skogsvägar till maskintransporter, grusleveranser och flakuthyrning. Vi hjälper privatpersoner, skogsägare, lantbruk och företag i Skellefteå med omnejd.
                 </p>
                 <Link
                   to="/tjanster"

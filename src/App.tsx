@@ -63,7 +63,7 @@ export interface PageComponents {
  * while src/entry-server.tsx passes eagerly imported pages for prerendering.
  */
 export function AppLayout({ pages }: { pages: PageComponents }) {
-  const { About, Contact, Quote, ServicesOverview, ServiceDetail, Animations } = pages;
+  const { About, Quote, ServicesOverview, ServiceDetail, Animations } = pages;
   return (
     <>
       <ScrollToTop />

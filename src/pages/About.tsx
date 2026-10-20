@@ -12,20 +12,28 @@ const container: React.CSSProperties = {
 
 const teamMembers = [
   {
+    role: 'Delägare och transportansvarig',
+    name: 'Kevin Lundmark',
+    image: '/kevin-lundmark.jpg',
+    objectPosition: 'center 38%',
+    scale: 2.2,
+    transformOrigin: '50% 38%',
+    initials: 'KL',
+    phone: '070-588 40 42',
+    tel: '0705884042',
+    description: 'Delägare och transportansvarig i familjeföretaget med gedigen bakgrund inom transportsektorn, maskintjänster och personliga relationer till kunder i Skellefteåbygden.',
+  },
+  {
     role: 'Grundare och ägare',
     name: 'Niklas Lundmark',
+    image: '/niklas-lundmark.jpg',
+    objectPosition: 'center 15%',
+    scale: 1,
+    transformOrigin: 'center center',
     initials: 'NL',
     phone: '070-588 40 32',
     tel: '0705884032',
     description: 'Driver Finnträsk Entreprenad med stor kunskap inom mark- och schaktarbeten, tomtplanering och entreprenaduppdrag i Skellefteå och Västerbotten.',
-  },
-  {
-    role: 'Grundare och ägare',
-    name: 'Kevin Lundmark',
-    initials: 'KL',
-    phone: '070-588 40 42',
-    tel: '0705884042',
-    description: 'Drivande kraft i familjeföretaget med gedigen bakgrund inom transportsektorn, maskintjänster och personliga relationer till kunder i Skellefteåbygden.',
   },
 ];
 
@@ -140,7 +148,7 @@ export default function About() {
                   }}>
                     Finnträsk Entreprenad är ett företag med lokal förankring som utför allt inom mark och schaktarbeten. Med bas i Västerbotten verkar vi i hela regionen – inklusive Byske, Skellefteå och Piteå – för privatpersoner, lantbruk, företag och fastighetsägare.
                   </p>
-                  
+
                   <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--color-text-dark)', margin: '28px 0 12px 0' }}>
                     Stor kunskap och bredd gör att vi löser det mesta
                   </h3>
@@ -150,7 +158,7 @@ export default function About() {
                     lineHeight: 1.8,
                     margin: '0 0 16px 0',
                   }}>
-                    Vi har en gedigen bakgrund inom transportsektorn med goda kontakter vilket gör att vi kan åta oss även större uppdrag. Det viktigaste för oss är att få en god kundrelation och att kunden blir helt nöjd med arbetet. Vi är serviceinriktade och tar dig och dina planer på fullaste allvar.
+                    Med Niklas som grundare och Kevin som delägare och transportansvarig har vi en gedigen bakgrund inom både maskinarbeten och transportsektorn med goda kontakter, vilket gör att vi kan åta oss både små och stora uppdrag. Det viktigaste för oss är att få en god kundrelation och att kunden blir helt nöjd med arbetet. Vi är serviceinriktade och tar dig och dina planer på fullaste allvar.
                   </p>
                   <p style={{
                     color: 'var(--color-gray-600)',
@@ -185,7 +193,7 @@ export default function About() {
                       fontSize: '0.9rem',
                       display: 'block',
                     }}>
-                      Niklas Lundmark och Kevin Lundmark, Grundare och ägare Finnträsk Entreprenad
+                      Niklas Lundmark (grundare) och Kevin Lundmark (delägare och transportansvarig), Finnträsk Entreprenad
                     </span>
                   </div>
 
@@ -223,59 +231,70 @@ export default function About() {
                 maxWidth: '560px',
                 margin: '0 auto',
               }}>
-                Niklas Lundmark och Kevin Lundmark leder Finnträsk Entreprenad och säkerställer personligt engagemang, yrkesskicklighet och trygghet i varje uppdrag.
+                Kevin Lundmark (delägare och transportansvarig) och Niklas Lundmark (grundare) leder Finnträsk Entreprenad och säkerställer personligt engagemang, yrkesskicklighet och trygghet i varje uppdrag.
               </p>
             </ScrollReveal>
           </div>
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-            gap: '24px',
-            maxWidth: '640px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '28px',
+            maxWidth: '720px',
             margin: '0 auto',
           }} className="team-grid">
             {teamMembers.map((member, i) => (
               <ScrollReveal key={i} animation="slide-up-fade" delay={i * 120}>
                 <div style={{
-                  background: '#f8fafc',
-                  borderRadius: '20px',
+                  background: '#ffffff',
+                  borderRadius: '24px',
                   overflow: 'hidden',
                   border: '1px solid #e2e8f0',
-                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.04)',
+                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.05)',
                   transition: 'transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease',
                   textAlign: 'center',
                   height: '100%',
                   display: 'flex',
                   flexDirection: 'column',
                 }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-6px)';
-                  e.currentTarget.style.boxShadow = '0 16px 36px rgba(0, 0, 0, 0.09)';
-                  e.currentTarget.style.borderColor = 'rgba(255, 121, 0, 0.3)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.04)';
-                  e.currentTarget.style.borderColor = '#e2e8f0';
-                }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-6px)';
+                    e.currentTarget.style.boxShadow = '0 16px 36px rgba(0, 0, 0, 0.09)';
+                    e.currentTarget.style.borderColor = 'rgba(255, 121, 0, 0.3)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.05)';
+                    e.currentTarget.style.borderColor = '#e2e8f0';
+                  }}
                 >
                   <div style={{ padding: '36px 28px', flex: 1, display: 'flex', flexDirection: 'column' }}>
                     <div style={{
-                      width: '68px',
-                      height: '68px',
+                      width: '150px',
+                      height: '150px',
                       borderRadius: '50%',
-                      background: 'rgba(255, 121, 0, 0.12)',
-                      color: 'var(--color-primary)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontSize: '1.6rem',
-                      fontWeight: 800,
-                      margin: '0 auto 18px auto',
-                      border: '2px solid rgba(255, 121, 0, 0.3)',
+                      overflow: 'hidden',
+                      margin: '0 auto 22px auto',
+                      border: '4px solid var(--color-primary)',
+                      boxShadow: '0 8px 24px rgba(255, 121, 0, 0.22)',
+                      background: '#f1f5f9',
+                      flexShrink: 0,
                     }}>
-                      {member.initials}
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        loading="eager"
+                        decoding="async"
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          objectPosition: member.objectPosition || 'center 20%',
+                          transform: member.scale ? `scale(${member.scale})` : undefined,
+                          transformOrigin: member.transformOrigin || 'center 20%',
+                          display: 'block',
+                        }}
+                      />
                     </div>
                     <h3 style={{
                       color: 'var(--color-text-dark)',
@@ -333,7 +352,8 @@ export default function About() {
       {/* ── SECTION E: CTA BANNER ─────────────────────────────── */}
       <CTABanner />
 
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @media (max-width: 768px) {
           .two-col { grid-template-columns: 1fr !important; gap: 40px !important; }
           .team-grid { grid-template-columns: 1fr !important; }

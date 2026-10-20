@@ -15,8 +15,8 @@ const container: React.CSSProperties = {
 
 const faqItems = [
   {
-    question: 'Kostar platsbesöket något?',
-    answer: 'Nej, platsbesök och offert är alltid kostnadsfritt. Vi besöker din fastighet, mäter höjder, kollar förutsättningar och tar fram ett tydligt prisförslag helt utan förbindelser.',
+    question: 'Hur fungerar platsbesök och offert?',
+    answer: 'Vi stämmer av projektets omfattning, gör en bedömning på plats vid behov och tar fram ett tydligt prisförslag helt utan förbindelser.',
   },
   {
     question: 'Hur snabbt kan ni påbörja projektet?',
@@ -304,8 +304,8 @@ export default function Quote() {
                     {services.map((svc) => (
                       <option key={svc.slug} value={svc.slug}>{svc.title}</option>
                     ))}
-                    <option value="containeruthyrning">Containeruthyrning (22 m³)</option>
-                    <option value="annat">Annat entreprenadprojekt</option>
+                    <option value="flakuthyrning">Flakuthyrning (22 m³)</option>
+                    <option value="annat">Annat arbete</option>
                   </select>
 
 
