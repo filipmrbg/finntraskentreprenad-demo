@@ -55,7 +55,7 @@ export default function Home() {
   const heroVideoRef = useRef<HTMLVideoElement>(null);
 
   const desktopVideoUrl = 'https://d8j0ntlcm91z4.cloudfront.net/user_3G5LlmMYORSdAk8SxzXrK2S0Is5/hf_20261020_115150_9418d913-e63d-4416-bfcf-868b3679936f.mp4';
-  const mobileVideoUrl = 'https://d8j0ntlcm91z4.cloudfront.net/user_3G5LlmMYORSdAk8SxzXrK2S0Is5/hf_20261020_115150_9418d913-e63d-4416-bfcf-868b3679936f.mp4';
+  const mobileVideoUrl = '/hero-mobile.mp4';
 
   const [isMobile, setIsMobile] = useState<boolean>(() => typeof window !== 'undefined' ? window.innerWidth <= 768 : false);
   const [isCallModalOpen, setIsCallModalOpen] = useState(false);
@@ -195,7 +195,9 @@ export default function Home() {
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(90deg, rgba(15, 17, 23, 0.58) 0%, rgba(15, 17, 23, 0.32) 48%, rgba(15, 17, 23, 0.05) 80%), linear-gradient(180deg, rgba(15, 17, 23, 0.35) 0%, transparent 22%, transparent 88%, rgba(15, 17, 23, 0.4) 100%)',
+          background: isMobile
+            ? 'linear-gradient(180deg, rgba(15, 17, 23, 0.62) 0%, rgba(15, 17, 23, 0.38) 45%, rgba(15, 17, 23, 0.72) 100%)'
+            : 'linear-gradient(90deg, rgba(15, 17, 23, 0.58) 0%, rgba(15, 17, 23, 0.32) 48%, rgba(15, 17, 23, 0.05) 80%), linear-gradient(180deg, rgba(15, 17, 23, 0.35) 0%, transparent 22%, transparent 88%, rgba(15, 17, 23, 0.4) 100%)',
           zIndex: 1,
           pointerEvents: 'none',
         }} />
