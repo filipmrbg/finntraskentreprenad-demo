@@ -101,40 +101,52 @@ const images: SiteImages = {
 
   gallery: [
     {
+      url: '/gallery/gallery-12.jpg',
+      alt: 'Betonggrund och rundad markstensläggning med panoramautsikt mot vatten och berg',
+    },
+    {
       url: '/gallery/gallery-1.jpg',
       alt: 'Hitachi bandgrävare i djup schaktning och dikesarbete i Västerbotten',
     },
     {
-      url: '/gallery/gallery-2.jpg',
-      alt: 'Finnträsk Entreprenad grävmaskin utför grund- och tomtgrävning vid bostadshus',
+      url: '/gallery/gallery-13.jpg',
+      alt: 'Gjuten betongplatta, markstensläggning och Finnträsk Entreprenad servicefordon i solsken',
     },
     {
       url: '/gallery/gallery-3.jpg',
       alt: 'Installation och nedgrävning av slamavskiljare och enskilt avlopp',
     },
     {
-      url: '/gallery/gallery-4.jpg',
-      alt: 'Hitachi grävmaskin förbereder mark och sänker ner tank för avloppssystem',
-    },
-    {
-      url: '/gallery/gallery-5.jpg',
-      alt: 'Anläggning och grusning av väg och infart med bärlager vid fastighet',
+      url: '/gallery/gallery-8.jpg',
+      alt: 'Slutfinish och finplanering av tomt och slänt mot sjöutsikt',
     },
     {
       url: '/gallery/gallery-6.jpg',
       alt: 'Volvo lastbil och maskintransport med schaktutrustning i bergtäkt',
     },
     {
-      url: '/gallery/gallery-7.jpg',
-      alt: 'Förarperspektiv från grävmaskin vid markberedning och dikesgrävning över fält',
+      url: '/gallery/gallery-11.jpg',
+      alt: 'Gjuten betongplatta och plattsättning med rundad kant mot tomtmark',
     },
     {
-      url: '/gallery/gallery-8.jpg',
-      alt: 'Slutfinish och finplanering av tomt och slänt mot sjöutsikt',
+      url: '/gallery/gallery-2.jpg',
+      alt: 'Finnträsk Entreprenad grävmaskin utför grund- och tomtgrävning vid bostadshus',
+    },
+    {
+      url: '/gallery/gallery-5.jpg',
+      alt: 'Anläggning och grusning av väg och infart med bärlager vid fastighet',
+    },
+    {
+      url: '/gallery/gallery-4.jpg',
+      alt: 'Hitachi grävmaskin förbereder mark och sänker ner tank för avloppssystem',
     },
     {
       url: '/gallery/gallery-9.jpg',
       alt: 'Professionell stensättning med rundad kant och marksten vid husgrund',
+    },
+    {
+      url: '/gallery/gallery-7.jpg',
+      alt: 'Förarperspektiv från grävmaskin vid markberedning och dikesgrävning över fält',
     },
     {
       url: '/gallery/gallery-10.jpg',
@@ -177,6 +189,14 @@ const images: SiteImages = {
   portfolio: [
     {
       image: {
+        url: '/gallery/gallery-12.jpg',
+        alt: 'Betonggrund och rundad markstensläggning med panoramautsikt mot vatten och berg',
+      },
+      title: 'Betonggrund och marksten vid sjötomt',
+      category: 'Plattsättning och grund',
+    },
+    {
+      image: {
         url: '/gallery/gallery-1.jpg',
         alt: 'Hitachi bandgrävare i djup schaktning och dikesarbete i Västerbotten',
       },
@@ -185,11 +205,11 @@ const images: SiteImages = {
     },
     {
       image: {
-        url: '/gallery/gallery-2.jpg',
-        alt: 'Finnträsk Entreprenad grävmaskin utför grund- och tomtgrävning vid bostadshus',
+        url: '/gallery/gallery-13.jpg',
+        alt: 'Gjuten betongplatta, markstensläggning och Finnträsk Entreprenad servicefordon i solsken',
       },
-      title: 'Tomtgrävning och schakt vid villa',
-      category: 'Tomt och grund',
+      title: 'Färdigställd platta och stenläggning',
+      category: 'Grundläggning & sten',
     },
     {
       image: {
@@ -201,19 +221,11 @@ const images: SiteImages = {
     },
     {
       image: {
-        url: '/gallery/gallery-4.jpg',
-        alt: 'Hitachi grävmaskin förbereder mark och sänker ner tank för avloppssystem',
+        url: '/gallery/gallery-8.jpg',
+        alt: 'Slutfinish och finplanering av tomt och slänt mot sjöutsikt',
       },
-      title: 'Avloppstank och markförberedelse',
-      category: 'Enskilt avlopp',
-    },
-    {
-      image: {
-        url: '/gallery/gallery-5.jpg',
-        alt: 'Anläggning och grusning av väg och infart med bärlager vid fastighet',
-      },
-      title: 'Väg- och infartsanläggning',
-      category: 'Väg och infart',
+      title: 'Finplanering och tomtutjämning vid vatten',
+      category: 'Tomtplanering',
     },
     {
       image: {
@@ -225,19 +237,35 @@ const images: SiteImages = {
     },
     {
       image: {
-        url: '/gallery/gallery-7.jpg',
-        alt: 'Förarperspektiv från grävmaskin vid markberedning och dikesgrävning över fält',
+        url: '/gallery/gallery-11.jpg',
+        alt: 'Gjuten betongplatta och plattsättning med rundad kant mot tomtmark',
       },
-      title: 'Markberedning från förarhytten',
-      category: 'Maskinarbeten',
+      title: 'Plattsättning och gjuten grundplatta',
+      category: 'Plattsättning och grund',
     },
     {
       image: {
-        url: '/gallery/gallery-8.jpg',
-        alt: 'Slutfinish och finplanering av tomt och slänt mot sjöutsikt',
+        url: '/gallery/gallery-2.jpg',
+        alt: 'Finnträsk Entreprenad grävmaskin utför grund- och tomtgrävning vid bostadshus',
       },
-      title: 'Finplanering och tomtutjämning vid vatten',
-      category: 'Tomtplanering',
+      title: 'Tomtgrävning och schakt vid villa',
+      category: 'Tomt och grund',
+    },
+    {
+      image: {
+        url: '/gallery/gallery-5.jpg',
+        alt: 'Anläggning och grusning av väg och infart med bärlager vid fastighet',
+      },
+      title: 'Väg- och infartsanläggning',
+      category: 'Väg och infart',
+    },
+    {
+      image: {
+        url: '/gallery/gallery-4.jpg',
+        alt: 'Hitachi grävmaskin förbereder mark och sänker ner tank för avloppssystem',
+      },
+      title: 'Avloppstank och markförberedelse',
+      category: 'Enskilt avlopp',
     },
     {
       image: {
@@ -246,6 +274,14 @@ const images: SiteImages = {
       },
       title: 'Stensättning och marksten vid grund',
       category: 'Stensättning och mark',
+    },
+    {
+      image: {
+        url: '/gallery/gallery-7.jpg',
+        alt: 'Förarperspektiv från grävmaskin vid markberedning och dikesgrävning över fält',
+      },
+      title: 'Markberedning från förarhytten',
+      category: 'Maskinarbeten',
     },
     {
       image: {

@@ -101,12 +101,12 @@ Vi utgår från Finnträsk och gör markarbeten åt privatpersoner, lantbruk och
   {
     slug: 'grundlaggning',
     title: 'Grundläggning',
-    h1: 'Grundläggning och dränering i Skellefteå',
-    shortDescription: 'Grunder för hus och garage, dränering och grundisolering samt VA-arbete.',
-    heroText: 'Stabila grunder, fungerande dränering och VA-arbete gjort ordentligt från början.',
+    h1: 'Grundläggning, dränering och plattsättning i Skellefteå',
+    shortDescription: 'Grunder för hus och garage, dränering, VA-arbete samt plattsättning, mur och L-stöd.',
+    heroText: 'Stabila grunder, fungerande dränering, VA-arbete samt plattsättning och murar med tåligt underarbete.',
     detailedDescription: `Grunden är den del av huset du aldrig ser, men som allt annat vilar på. Ett misstag här blir dyrt att rätta till i efterhand. Därför lägger vi stor vikt vid underarbetet: rätt schaktdjup, dränerande material, ordentlig packning och exakta höjder.
 
-Vi gör grundarbeten för villor, garage, attefallshus och ekonomibyggnader, dränerar om äldre hus och utför VA-arbeten i Skellefteå, Byske, Kåge, Bureå, Burträsk och övriga Västerbotten.`,
+Vi gör grundarbeten för villor, garage, attefallshus och ekonomibyggnader, dränerar om äldre hus, utför VA-arbeten samt anlägger plattsättning, stödmurar och L-stöd i Skellefteå, Byske, Kåge, Bureå, Burträsk och övriga Västerbotten.`,
     heroImage: '/service-grundlaggning.jpg',
     image: '/service-grundlaggning.jpg',
     imagePosition: 'center 65%',
@@ -117,7 +117,8 @@ Vi gör grundarbeten för villor, garage, attefallshus och ekonomibyggnader, dr�
     highlights: [
       'Grundarbeten för platta på mark',
       'Omdränering och grundisolering runt huset',
-      'VA-arbete och anslutning till kommunalt nät',
+      'Nya avloppsanläggningar, renovering av gamla avlopp & kommunalt VA',
+      'Plattsättning, stödmurar och montering av L-stöd',
       'Noggrann packning och laseravvägning',
     ],
     subServices: [
@@ -135,9 +136,19 @@ Vi gör grundarbeten för villor, garage, attefallshus och ekonomibyggnader, dr�
       },
       {
         id: 'va-arbete',
-        name: 'VA-arbete',
-        text: 'Vi gräver för vatten och avlopp, både vid anslutning till kommunalt nät och för enskilda lösningar på landsbygden. Ledningarna läggs på frostfritt djup eller isoleras där det inte går att gräva djupt, vilket är viktigt här uppe i norr.',
-        bullets: ['Anslutning till kommunalt VA', 'Byte av gamla avloppsledningar', 'Schakt för enskilt avlopp'],
+        name: 'VA-arbete och avlopp',
+        text: 'Vi utför allt inom vatten och avlopp – från kompletta nyanläggningar till renovering och modernisering av äldre, uttjänta system som behöver åtgärdas enligt kommunens miljökrav. Vi sköter all schaktning, rörläggning och installation av godkända slamavskiljare, minireningsverk, slutna tankar och markbäddar på frostfritt djup, samt ansluter fastigheter till det kommunala VA-nätet.',
+        bullets: [
+          'Helt nya enskilda avloppsanläggningar (trekammarbrunn, minireningsverk, markbädd & sluten tank)',
+          'Renovering, modernisering och byte av gamla och utdömda avlopp',
+          'Anslutning till kommunalt VA-nät, servisledningar och frostisolerade rör',
+        ],
+      },
+      {
+        id: 'plattsattning-mur-lstod',
+        name: 'Plattsättning, mur och L-stöd',
+        text: 'Vi utför professionell plattsättning, markstensläggning och anläggning av stödmurar och L-stöd. Med noggrant underarbete, dränerande bärlager och laseravvägning säkerställer vi hållbara markytor och släntstöd som står emot tjäle och marktryck år efter år.',
+        bullets: ['Plattsättning av uppfarter, gångar och uteplatser', 'Montering av L-stöd för nivåskillnader och slänter', 'Bygge av stödmurar och kantsten med stabilt underarbete'],
       },
     ],
     faq: [
@@ -153,9 +164,17 @@ Vi gör grundarbeten för villor, garage, attefallshus och ekonomibyggnader, dr�
         question: 'Varför är det viktigt med grundisolering vid dränering?',
         answer: 'Dräneringsskivorna både isolerar grundmuren och leder bort vatten. Det motverkar markfukt och ger en torrare och varmare källare med lägre uppvärmningskostnader jämfört med att bara byta dräneringsrör.',
       },
+      {
+        question: 'Renoverar ni gamla avlopp eller gör ni bara nya anläggningar?',
+        answer: 'Vi gör både och! Vi projekterar och gräver helt nya enskilda avloppsanläggningar vid nybyggnation, och vi renoverar eller byter ut äldre anläggningar som är uttjänta eller inte längre uppfyller kommunens miljökrav. Vi hjälper till med allt från schakt och rördragning till godkända tankar och bäddar.',
+      },
+      {
+        question: 'Vad är viktigt att tänka på vid montering av L-stöd och murar?',
+        answer: 'Underarbetet är helt avgörande. Marken måste schaktas ur till tjälfritt djup eller frostskyddas, fyllas med bergskross och packas ordentligt. Dessutom behövs god dränering bakom L-stöden eller muren så att vattentryck och tjäle inte rubbar konstruktionen.',
+      },
     ],
-    seoTitle: 'Grundläggning, dränering och VA i Skellefteå | Finnträsk Entreprenad',
-    seoDescription: 'Grunder för hus och garage, dränering och grundisolering samt VA-arbete i Skellefteå och Västerbotten. Noggrant underarbete. Begär offert.',
+    seoTitle: 'Grundläggning, dränering, VA och plattsättning i Skellefteå | Finnträsk Entreprenad',
+    seoDescription: 'Grunder för hus och garage, dränering, VA-arbete, avloppsanläggningar samt plattsättning och L-stöd i Skellefteå och Västerbotten. Begär offert.',
   },
   {
     slug: 'skogsentreprenad',
