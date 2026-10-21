@@ -54,7 +54,7 @@ export default function Home() {
   const heroBgRef = useRef<HTMLDivElement>(null);
   const heroVideoRef = useRef<HTMLVideoElement>(null);
 
-  const desktopVideoUrl = 'https://d8j0ntlcm91z4.cloudfront.net/user_3G5LlmMYORSdAk8SxzXrK2S0Is5/hf_20261020_115150_9418d913-e63d-4416-bfcf-868b3679936f.mp4';
+  const desktopVideoUrl = 'https://d8j0ntlcm91z4.cloudfront.net/user_3G5LlmMYORSdAk8SxzXrK2S0Is5/hf_20261020_121450_e642380c-4d6c-4675-b36e-9cd145a653f4.mp4';
   const mobileVideoUrl = '/hero-mobile.mp4';
 
   const [isMobile, setIsMobile] = useState<boolean>(() => typeof window !== 'undefined' ? window.innerWidth <= 768 : false);
