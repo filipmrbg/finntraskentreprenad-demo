@@ -16,14 +16,22 @@ export default function ServicesOverview() {
 
   useEffect(() => {
     if (hash) {
-      let id = hash.replace('#', '');
-      const element = document.getElementById(id);
-      if (element) {
-        setTimeout(() => {
-          const yOffset = -100;
+      const id = hash.replace('#', '');
+      const scrollToEl = () => {
+        const element = document.getElementById(id);
+        if (element) {
+          const isMobile = window.innerWidth < 860;
+          const yOffset = isMobile ? -85 : -140;
           const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-          window.scrollTo({ top: y, behavior: 'smooth' });
-        }, 100);
+          window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+          return true;
+        }
+        return false;
+      };
+      if (!scrollToEl()) {
+        const t1 = setTimeout(scrollToEl, 80);
+        const t2 = setTimeout(scrollToEl, 250);
+        return () => { clearTimeout(t1); clearTimeout(t2); };
       }
     } else {
       window.scrollTo({ top: 0, behavior: 'instant' });
@@ -33,9 +41,10 @@ export default function ServicesOverview() {
   const scrollToSection = (slug: string) => {
     const element = document.getElementById(slug);
     if (element) {
-      const yOffset = -100;
+      const isMobile = window.innerWidth < 860;
+      const yOffset = isMobile ? -85 : -140;
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
       window.history.pushState(null, '', `#${slug}`);
     }
   };
@@ -83,18 +92,8 @@ export default function ServicesOverview() {
       </section>
 
 
-      {/* ── STICKY ANCHOR TAB BAR ──────────────────────────── */}
-      <div style={{
-        position: 'sticky',
-        top: '72px',
-        zIndex: 40,
-        background: 'rgba(255, 255, 255, 0.95)',
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
-        borderBottom: '1px solid #e2e8f0',
-        padding: '12px 0',
-        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.04)',
-      }}>
+      {/* ── ANCHOR TAB BAR (EJ STICKY PÅ MOBIL) ──────────────────────────── */}
+      <div className="so-anchor-bar">
         <div style={container}>
           <div style={{
             display: 'flex',
@@ -107,28 +106,7 @@ export default function ServicesOverview() {
               <button
                 key={svc.slug}
                 onClick={() => scrollToSection(svc.slug)}
-                style={{
-                  background: '#f1f5f9',
-                  border: '1px solid #e2e8f0',
-                  borderRadius: '20px',
-                  padding: '8px 20px',
-                  fontSize: '0.92rem',
-                  fontWeight: 600,
-                  color: '#334155',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s ease',
-                  fontFamily: 'var(--font-family)',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'var(--color-primary)';
-                  e.currentTarget.style.color = '#ffffff';
-                  e.currentTarget.style.borderColor = 'var(--color-primary)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = '#f1f5f9';
-                  e.currentTarget.style.color = '#334155';
-                  e.currentTarget.style.borderColor = '#e2e8f0';
-                }}
+                className="so-tab-btn"
               >
                 {svc.title}
               </button>
@@ -137,8 +115,8 @@ export default function ServicesOverview() {
         </div>
       </div>
 
-      {/* ── DETAILED SERVICE SECTIONS (ALTERNATING LAYOUT) ──────────── */}
-      <div style={{ padding: '60px 0 100px 0' }}>
+      {/* ── DETAILED SERVICE SECTIONS ──────────── */}
+      <div style={{ padding: '20px 0 80px 0' }}>
         {services.map((svc: ServiceItem, index: number) => {
           const isEven = index % 2 === 0;
 
@@ -146,6 +124,7 @@ export default function ServicesOverview() {
             <section
               key={svc.slug}
               id={svc.slug}
+              className="so-section-wrap"
               style={{
                 padding: '80px 0',
                 background: isEven ? '#ffffff' : '#f8fafc',
@@ -153,25 +132,18 @@ export default function ServicesOverview() {
               }}
             >
               <div style={container}>
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-                  gap: '50px',
-                  alignItems: 'center',
-                }}>
+                <div className="so-service-grid">
 
                   {/* Image Column */}
-                  <div style={{ order: isEven ? 1 : 2 }}>
+                  <div className={`so-service-image ${isEven ? 'is-even' : 'is-odd'}`}>
                     <ScrollReveal animation={isEven ? 'fade-right' : 'fade-left'}>
-                      <div style={{
+                      <div className="so-img-box" style={{
                         position: 'relative',
                         borderRadius: '24px',
                         overflow: 'hidden',
                         boxShadow: '0 20px 40px rgba(15, 23, 42, 0.12)',
                         border: '3px solid #ffffff',
-                        aspectRatio: '1 / 1',
-                        minHeight: '380px',
-                        maxHeight: '520px',
+                        aspectRatio: '4 / 3',
                         background: '#0f172a',
                       }}>
                         <img
@@ -193,7 +165,7 @@ export default function ServicesOverview() {
                   </div>
 
                   {/* Content Column */}
-                  <div style={{ order: isEven ? 2 : 1 }}>
+                  <div className={`so-service-content ${isEven ? 'is-even' : 'is-odd'}`}>
                     <ScrollReveal animation={isEven ? 'fade-left' : 'fade-right'}>
                       {svc.tag && (
                         <span style={{
@@ -296,6 +268,84 @@ export default function ServicesOverview() {
 
       <style dangerouslySetInnerHTML={{
         __html: `
+        /* Anchor Tab Bar: Ej sticky på mobil, sticky på desktop */
+        .so-anchor-bar {
+          position: relative;
+          background: #ffffff;
+          border-bottom: 1px solid #e2e8f0;
+          padding: 14px 0;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        }
+        @media (min-width: 860px) {
+          .so-anchor-bar {
+            position: sticky;
+            top: 72px;
+            z-index: 40;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+          }
+        }
+
+        .so-tab-btn {
+          background: #f1f5f9;
+          border: 1px solid #e2e8f0;
+          border-radius: 999px;
+          padding: 8px 20px;
+          font-size: 0.92rem;
+          font-weight: 600;
+          color: #334155;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          font-family: var(--font-family);
+          white-space: nowrap;
+        }
+        .so-tab-btn:hover {
+          background: var(--color-primary);
+          color: #ffffff;
+          border-color: var(--color-primary);
+        }
+
+        /* Desktop: Varannan bild vänster, varannan höger */
+        @media (min-width: 860px) {
+          .so-service-grid {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 50px !important;
+            align-items: center !important;
+          }
+          .so-service-image.is-even { order: 1; }
+          .so-service-content.is-even { order: 2; }
+          .so-service-image.is-odd { order: 2; }
+          .so-service-content.is-odd { order: 1; }
+        }
+
+        /* Mobil & mindre skärmar: Alltid samma ordning: Bild (1) först, sedan Rubrik & text (2) */
+        @media (max-width: 859px) {
+          .so-service-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 28px !important;
+          }
+          .so-service-image {
+            order: 1 !important;
+            width: 100% !important;
+          }
+          .so-service-content {
+            order: 2 !important;
+            width: 100% !important;
+          }
+          .so-section-wrap {
+            padding: 48px 0 !important;
+          }
+          .so-img-box {
+            aspect-ratio: 4 / 3 !important;
+            min-height: auto !important;
+            max-height: 380px !important;
+          }
+        }
+
         .so-sub-link {
           display: flex; align-items: center; gap: 8px; padding: 6px 0;
           font-size: 0.95rem; color: #334155; font-weight: 600; text-decoration: none;
