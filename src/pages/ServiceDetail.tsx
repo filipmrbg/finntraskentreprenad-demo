@@ -122,9 +122,11 @@ export default function ServiceDetail() {
                 <Link to={`/offert?tjanst=${svc.slug}`} className="sd-btn-primary">
                   Begär kostnadsfri offert <ArrowRight size={17} />
                 </Link>
-                <a href="tel:0705884032" className="sd-btn-ghost">
-                  <Phone size={16} color="var(--color-primary)" /> Niklas: 070-588 40 32
-                </a>
+                {svc.slug !== 'transport-maskintransport' && (
+                  <a href="tel:0705884032" className="sd-btn-ghost">
+                    <Phone size={16} color="var(--color-primary)" /> Niklas: 070-588 40 32
+                  </a>
+                )}
                 <a href="tel:0705884042" className="sd-btn-ghost">
                   <Phone size={16} color="var(--color-primary)" /> Kevin: 070-588 40 42
                 </a>
@@ -297,7 +299,11 @@ export default function ServiceDetail() {
             <FAQAccordion
               items={svc.faq}
               title={`Vanliga frågor om ${svc.title.toLowerCase()}`}
-              subtitle="Hittar du inte svaret? Ring Niklas eller Kevin så hjälper vi dig."
+              subtitle={
+                svc.slug === 'transport-maskintransport'
+                  ? 'Hittar du inte svaret? Ring Kevin så hjälper vi dig.'
+                  : 'Hittar du inte svaret? Ring Niklas eller Kevin så hjälper vi dig.'
+              }
               buttonText="Begär offert"
               buttonLink="/offert"
             />

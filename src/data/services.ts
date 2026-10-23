@@ -363,7 +363,7 @@ Vi kör mestadels grus, bergkross och matjord till bygg- och trädgårdsprojekt,
       },
       {
         question: 'Hur snabbt kan ni leverera grus eller transportera en maskin?',
-        answer: 'Vi är flexibla och kan ofta lösa materialleveranser och lokala maskintransporter med kort varsel i Skellefteåområdet. Ring Niklas (070-588 40 32) eller Kevin (070-588 40 42) så kikar vi på schemat direkt.',
+        answer: 'Vi är flexibla och kan ofta lösa materialleveranser och lokala maskintransporter med kort varsel i Skellefteåområdet. Ring Kevin (070-588 40 42) så kikar vi på schemat direkt.',
       },
     ],
     seoTitle: 'Transport, maskintransport och flakuthyrning i Skellefteå | Finnträsk Entreprenad',
