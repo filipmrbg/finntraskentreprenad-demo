@@ -16,8 +16,8 @@ interface ContactPayload {
   submissionId: string;
 }
 
-const RECIPIENT_EMAIL = Deno.env.get("RECIPIENT_EMAIL") || "f.bjorgaas@gmail.com";
-const FROM_EMAIL = "Kontakt formuler <info@contact.bgbygger.se>";
+const RECIPIENT_EMAIL = Deno.env.get("RECIPIENT_EMAIL") || "info@finntraskentreprenad.se";
+const FROM_EMAIL = Deno.env.get("FROM_EMAIL") || "Finnträsk Entreprenad <onboarding@resend.dev>";
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 
 const SERVICE_LABELS: Record<string, string> = {
