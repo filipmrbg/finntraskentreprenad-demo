@@ -40,8 +40,8 @@ def generate_banner():
     logo = Image.open(LOGO_PATH).convert("RGBA")
     W, H = 1200, 630
 
-    # Scale proportionally: max 800 width or 420 height
-    scale = min(800.0 / logo.width, 420.0 / logo.height)
+    # Keep generous safe margins so the mark remains clear in narrow previews
+    scale = min(650.0 / logo.width, 340.0 / logo.height)
     tw = int(round(logo.width * scale))
     th = int(round(logo.height * scale))
     logo_res = logo.resize((tw, th), Image.Resampling.LANCZOS)
