@@ -1,10 +1,10 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, ChevronRight, MapPin, Phone } from 'lucide-react';
 import ScrollReveal from '../components/ScrollReveal';
 import FAQAccordion from '../components/FAQAccordion';
 import CTABanner from '../components/CTABanner';
 import { ServiceIcon } from '../components/ServiceIcons';
-import services, { getServiceBySlug } from '../data/services';
+import services, { getServiceBySlug, legacyServiceSlugs } from '../data/services';
 import NotFound from './NotFound';
 
 const container: React.CSSProperties = {
@@ -17,6 +17,9 @@ const areas = ['Skellefteå', 'Byske', 'Finnträsk', 'Kåge', 'Ursviken', 'Bure�
 
 export default function ServiceDetail() {
   const { slug } = useParams();
+  if (slug && legacyServiceSlugs[slug]) {
+    return <Navigate to={`/tjanster/${legacyServiceSlugs[slug]}`} replace />;
+  }
   const svc = getServiceBySlug(slug);
 
   if (!svc) return <NotFound />;
@@ -123,11 +126,11 @@ export default function ServiceDetail() {
                   Begär kostnadsfri offert <ArrowRight size={17} />
                 </Link>
                 {svc.slug !== 'transport-maskintransport' && (
-                  <a href="tel:0705884032" className="sd-btn-ghost">
+                  <a href="tel:+46705884032" className="sd-btn-ghost">
                     <Phone size={16} color="var(--color-primary)" /> Niklas: 070-588 40 32
                   </a>
                 )}
-                <a href="tel:0705884042" className="sd-btn-ghost">
+                <a href="tel:+46705884042" className="sd-btn-ghost">
                   <Phone size={16} color="var(--color-primary)" /> Kevin: 070-588 40 42
                 </a>
               </div>

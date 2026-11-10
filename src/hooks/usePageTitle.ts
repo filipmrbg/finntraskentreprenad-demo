@@ -28,7 +28,7 @@ export function useRouteSeo() {
 
     document.title = meta.title;
     upsertMeta('name', 'description', meta.description);
-    upsertMeta('name', 'robots', meta.noindex ? 'noindex, follow' : 'index, follow');
+    upsertMeta('name', 'robots', meta.noindex ? 'noindex, nofollow' : 'index, follow');
     upsertMeta('property', 'og:title', meta.title);
     upsertMeta('property', 'og:description', meta.description);
     upsertMeta('property', 'og:url', url);

@@ -33,14 +33,27 @@ const areaServed = [
 ];
 
 const businessId = `${SITE_URL}/#foretag`;
+const websiteId = `${SITE_URL}/#website`;
+
+function websiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': websiteId,
+    url: `${SITE_URL}/`,
+    name: SITE_NAME,
+    inLanguage: 'sv-SE',
+    publisher: { '@id': businessId },
+  };
+}
 
 function businessSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'HomeAndConstructionBusiness',
+    '@type': 'GeneralContractor',
     '@id': businessId,
     name: SITE_NAME,
-    legalName: SITE_NAME,
+    legalName: `${SITE_NAME} AB`,
     description:
       'Familjeföretag från Finnträsk som utför markarbeten, grundläggning, dränering, VA-arbete, skogsvägar, stugvägar, högläggning, trädgårdsanläggning, trädfällning, stubbortagning och takskottning i Skellefteå och Västerbotten.',
     url: `${SITE_URL}/`,
@@ -85,31 +98,57 @@ function businessSchema() {
   };
 }
 
-function serviceSchemas(path: string): unknown[] {
-  const svc = services.find((s) => s.href === path);
-  if (!svc) return [];
-  return [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Service',
-      name: svc.title,
-      serviceType: svc.subServices.map((s) => s.name).join(', '),
-      description: svc.seoDescription,
-      url: absoluteUrl(svc.href),
-      image: `${SITE_URL}${svc.image}`,
-      provider: { '@id': businessId },
-      areaServed,
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Hem', item: absoluteUrl('/') },
-        { '@type': 'ListItem', position: 2, name: 'Tjänster', item: absoluteUrl('/tjanster') },
-        { '@type': 'ListItem', position: 3, name: svc.title, item: absoluteUrl(svc.href) },
-      ],
-    },
-  ];
+function pageSchemas(meta: RouteMeta): unknown[] {
+  if (meta.path === '/') {
+    return [websiteSchema()];
+  }
+
+  const svc = services.find((s) => s.href === meta.path);
+  if (svc) {
+    return [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name: svc.title,
+        serviceType: svc.subServices.map((s) => s.name).join(', '),
+        description: svc.seoDescription,
+        url: absoluteUrl(svc.href),
+        image: `${SITE_URL}${svc.image}`,
+        provider: { '@id': businessId },
+        areaServed,
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: SITE_NAME, item: absoluteUrl('/') },
+          { '@type': 'ListItem', position: 2, name: 'Tjänster', item: absoluteUrl('/tjanster') },
+          { '@type': 'ListItem', position: 3, name: svc.title, item: absoluteUrl(svc.href) },
+        ],
+      },
+    ];
+  }
+
+  const subpageLabels: Record<string, string> = {
+    '/tjanster': 'Tjänster',
+    '/om-oss': 'Om oss',
+    '/offert': 'Begär offert',
+  };
+  const label = subpageLabels[meta.path];
+  if (label) {
+    return [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: SITE_NAME, item: absoluteUrl('/') },
+          { '@type': 'ListItem', position: 2, name: label, item: absoluteUrl(meta.path) },
+        ],
+      },
+    ];
+  }
+
+  return [];
 }
 
 export function renderHead(meta: RouteMeta): string {
@@ -119,7 +158,7 @@ export function renderHead(meta: RouteMeta): string {
   const lines: string[] = [
     `<title>${title}</title>`,
     `<meta name="description" content="${description}" />`,
-    `<meta name="robots" content="${meta.noindex ? 'noindex, follow' : 'index, follow'}" />`,
+    `<meta name="robots" content="${meta.noindex ? 'noindex, nofollow' : 'index, follow'}" />`,
   ];
 
   if (!meta.noindex) {
@@ -151,7 +190,7 @@ export function renderHead(meta: RouteMeta): string {
 
   if (!meta.noindex) {
     lines.push(jsonLd(businessSchema()));
-    serviceSchemas(meta.path).forEach((schema) => lines.push(jsonLd(schema)));
+    pageSchemas(meta).forEach((schema) => lines.push(jsonLd(schema)));
   }
 
   return lines.map((l) => `    ${l}`).join('\n');

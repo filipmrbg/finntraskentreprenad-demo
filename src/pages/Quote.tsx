@@ -384,10 +384,10 @@ export default function Quote() {
                       <div>
                         <div style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--color-gray-600)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Telefon</div>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginTop: '2px' }}>
-                          <a href="tel:0705884032" style={{ color: 'var(--color-text-dark)', textDecoration: 'none', fontWeight: 600, fontSize: '0.92rem' }}>
+                          <a href="tel:+46705884032" style={{ color: 'var(--color-text-dark)', textDecoration: 'none', fontWeight: 600, fontSize: '0.92rem' }}>
                             Niklas: 070-588 40 32
                           </a>
-                          <a href="tel:0705884042" style={{ color: 'var(--color-text-dark)', textDecoration: 'none', fontWeight: 600, fontSize: '0.92rem' }}>
+                          <a href="tel:+46705884042" style={{ color: 'var(--color-text-dark)', textDecoration: 'none', fontWeight: 600, fontSize: '0.92rem' }}>
                             Kevin: 070-588 40 42
                           </a>
                         </div>

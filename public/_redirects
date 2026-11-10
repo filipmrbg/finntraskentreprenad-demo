@@ -1,0 +1,10 @@
+/kontakt                          /offert                              301
+/tjanster/gravning                /tjanster/markarbeten                301
+/tjanster/byggnation              /tjanster/markarbeten                301
+/tjanster/betong                  /tjanster/grundlaggning              301
+/tjanster/maskinforare            /tjanster/skogsentreprenad           301
+/tjanster/maskintjanster          /tjanster/skogsentreprenad           301
+/tjanster/transport               /tjanster/transport-maskintransport  301
+/tjanster/maskintransport         /tjanster/transport-maskintransport  301
+/tjanster/container               /tjanster/transport-maskintransport  301
+/tjanster/akeri                   /tjanster/transport-maskintransport  301

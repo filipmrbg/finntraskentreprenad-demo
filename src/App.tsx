@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useEffect, lazy, Suspense, ComponentType } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -87,7 +87,7 @@ export function AppLayout({ pages }: { pages: PageComponents }) {
           <Route path="/tjanster" element={<PageWrapper><ServicesOverview /></PageWrapper>} />
           <Route path="/tjanster/:slug" element={<PageWrapper><ServiceDetail /></PageWrapper>} />
           <Route path="/om-oss" element={<PageWrapper><About /></PageWrapper>} />
-          <Route path="/kontakt" element={<PageWrapper><Quote /></PageWrapper>} />
+          <Route path="/kontakt" element={<Navigate to="/offert" replace />} />
           <Route path="/offert" element={<PageWrapper><Quote /></PageWrapper>} />
           <Route path="/animationer" element={<PageWrapper><Animations /></PageWrapper>} />
           <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />

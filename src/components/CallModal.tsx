@@ -13,13 +13,13 @@ export default function CallModal({ isOpen, onClose }: CallModalProps) {
       name: 'Niklas Lundmark',
       role: 'Ägare och grundare',
       phone: '070-588 40 32',
-      tel: 'tel:0705884032',
+      tel: 'tel:+46705884032',
     },
     {
       name: 'Kevin Lundmark',
       role: 'Delägare och transportansvarig',
       phone: '070-588 40 42',
-      tel: 'tel:0705884042',
+      tel: 'tel:+46705884042',
     },
   ];
 

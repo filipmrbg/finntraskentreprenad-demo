@@ -1,4 +1,28 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": ".*\\.vercel\\.app" }],
+      "destination": "https://finntraskentreprenad.se/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www\\.finntraskentreprenad\\.se" }],
+      "destination": "https://finntraskentreprenad.se/:path*",
+      "permanent": true
+    },
+    { "source": "/kontakt", "destination": "/offert", "permanent": true },
+    { "source": "/tjanster/gravning", "destination": "/tjanster/markarbeten", "permanent": true },
+    { "source": "/tjanster/byggnation", "destination": "/tjanster/markarbeten", "permanent": true },
+    { "source": "/tjanster/betong", "destination": "/tjanster/grundlaggning", "permanent": true },
+    { "source": "/tjanster/maskinforare", "destination": "/tjanster/skogsentreprenad", "permanent": true },
+    { "source": "/tjanster/maskintjanster", "destination": "/tjanster/skogsentreprenad", "permanent": true },
+    { "source": "/tjanster/transport", "destination": "/tjanster/transport-maskintransport", "permanent": true },
+    { "source": "/tjanster/maskintransport", "destination": "/tjanster/transport-maskintransport", "permanent": true },
+    { "source": "/tjanster/container", "destination": "/tjanster/transport-maskintransport", "permanent": true },
+    { "source": "/tjanster/akeri", "destination": "/tjanster/transport-maskintransport", "permanent": true }
+  ]
 }

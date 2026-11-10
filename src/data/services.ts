@@ -95,7 +95,7 @@ Vi utgår från Finnträsk och gör markarbeten åt privatpersoner, lantbruk och
         answer: 'Vissa markarbeten i anslutning till bostaden ger rätt till ROT-avdrag, till exempel dränering runt huset. Vi går igenom vad som gäller för just ditt jobb när vi lämnar offert.',
       },
     ],
-    seoTitle: 'Markarbeten i Skellefteå: schakt, infarter och dikning | Finnträsk Entreprenad',
+    seoTitle: 'Markarbeten & schakt i Skellefteå – Finnträsk Entreprenad',
     seoDescription: 'Schakter, infarter, dikning och jordvärmegrävning i Skellefteå, Byske och Västerbotten. Lokalt familjeföretag med egna maskiner. Begär kostnadsfri offert.',
   },
   {
@@ -173,7 +173,7 @@ Vi gör grundarbeten för villor, garage, attefallshus och ekonomibyggnader, dr�
         answer: 'Underarbetet är helt avgörande. Marken måste schaktas ur till tjälfritt djup eller frostskyddas, fyllas med bergskross och packas ordentligt. Dessutom behövs god dränering bakom L-stöden eller muren så att vattentryck och tjäle inte rubbar konstruktionen.',
       },
     ],
-    seoTitle: 'Grundläggning, dränering, VA och plattsättning i Skellefteå | Finnträsk Entreprenad',
+    seoTitle: 'Grundläggning & dränering i Skellefteå – Finnträsk Entreprenad',
     seoDescription: 'Grunder för hus och garage, dränering, VA-arbete, avloppsanläggningar samt plattsättning och L-stöd i Skellefteå och Västerbotten. Begär offert.',
   },
   {
@@ -242,7 +242,7 @@ Vi känner terrängen och förhållandena i Skellefteå kommun och Västerbotten
         answer: 'Ja, vi tar hand om vindfällor, fäller gårdsträd och skotar ut virke från mindre skogspartier så att marken blir ren och framkomlig igen.',
       },
     ],
-    seoTitle: 'Skogsvägar, stugvägar, högläggning och trädfällning | Finnträsk Entreprenad',
+    seoTitle: 'Skogsvägar & stugvägar i Västerbotten – Finnträsk Entreprenad',
     seoDescription: 'Vi bygger skogsvägar och stugvägar, utför högläggning av hyggen samt hanterar trädfällning, vindfällor och skotning i Skellefteå och Västerbotten.',
   },
   {
@@ -302,7 +302,7 @@ Vi arbetar i Skellefteå, Byske, Kåge, Ursviken och omkringliggande orter. Du f
         answer: 'Det beror på takets konstruktion och snöns vikt. Blöt och packad snö väger betydligt mer än nysnö. Är du osäker kan du ringa oss så gör vi en bedömning.',
       },
     ],
-    seoTitle: 'Trädfällning, stubbortagning och takskottning i Skellefteå | Finnträsk Entreprenad',
+    seoTitle: 'Trädfällning & takskottning Skellefteå – Finnträsk Entreprenad',
     seoDescription: 'Trädgårdsanläggning, trädfällning med skylift, stubbortagning och skottning av tak i Skellefteå, Byske och Kåge. Begär kostnadsfri offert.',
   },
   {
@@ -366,8 +366,8 @@ Vi kör mestadels grus, bergkross och matjord till bygg- och trädgårdsprojekt,
         answer: 'Vi är flexibla och kan ofta lösa materialleveranser och lokala maskintransporter med kort varsel i Skellefteåområdet. Ring Kevin (070-588 40 42) så kikar vi på schemat direkt.',
       },
     ],
-    seoTitle: 'Transport, maskintransport och flakuthyrning i Skellefteå | Finnträsk Entreprenad',
-    seoDescription: 'Grustransporter, maskintransporter med maskinflak, transport av väggblock och uthyrning av 22 m³ container med tömning i Skellefteå och Västerbotten. Begär kostnadsfri offert.',
+    seoTitle: 'Transport & flakuthyrning i Skellefteå – Finnträsk Entreprenad',
+    seoDescription: 'Grustransporter, maskintransporter med maskinflak, transport av väggblock och uthyrning av 22 m³ container med tömning i Skellefteå och Västerbotten. Begär offert.',
   },
 ];
 

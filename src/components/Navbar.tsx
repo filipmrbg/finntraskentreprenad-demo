@@ -560,7 +560,7 @@ export default function Navbar() {
             Ring oss direkt:
           </span>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '100%', maxWidth: '280px' }}>
-            <a href="tel:0705884032" style={{
+            <a href="tel:+46705884032" style={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -576,7 +576,7 @@ export default function Navbar() {
             }}>
               <Phone size={14} color="var(--color-primary)" /> Niklas: 070-588 40 32
             </a>
-            <a href="tel:0705884042" style={{
+            <a href="tel:+46705884042" style={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',

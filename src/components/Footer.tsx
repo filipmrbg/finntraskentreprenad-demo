@@ -171,7 +171,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="tel:0705884032"
+                href="tel:+46705884032"
                 className="footer-contact-item"
               >
                 <div className="footer-contact-icon">
@@ -181,7 +181,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="tel:0705884042"
+                href="tel:+46705884042"
                 className="footer-contact-item"
               >
                 <div className="footer-contact-icon">

@@ -20,7 +20,7 @@ const teamMembers = [
     transformOrigin: '50% 38%',
     initials: 'KL',
     phone: '070-588 40 42',
-    tel: '0705884042',
+    tel: '+46705884042',
     description: 'Delägare och transportansvarig i familjeföretaget med gedigen bakgrund inom transportsektorn, maskintjänster och personliga relationer till kunder i Skellefteåbygden.',
   },
   {
@@ -32,7 +32,7 @@ const teamMembers = [
     transformOrigin: 'center center',
     initials: 'NL',
     phone: '070-588 40 32',
-    tel: '0705884032',
+    tel: '+46705884032',
     description: 'Driver Finnträsk Entreprenad med stor kunskap inom mark- och schaktarbeten, tomtplanering och entreprenaduppdrag i Skellefteå och Västerbotten.',
   },
 ];

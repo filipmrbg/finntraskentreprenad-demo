@@ -292,7 +292,7 @@ export default function Home() {
                 flexWrap: 'wrap',
               }}>
                 <a
-                  href="tel:0705884032"
+                  href="tel:+46705884032"
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
@@ -325,7 +325,7 @@ export default function Home() {
                 </a>
 
                 <a
-                  href="tel:0705884042"
+                  href="tel:+46705884042"
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
